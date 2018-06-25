@@ -117,6 +117,8 @@
           self.loading = false
         })
 
+        self.scrollToTop()
+
         return
       },
 
@@ -144,6 +146,19 @@
         }
 
         return deviceSource
+      },
+
+      /**
+       * Scrolls to the top
+       */
+      scrollToTop () {
+
+        let scrollTo = this.$el.querySelector('h1')
+
+        if (scrollTo) {
+          scrollTo.scrollIntoView(false)
+        }
+
       }
     }
   }
