@@ -1,0 +1,173 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Variables
+@import "variables";
+// Responsive
+@import "responsive";
+@import "admin";
+@import "~lightbox2/src/css/lightbox.css";
+
+html {
+  body {
+    font-size: $font-size-base;
+    font-family: $font-family-base;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $font-family-header;
+    }
+
+    div, span, p, a {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    .btn-primary{
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+
+      &:hover{
+        background-color: darken($brand-primary, 5%);
+        border-color: $brand-primary;
+      }
+
+      &:active:not(:disabled):not(.disabled){
+        background-color: darken($brand-primary, 10%);
+        border-color: $brand-primary;
+        box-shadow: 0 0 0 0.2rem rgba(181, 0, 25, 0.5);
+
+        &:focus{
+          box-shadow: 0 0 0 0.2rem rgba(181, 0, 25, 0.5);
+        }
+      }
+
+      &:focus{
+        box-shadow: 0 0 0 0.2rem rgba(181, 0, 25, 0.5);
+      }
+    }
+
+    #main_app {
+      position: relative;
+      overflow: hidden;
+
+      .hover-pointer {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      header {
+
+        .main-menu-container{
+          background-color: $brand-primary;
+
+          .navbar-toggler {
+            background-color: black;
+            color: white;
+            margin: 0 auto 10px;
+            padding: 10px 20px;
+          }
+
+          .navbar-brand{
+            color: white;
+            padding: 15px 0;
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+          }
+
+          .nav {
+
+            .nav-item {
+              margin-right: 10px;
+              margin-left: 10px;
+
+              @media #{$mobile} {
+                width: 100%;
+              }
+
+              .nav-link {
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                color: white;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                &.router-link-exact-active{
+                  font-weight: bold;
+                }
+
+                @media #{$mobile} {
+                  text-align: center;
+                }
+
+                &:hover {
+                  background-color: rgba(0, 0, 0, 0.1);
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      .main-area {
+        min-height: 792px;
+
+        @media #{$mobile} {
+          min-height: 300px;
+        }
+
+        @media #{$gtWide} {
+          min-height: 1150px;
+        }
+
+        &.medium {
+          min-height: 420px;
+
+          @media #{$gtWide} {
+            min-height: 810px;
+          }
+        }
+
+        .page-title {
+          font-size: 3rem;
+        }
+
+        .alesco-logo {
+          width: 100%;
+        }
+      }
+
+      .page-content {
+        z-index: 2;
+        position: relative;
+
+        &.left-bar {
+          border-left: 3px solid black;
+          padding-left: 1.3rem;
+        }
+      }
+
+      // Home
+
+      .actions {
+        margin-top: 75px;
+
+        .survey-btn{
+          float: left;
+        }
+
+        .sign-btn{
+          float: right;
+        }
+      }
+
+
+      footer {
+
+
+      }
+    }
+
+  }
+}
