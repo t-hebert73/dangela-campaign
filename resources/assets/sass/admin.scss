@@ -24,7 +24,7 @@
   font-weight: 500;
   color: #333;
 
-  &.router-link-exact-active{
+  &.router-link-exact-active {
     color: $brand-primary;
   }
 }
@@ -43,7 +43,7 @@
   text-transform: uppercase;
 }
 
-.sidebar .fa{
+.sidebar .fa {
   min-width: 20px;
   text-align: center;
   padding-right: 5px;
@@ -82,14 +82,19 @@
  * Utilities
  */
 
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
 
-.admin-section{
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
 
-  .card-header{
+.admin-section {
 
-    &.brand-primary{
+  .card-header {
+
+    &.brand-primary {
       background-color: $brand-primary;
       color: white;
     }
