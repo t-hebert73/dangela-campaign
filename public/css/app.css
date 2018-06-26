@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);html.lb-disable-scrolling {
+html.lb-disable-scrolling {
   overflow: hidden;
   /* Position fixed required for iOS. Just putting overflow: hidden; on the body is not enough. */
   position: fixed;
@@ -312,7 +312,7 @@ html body h3,
 html body h4,
 html body h5,
 html body h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 html body div,
@@ -361,36 +361,41 @@ html body #main_app .hover-pointer:hover {
 
 html body #main_app header .main-menu-container {
   background-color: #9d1926;
-}
-
-html body #main_app header .main-menu-container .navbar-toggler {
-  background-color: black;
-  color: white;
-  margin: 0 auto 10px;
-  padding: 10px 20px;
+  margin-bottom: 30px;
 }
 
 html body #main_app header .main-menu-container .navbar-brand {
   color: white;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: transparent;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-html body #main_app header .main-menu-container .nav .nav-item {
+html body #main_app header .main-menu-container .navbar {
+  padding: 0;
+}
+
+html body #main_app header .main-menu-container .navbar .navbar-toggler {
+  background-color: black;
+  color: white;
+  margin: 0 auto 10px;
+  padding: 10px 20px;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item {
   margin-right: 10px;
   margin-left: 10px;
 }
 
 @media (max-width: 767px) {
-  html body #main_app header .main-menu-container .nav .nav-item {
+  html body #main_app header .main-menu-container .navbar .nav .nav-item {
     width: 100%;
   }
 }
 
-html body #main_app header .main-menu-container .nav .nav-item .nav-link {
+html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
   font-size: 1.2rem;
   text-transform: uppercase;
   color: white;
@@ -398,17 +403,17 @@ html body #main_app header .main-menu-container .nav .nav-item .nav-link {
   padding-right: 1rem;
 }
 
-html body #main_app header .main-menu-container .nav .nav-item .nav-link.router-link-exact-active {
+html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link.router-link-exact-active {
   font-weight: bold;
 }
 
 @media (max-width: 767px) {
-  html body #main_app header .main-menu-container .nav .nav-item .nav-link {
+  html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
     text-align: center;
   }
 }
 
-html body #main_app header .main-menu-container .nav .nav-item .nav-link:hover {
+html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -454,17 +459,5 @@ html body #main_app .page-content {
 html body #main_app .page-content.left-bar {
   border-left: 3px solid black;
   padding-left: 1.3rem;
-}
-
-html body #main_app .actions {
-  margin-top: 75px;
-}
-
-html body #main_app .actions .survey-btn {
-  float: left;
-}
-
-html body #main_app .actions .sign-btn {
-  float: right;
 }
 

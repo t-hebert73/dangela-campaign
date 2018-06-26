@@ -22,13 +22,11 @@ class FormSubmissionController extends Controller
     public function submitSurvey() {
 
         $formData = $this->validate(request(), [
-            'name' => 'required',
             'surveyData' => 'required',
             'source' => 'required'
         ]);
 
         $formDataParsed = [];
-        $formDataParsed['name'] = $formData['name'];
         $formDataParsed['source'] = $formData['source'];
         $formDataParsed['survey_data'] = json_encode($formData['surveyData']);
 

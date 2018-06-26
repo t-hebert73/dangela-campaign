@@ -28,7 +28,6 @@
     @import "../../../sass/_responsive.scss";
 
     footer {
-        margin-bottom: 25px;
     }
 
     .tmp-login {

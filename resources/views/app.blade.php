@@ -7,11 +7,13 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-        <title>Henry Dangela</title>
+        <title>Vote Henry D'Angela for Mayor</title>
 
         <link href="/css/app.css" rel="stylesheet"/>
 
+        <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
 
     </head>
     <body>

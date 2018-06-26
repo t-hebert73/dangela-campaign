@@ -20,7 +20,6 @@
                                             <thead>
                                             <tr>
                                                 <th scope="col" style="width: 50px;">#</th>
-                                                <th scope="col">Name</th>
                                                 <th scope="col">Source</th>
                                                 <th scope="col">Date Submitted</th>
                                             </tr>
@@ -34,9 +33,8 @@
                                                            :content="`Click to view more information about this survey submission.`">
                                                 </b-popover>
                                                 <td> {{ surveySubmission.id }}</td>
-                                                <td> {{ surveySubmission.name }}</td>
                                                 <td> {{ surveySubmission.source }}</td>
-                                                <td> {{ surveySubmission.created_at }}</td>
+                                                <td> {{ moment(surveySubmission.created_at).format('MMM Do YYYY') }}</td>
                                             </tr>
                                             </tbody>
                                         </table>

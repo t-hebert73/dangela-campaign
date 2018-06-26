@@ -1,5 +1,5 @@
 <template>
-    <div class="main-menu-container mb-5">
+    <div class="main-menu-container">
 
         <div class="container">
             <div class="row ">

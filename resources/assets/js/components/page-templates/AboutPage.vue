@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center main-area">
+        <div class="main-area">
 
             <div class="page-content">
 

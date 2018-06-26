@@ -15,7 +15,6 @@ class CreateSurveySubmissionsTable extends Migration
     {
         Schema::create('survey_submissions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
             $table->json('survey_data');
             $table->string('source');
             $table->timestamps();

@@ -9,7 +9,7 @@
                             <div v-if="!loading" class="card-body">
                                 <div class="card-title">
                                     <h1 class="float-left">Survey Submission</h1>
-                                   <!-- <router-link :to="{ name: 'survey-submissions.index'}" class="btn btn-primary float-right">Back</router-link>-->
+                                    <!-- <router-link :to="{ name: 'survey-submissions.index'}" class="btn btn-primary float-right">Back</router-link>-->
                                     <div class="clearfix"></div>
                                 </div>
 
@@ -18,7 +18,7 @@
                                         <b-card-group deck>
                                             <b-card no-body align="center">
                                                 <b-card-header class="brand-primary">
-                                                    <h4>Survey Submission ID</h4>
+                                                    <h4>ID</h4>
                                                 </b-card-header>
                                                 <b-card-body>
                                                     <p class="card-text data-value big">
@@ -29,39 +29,42 @@
 
                                             <b-card no-body align="center">
                                                 <b-card-header class="brand-primary">
-                                                    <h4>Name</h4>
-                                                </b-card-header>
-                                                <b-card-body>
-                                                    <p class="card-text data-value">
-                                                        {{ surveySubmission.name }}
-                                                    </p>
-                                                </b-card-body>
-                                            </b-card>
-
-                                            <b-card no-body align="center">
-                                                <b-card-header class="brand-primary">
-                                                    <h4>Created</h4>
+                                                    <h4>Submitted On</h4>
                                                 </b-card-header>
                                                 <b-card-body>
                                                     <div class="card-text data-value">
-                                                        <div>{{ surveySubmission.created_at }}</div>
+                                                        {{ moment(surveySubmission.created_at).format('MMM Do YYYY') }}
                                                     </div>
                                                 </b-card-body>
                                             </b-card>
 
                                         </b-card-group>
 
-                                        <div v-if="surveySubmission.survey_data">
+                                        <div v-if="surveySubmission.survey_data" class="mt-5">
 
-                                            <div v-for="(surveyData, i) in surveySubmission.survey_data">
-                                                <b-card no-body align="center" class="mt-4">
-                                                    <b-card-header class="brand-primary">
-                                                        <h4>{{ surveyData.question }}</h4>
-                                                    </b-card-header>
-                                                    <b-card-body>
-                                                        <p class="card-text data-value" v-html="surveyData.answer"></p>
-                                                    </b-card-body>
-                                                </b-card>
+                                            <div v-for="(surveyData, i) in surveySubmission.survey_data" class="survey-data">
+
+                                                <h4>{{ surveyData.question }}</h4>
+
+                                                <div v-if="surveyData.hasYesNo" class="">
+                                                    Yes or No: <span class="yes-no-answer">{{ surveyData.yesNoAnswer }}</span>
+                                                </div>
+
+                                                <p class="" v-html="surveyData.answer"></p>
+
+                                                <div v-if="surveyData.type === 'ranked'">
+                                                    <div v-for="(option, i) in sortedAvailableOptions(surveyData.availableOptions)" class="ranked-option mb-2">
+                                                        <div v-if="option.rank">
+                                                            <span class="rank">{{ option.rank }}</span>
+                                                            <span class="option">
+                                                                {{ option.option }}
+                                                                <span v-if="option.extra">
+                                                                    - {{ option.extraValue }}
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -85,11 +88,12 @@
     data () {
       return {
         loading: true,
-        surveySubmission: {}
+        surveySubmission: {},
+
       }
     },
 
-    mounted() {
+    mounted () {
       this.getSurveySubmission(this.$route.params.id)
     },
 
@@ -108,10 +112,40 @@
           flash(error.response.data.message, 'error')
         })
       },
+
+      /**
+       * @param availableOptions
+       */
+      sortedAvailableOptions(availableOptions) {
+        return availableOptions.slice().sort(function(a, b) {
+          return a.rank - b.rank
+        })
+      }
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
+    .survey-data {
+        margin-bottom: 25px;
+    }
+
+    .data-value {
+        font-size: 2rem;
+    }
+
+    .rank{
+        font-weight: bold;
+        min-width: 25px;
+        padding-right: 10px;
+        text-align: center;
+        display: inline-block;
+        font-size: 1.2rem;
+    }
+
+    .yes-no-answer{
+        text-transform: capitalize;
+        font-weight: bold;
+    }
 </style>

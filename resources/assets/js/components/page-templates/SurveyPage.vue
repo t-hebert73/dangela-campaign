@@ -1,36 +1,64 @@
 <template>
     <div class="container">
-        <div class="row main-area">
+        <div class="page-content main-area">
 
-            <div class="page-content">
+            <h1 class="mb-3">Please fill out the survey below</h1>
 
-                <h1 class="mb-3">Please fill out the survey below</h1>
+            <p class="mb-4">We are gathering data on what the people of Thorold want. Please fill out the questions
+                below so we can better serve you. This is just sample text. We are gathering data on what the people of
+                Thorold want. Please fill out the questions below so we can better serve you. This is just sample
+                text.</p>
 
-                <p class="mb-4">We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. This is just sample text. We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. This is just sample text.</p>
-
-                <div v-if="alert.message" class="alert alert-success" role="alert">
-                    {{ alert.message }}
-                </div>
-
-                <div class="alert alert-danger" v-if="serverErrors">
-                    <li v-for="(error, i) in serverErrors">
-                        <span v-if="error[0]">{{ error[0] }}</span>
-                    </li>
-                </div>
-
-                <form @submit.prevent="submitSurvey" >
-
-                    <b-form-group label="Name">
-                        <b-form-input type="text" v-model="survey.name"></b-form-input>
-                    </b-form-group>
-
-                    <b-form-group v-for="(surveyQuestion, i) in surveyQuestions" :label="surveyQuestion.question">
-                        <b-form-textarea type="text" v-model="surveyQuestion.answer" :rows="3"></b-form-textarea>
-                    </b-form-group>
-
-                    <b-button type="submit" variant="primary">Submit</b-button>
-                </form>
+            <div v-if="alert.message" class="alert alert-success" role="alert">
+                {{ alert.message }}
             </div>
+
+            <div class="alert alert-danger" v-if="serverErrors">
+                <li v-for="(error, i) in serverErrors">
+                    <span v-if="error[0]">{{ error[0] }}</span>
+                </li>
+            </div>
+
+            <form @submit.prevent="submitSurvey">
+
+                <b-form-group v-for="(surveyQuestion, i) in surveyQuestions"
+                              :key="'survey_question_' + '_' + i">
+
+                    <label :for="'textarea_' + i"> {{ surveyQuestion.question }}</label>
+
+                    <div v-if="surveyQuestion.type === 'textarea'">
+
+                        <div v-if="surveyQuestion.hasYesNo">
+                            <b-form-radio-group :id="'yes_no_' + i" v-model="surveyQuestion.yesNoAnswer"
+                                                :options="surveyQuestion.radios"
+                                                name="yes-no-radio"></b-form-radio-group>
+                        </div>
+
+                        <b-form-textarea :id="'textarea_' + i" v-model="surveyQuestion.answer" :rows="3"
+                                         :placeholder="determinePlaceholder(surveyQuestion)"></b-form-textarea>
+                    </div>
+
+                    <div v-if="surveyQuestion.type === 'ranked'" class="ranked-options">
+
+                        <div class="ranked-option" v-for="(option, j) in surveyQuestion.availableOptions">
+
+                            <b-form-input :id="'input_' + j" type="text" v-model="option.rank"></b-form-input>
+
+                            <label :for="'input_' + j">{{ option.option }}</label>
+
+                            <b-form-textarea class="option-extra" v-if="option.extra" v-model="option.extraValue"
+                                             placeholder="Please explain the issue."></b-form-textarea>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </b-form-group>
+
+                <b-button type="submit" variant="primary">Submit</b-button>
+            </form>
         </div>
     </div>
 </template>
@@ -52,31 +80,101 @@
         },
         surveyQuestions: [
           {
-            question: 'This is a sample question number one. This will change when I get the actual survey questions.',
+            question: 'What are the most important issues facing Thorold residents? (Rank top 3)',
+            type: 'ranked',
+            availableOptions: [
+              {
+                rank: '',
+                option: 'Affordable Housing'
+              },
+              {
+                rank: '',
+                option: 'Student Issues'
+              },
+              {
+                rank: '',
+                option: 'By-Law Enforcement'
+              },
+              {
+                rank: '',
+                option: 'Economic Development'
+              },
+              {
+                rank: '',
+                option: 'Employment'
+              },
+              {
+                rank: '',
+                option: 'Historical Preservation'
+              },
+              {
+                rank: '',
+                option: 'Recreational Facilities'
+              },
+              {
+                rank: '',
+                option: 'Public Transportation'
+              },
+              {
+                rank: '',
+                option: 'Road Infrastructure'
+              },
+              {
+                rank: '',
+                option: 'Policing'
+              },
+              {
+                rank: '',
+                option: 'Water & Sewer Infrastructure'
+              },
+              {
+                rank: '',
+                option: 'Taxation'
+              },
+              {
+                rank: '',
+                option: 'Other',
+                extra: true,
+                extraValue: ''
+              },
+            ],
             answer: ''
           },
           {
-            question: 'This is a sample question number two. This will change when I get the actual survey questions.',
+            question: 'What is the City of Thorold doing right?',
+            type: 'textarea',
             answer: ''
           },
           {
-            question: 'This is a sample question number three. This will change when I get the actual survey questions.',
+            question: 'Where does the City of Thorold need improvement?',
+            type: 'textarea',
             answer: ''
           },
           {
-            question: 'This is a sample question number four. This will change when I get the actual survey questions.',
+            question: 'What cultural or recreational facilities does the City of Thorold need?',
+            type: 'textarea',
             answer: ''
           },
           {
-            question: 'This is a sample question number five. This will change when I get the actual survey questions.',
-            answer: ''
+            question: 'Do you feel the Rental Housing License By-Law is effective?',
+            type: 'textarea',
+            answer: '',
+            hasYesNo: true,
+            yesNoAnswer: null,
+            radios: [
+              {
+                text: 'Yes',
+                value: 'yes'
+              },
+              {
+                text: 'No',
+                value: 'no'
+              }
+            ]
           },
           {
-            question: 'This is a sample question number six. This will change when I get the actual survey questions.',
-            answer: ''
-          },
-          {
-            question: 'This is a sample question number seven. This will change when I get the actual survey questions.',
+            question: 'Do you have any additional comments?',
+            type: 'textarea',
             answer: ''
           }
         ]
@@ -84,7 +182,7 @@
     },
 
     methods: {
-      submitSurvey() {
+      submitSurvey () {
         let self = this
 
         self.loading = true
@@ -97,10 +195,22 @@
           self.serverErrors = null
           self.alert.message = response.data.message
 
-          self.survey.name = ''
-
-          for(let i = 0; i < self.surveyQuestions.length; i++) {
+          for (let i = 0; i < self.surveyQuestions.length; i++) {
             self.surveyQuestions[i].answer = ''
+
+            if (self.surveyQuestions[i].type === 'ranked') {
+              for (let j = 0; j < self.surveyQuestions[i].availableOptions.length; j++) {
+                self.surveyQuestions[i].availableOptions[j].rank = ''
+
+                if (self.surveyQuestions[i].availableOptions[j].extra) {
+                  self.surveyQuestions[i].availableOptions[j].extraValue = ''
+                }
+              }
+            }
+
+            if (self.surveyQuestions[i].hasYesNo) {
+              self.surveyQuestions[i].yesNoAnswer = null
+            }
           }
 
           setTimeout(function () {
@@ -159,11 +269,57 @@
           scrollTo.scrollIntoView(false)
         }
 
+      },
+
+      /**
+       * @param surveyQuestion
+       * @returns {string}
+       */
+      determinePlaceholder (surveyQuestion) {
+        if (surveyQuestion.hasYesNo) {
+          return 'Why?'
+        }
       }
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+    form {
+
+        label {
+            font-weight: bold;
+        }
+
+        .ranked-options {
+
+            .ranked-option {
+                float: left;
+                width: 50%;
+                margin-bottom: 5px;
+
+                label, input {
+                    float: left;
+                }
+
+                label {
+                    padding: 2px 15px;
+                }
+
+                input {
+                    width: 50px;
+                    text-align: center;
+                }
+
+                textarea {
+                    &.option-extra {
+                        width: 400px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
 
 </style>

@@ -20,6 +20,7 @@ import VeeValidate from 'vee-validate'
 import VueLocalStorage from 'vue-ls'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueEditor from 'vue2-editor'
+import moment from 'moment' // time formatting
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -30,6 +31,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueMasonryPlugin)
 Vue.use(VeeValidate)
 Vue.use(VueSweetalert2)
+
+Vue.prototype.moment = moment
 
 let lsOptions = {
   namespace: 'vuejs__'

@@ -20,12 +20,9 @@ class SurveySubmission extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
         'survey_data',
         'source'
     ];
-
-    protected $name;
 
     protected $survey_data;
 

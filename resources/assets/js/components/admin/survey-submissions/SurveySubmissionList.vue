@@ -24,7 +24,6 @@
                                         <thead class="thead">
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
                                             <th>Source</th>
                                             <th>Submitted On</th>
                                             <th width="200px;">Actions</th>
@@ -34,9 +33,8 @@
                                         <tr v-bind:class="['survey-submission hover-pointer', 'read-survey-submission-'+surveySubmission.id]"
                                             @click="showSurveySubmission($event, surveySubmission.id)" v-for="(surveySubmission, i) in surveySubmissions">
                                             <td class="survey-submission-num">{{ surveySubmission.id }}</td>
-                                            <td class="survey-submission-name">{{ surveySubmission.name }}</td>
                                             <td class="survey-submission-source">{{ surveySubmission.source }}</td>
-                                            <td class="survey-submission-date">{{ surveySubmission.created_at }}</td>
+                                            <td class="survey-submission-date">{{ moment(surveySubmission.created_at).format('MMM Do YYYY') }}</td>
                                             <td>
                                                 <a href="#" @click.prevent="deleteSurveySubmission(surveySubmission.id)"
                                                    v-bind:class="['btn btn-danger', 'delete-survey-submission-'+surveySubmission.id]">Delete</a>
