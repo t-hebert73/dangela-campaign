@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-        <title>Vote Henry D'Angela for Mayor</title>
+        <title>Vote Henry D'Angela for Mayor of Thorold</title>
 
         <link href="/css/app.css" rel="stylesheet"/>
 

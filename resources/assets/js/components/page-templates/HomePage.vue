@@ -21,7 +21,7 @@
 
                         <img class="mb-4" src="images/main.jpg" alt="Henry D'Angela" title="Henry D'Angela">
 
-                        <p class="tag-line">Planning Thorold's Future Together</p>
+                        <p class="tag-line">Planning Thorold<span class="apostrophe">'</span>s Future Together</p>
                     </div>
 
                 </div>
@@ -58,6 +58,11 @@
 
     .page-content{
         text-align: center;
+    }
+
+    .apostrophe{
+        font-family: $font-family-apostrophe;
+        position: relative;
     }
 
     .vote-board{
@@ -99,7 +104,7 @@
                 }
 
                 .apostrophe{
-                    font-family: $font-family-apostrophe;
+                    top: 4px;
                 }
             }
         }
@@ -139,6 +144,11 @@
                 color: $brand-primary;
                 font-size: 2rem;
                 font-weight: 500;
+
+                .apostrophe{
+                    top: 1px;
+                    font-size: 100%;
+                }
             }
         }
 
