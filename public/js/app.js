@@ -26935,7 +26935,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(205);
-module.exports = __webpack_require__(453);
+__webpack_require__(453);
+module.exports = __webpack_require__(454);
 
 
 /***/ }),
@@ -96234,7 +96235,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.tmp-login[data-v-f9161d1e] {\n  background-color: transparent;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  min-height: 35px;\n}\n.tmp-login[data-v-f9161d1e]:hover {\n    background-color: red;\n}\n.tmp-login:hover span[data-v-f9161d1e] {\n      color: white;\n}\n.tmp-login span[data-v-f9161d1e] {\n    padding: 5px 30px;\n    color: transparent;\n    display: block;\n}\n@media (max-width: 767px) {\n.footer-text[data-v-f9161d1e] {\n    margin-top: 20px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.tmp-login[data-v-f9161d1e] {\n  background-color: transparent;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  min-height: 35px;\n}\n.tmp-login[data-v-f9161d1e]:hover {\n    background-color: red;\n}\n.tmp-login:hover span[data-v-f9161d1e] {\n      color: white;\n}\n.tmp-login span[data-v-f9161d1e] {\n    padding: 5px 30px;\n    color: transparent;\n    display: block;\n}\n.footer-text[data-v-f9161d1e] {\n  padding-left: 15px;\n  padding-right: 15px;\n  text-align: center;\n}\n@media (max-width: 767px) {\n.footer-text[data-v-f9161d1e] {\n      margin-top: 20px;\n}\n}\n", ""]);
 
 // exports
 
@@ -98781,7 +98782,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.page-content[data-v-0279790a] {\n  text-align: center;\n}\n.apostrophe[data-v-0279790a] {\n  font-family: \"Varela\", sans-serif;\n  position: relative;\n}\n.vote-board[data-v-0279790a] {\n  width: 505px;\n}\n.vote-board .top-half[data-v-0279790a] {\n    padding: 10px 30px;\n    background-color: #9d1926;\n    color: white;\n    position: relative;\n    overflow: hidden;\n}\n.vote-board .top-half .vote[data-v-0279790a] {\n      background-color: white;\n      color: #9d1926;\n      padding: 2px 70px;\n      font-size: 1.7rem;\n      font-weight: bold;\n      position: absolute;\n      top: 15px;\n      left: -60px;\n      /* IE 9 */\n      -webkit-transform: rotate(-32deg);\n      /* Safari 3-8 */\n      transform: rotate(-32deg);\n      text-transform: uppercase;\n      font-family: \"Heebo\", sans-serif;\n}\n.vote-board .top-half h1[data-v-0279790a] {\n      font-size: 4rem;\n      text-align: left;\n      margin: 55px 0 0;\n      font-weight: bold;\n      line-height: 1;\n}\n.vote-board .top-half h1 span[data-v-0279790a] {\n        font-size: 100%;\n        text-transform: uppercase;\n}\n.vote-board .top-half h1 .apostrophe[data-v-0279790a] {\n        top: 4px;\n}\n.vote-board .bottom-half .for-mayor[data-v-0279790a] {\n    color: #9d1926;\n    font-family: \"Heebo\", sans-serif;\n    font-weight: bold;\n}\n.vote-board .bottom-half .for-mayor span[data-v-0279790a] {\n      display: block;\n      line-height: normal;\n}\n.vote-board .bottom-half .for-mayor span.for[data-v-0279790a] {\n        text-transform: uppercase;\n        font-size: 1.2rem;\n        margin-top: 5px;\n}\n.vote-board .bottom-half .for-mayor span.mayor[data-v-0279790a] {\n        font-size: 3.7rem;\n        line-height: 3rem;\n        margin-bottom: 30px;\n}\n.vote-board .bottom-half img[data-v-0279790a] {\n    width: 350px;\n    border: 2px solid #9d1926;\n}\n.vote-board .bottom-half .tag-line[data-v-0279790a] {\n    font-family: \"Heebo\", sans-serif;\n    color: #9d1926;\n    font-size: 2rem;\n    font-weight: 500;\n}\n.vote-board .bottom-half .tag-line .apostrophe[data-v-0279790a] {\n      top: 1px;\n      font-size: 100%;\n}\n.actions[data-v-0279790a] {\n  margin-top: 25px;\n  margin-bottom: 30px;\n}\n.actions .survey-btn[data-v-0279790a] {\n    float: left;\n}\n.actions .sign-btn[data-v-0279790a] {\n    float: right;\n}\n", ""]);
+exports.push([module.i, "\n.page-content[data-v-0279790a] {\n  text-align: center;\n}\n.apostrophe[data-v-0279790a] {\n  font-family: \"Varela\", sans-serif;\n  position: relative;\n}\n.vote-board[data-v-0279790a] {\n  width: 505px;\n}\n@media (max-width: 767px) {\n.vote-board[data-v-0279790a] {\n      width: 300px;\n}\n}\n.vote-board .top-half[data-v-0279790a] {\n    padding: 10px 30px;\n    background-color: #a51e36;\n    color: white;\n    position: relative;\n    overflow: hidden;\n}\n.vote-board .top-half .vote[data-v-0279790a] {\n      background-color: white;\n      color: #a51e36;\n      padding: 2px 70px;\n      font-size: 1.7rem;\n      font-weight: bold;\n      position: absolute;\n      top: 15px;\n      left: -60px;\n      /* IE 9 */\n      -webkit-transform: rotate(-32deg);\n      /* Safari 3-8 */\n      transform: rotate(-32deg);\n      text-transform: uppercase;\n      font-family: \"Heebo\", sans-serif;\n}\n.vote-board .top-half h1[data-v-0279790a] {\n      font-size: 4rem;\n      text-align: left;\n      margin: 55px 0 0;\n      font-weight: bold;\n      line-height: 1;\n}\n@media (max-width: 767px) {\n.vote-board .top-half h1[data-v-0279790a] {\n          font-size: 3rem;\n}\n}\n.vote-board .top-half h1 span[data-v-0279790a] {\n        font-size: 100%;\n        text-transform: uppercase;\n}\n.vote-board .top-half h1 .apostrophe[data-v-0279790a] {\n        top: 4px;\n}\n.vote-board .bottom-half .for-mayor[data-v-0279790a] {\n    color: #a51e36;\n    font-family: \"Heebo\", sans-serif;\n    font-weight: bold;\n}\n.vote-board .bottom-half .for-mayor span[data-v-0279790a] {\n      display: block;\n      line-height: normal;\n}\n.vote-board .bottom-half .for-mayor span.for[data-v-0279790a] {\n        text-transform: uppercase;\n        font-size: 1.2rem;\n        margin-top: 5px;\n}\n.vote-board .bottom-half .for-mayor span.mayor[data-v-0279790a] {\n        font-size: 3.7rem;\n        line-height: 3rem;\n        margin-bottom: 30px;\n}\n.vote-board .bottom-half img[data-v-0279790a] {\n    width: 350px;\n    border: 2px solid #a51e36;\n}\n@media (max-width: 767px) {\n.vote-board .bottom-half img[data-v-0279790a] {\n        width: 275px;\n}\n}\n.vote-board .bottom-half .tag-line[data-v-0279790a] {\n    font-family: \"Heebo\", sans-serif;\n    color: #a51e36;\n    font-size: 2rem;\n    font-weight: 500;\n}\n.vote-board .bottom-half .tag-line .apostrophe[data-v-0279790a] {\n      top: 1px;\n      font-size: 100%;\n}\n.actions[data-v-0279790a] {\n  margin-top: 25px;\n  margin-bottom: 30px;\n}\n.actions .survey-btn[data-v-0279790a] {\n    float: left;\n}\n.actions .sign-btn[data-v-0279790a] {\n    float: right;\n}\n", ""]);
 
 // exports
 
@@ -99226,7 +99227,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\nform label[data-v-4fd8ac94] {\n  font-weight: bold;\n}\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n  float: left;\n  width: 50%;\n  margin-bottom: 5px;\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94], form .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    float: left;\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n    padding: 2px 15px;\n}\nform .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    width: 50px;\n    text-align: center;\n}\nform .ranked-options .ranked-option textarea.option-extra[data-v-4fd8ac94] {\n    width: 400px;\n    text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.loading[data-v-4fd8ac94] {\n  color: #a51e36;\n  font-size: 1.5rem;\n}\nform label[data-v-4fd8ac94] {\n  font-weight: bold;\n}\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n  float: left;\n  width: 50%;\n  margin-bottom: 5px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n      width: 100%;\n}\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94], form .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    float: left;\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n    padding: 2px 15px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n        font-size: .9rem;\n}\n}\nform .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    width: 50px;\n    text-align: center;\n}\nform .ranked-options .ranked-option textarea.option-extra[data-v-4fd8ac94] {\n    width: 400px;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -99308,6 +99309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   data: function data() {
     return {
+      loading: false,
       alert: {
         message: ''
       },
@@ -99325,9 +99327,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           option: 'Affordable Housing'
         }, {
           rank: '',
-          option: 'Student Issues'
-        }, {
-          rank: '',
           option: 'By-Law Enforcement'
         }, {
           rank: '',
@@ -99340,22 +99339,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           option: 'Historical Preservation'
         }, {
           rank: '',
-          option: 'Recreational Facilities'
+          option: 'Policing'
         }, {
           rank: '',
           option: 'Public Transportation'
         }, {
           rank: '',
+          option: 'Recreational Facilities'
+        }, {
+          rank: '',
           option: 'Road Infrastructure'
         }, {
           rank: '',
-          option: 'Policing'
-        }, {
-          rank: '',
-          option: 'Water & Sewer Infrastructure'
+          option: 'Student Issues'
         }, {
           rank: '',
           option: 'Taxation'
+        }, {
+          rank: '',
+          option: 'Water & Sewer Infrastructure'
         }, {
           rank: '',
           option: 'Other',
@@ -99378,6 +99380,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }, {
         question: 'Do you feel the Rental Housing License By-Law is effective?',
         type: 'textarea',
+        link: 'http://thorold.com/residential-rental-licensing',
         answer: '',
         hasYesNo: true,
         yesNoAnswer: null,
@@ -99398,10 +99401,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
   methods: {
+
+    /**
+     * Submits the survey
+     */
     submitSurvey: function submitSurvey() {
       var self = this;
 
       self.loading = true;
+      self.alert.message = null;
+      self.serverErrors = null;
 
       self.survey.source = self.guessDeviceSource();
       self.survey.surveyData = self.surveyQuestions;
@@ -99516,7 +99525,7 @@ var render = function() {
       _vm._v(" "),
       _c("p", { staticClass: "mb-4" }, [
         _vm._v(
-          "We are gathering data on what the people of Thorold want. Please fill out the questions\n            below so we can better serve you. This is just sample text. We are gathering data on what the people of\n            Thorold want. Please fill out the questions below so we can better serve you. This is just sample\n            text."
+          "We are gathering data on what the people of Thorold want. Please fill out the questions\n            below so we can better serve you."
         )
       ]),
       _vm._v(" "),
@@ -99544,133 +99553,172 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submitSurvey($event)
-            }
-          }
-        },
-        [
-          _vm._l(_vm.surveyQuestions, function(surveyQuestion, i) {
-            return _c("b-form-group", { key: "survey_question_" + "_" + i }, [
-              _c("label", { attrs: { for: "textarea_" + i } }, [
-                _vm._v(" " + _vm._s(surveyQuestion.question))
-              ]),
-              _vm._v(" "),
-              surveyQuestion.type === "textarea"
-                ? _c(
-                    "div",
-                    [
-                      surveyQuestion.hasYesNo
+      _vm.loading
+        ? _c("div", { staticClass: "loading mb-3 text-center" }, [
+            _c("i", {
+              staticClass: "fa fa-spinner fa-spin",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" Submitting..")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.loading
+        ? _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submitSurvey($event)
+                }
+              }
+            },
+            [
+              _vm._l(_vm.surveyQuestions, function(surveyQuestion, i) {
+                return _c(
+                  "b-form-group",
+                  { key: "survey_question_" + "_" + i },
+                  [
+                    _c("label", { attrs: { for: "textarea_" + i } }, [
+                      _vm._v(" " + _vm._s(surveyQuestion.question) + " "),
+                      surveyQuestion.link
                         ? _c(
-                            "div",
-                            [
-                              _c("b-form-radio-group", {
-                                attrs: {
-                                  id: "yes_no_" + i,
-                                  options: surveyQuestion.radios,
-                                  name: "yes-no-radio"
-                                },
-                                model: {
-                                  value: surveyQuestion.yesNoAnswer,
-                                  callback: function($$v) {
-                                    _vm.$set(surveyQuestion, "yesNoAnswer", $$v)
-                                  },
-                                  expression: "surveyQuestion.yesNoAnswer"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("b-form-textarea", {
-                        attrs: {
-                          id: "textarea_" + i,
-                          rows: 3,
-                          placeholder: _vm.determinePlaceholder(surveyQuestion)
-                        },
-                        model: {
-                          value: surveyQuestion.answer,
-                          callback: function($$v) {
-                            _vm.$set(surveyQuestion, "answer", $$v)
-                          },
-                          expression: "surveyQuestion.answer"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              surveyQuestion.type === "ranked"
-                ? _c(
-                    "div",
-                    { staticClass: "ranked-options" },
-                    [
-                      _vm._l(surveyQuestion.availableOptions, function(
-                        option,
-                        j
-                      ) {
-                        return _c(
-                          "div",
-                          { staticClass: "ranked-option" },
-                          [
-                            _c("b-form-input", {
-                              attrs: { id: "input_" + j, type: "text" },
-                              model: {
-                                value: option.rank,
-                                callback: function($$v) {
-                                  _vm.$set(option, "rank", $$v)
-                                },
-                                expression: "option.rank"
+                            "a",
+                            {
+                              attrs: {
+                                target: "_blank",
+                                href: surveyQuestion.link
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("label", { attrs: { for: "input_" + j } }, [
-                              _vm._v(_vm._s(option.option))
-                            ]),
-                            _vm._v(" "),
-                            option.extra
-                              ? _c("b-form-textarea", {
-                                  staticClass: "option-extra",
-                                  attrs: {
-                                    placeholder: "Please explain the issue."
-                                  },
-                                  model: {
-                                    value: option.extraValue,
-                                    callback: function($$v) {
-                                      _vm.$set(option, "extraValue", $$v)
-                                    },
-                                    expression: "option.extraValue"
-                                  }
-                                })
+                            },
+                            [_vm._v(_vm._s(surveyQuestion.link))]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    surveyQuestion.type === "textarea"
+                      ? _c(
+                          "div",
+                          [
+                            surveyQuestion.hasYesNo
+                              ? _c(
+                                  "div",
+                                  [
+                                    _c("b-form-radio-group", {
+                                      attrs: {
+                                        id: "yes_no_" + i,
+                                        options: surveyQuestion.radios,
+                                        name: "yes-no-radio"
+                                      },
+                                      model: {
+                                        value: surveyQuestion.yesNoAnswer,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            surveyQuestion,
+                                            "yesNoAnswer",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "surveyQuestion.yesNoAnswer"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
                               : _vm._e(),
                             _vm._v(" "),
-                            _c("div", { staticClass: "clearfix" })
+                            _c("b-form-textarea", {
+                              attrs: {
+                                id: "textarea_" + i,
+                                rows: 3,
+                                placeholder: _vm.determinePlaceholder(
+                                  surveyQuestion
+                                )
+                              },
+                              model: {
+                                value: surveyQuestion.answer,
+                                callback: function($$v) {
+                                  _vm.$set(surveyQuestion, "answer", $$v)
+                                },
+                                expression: "surveyQuestion.answer"
+                              }
+                            })
                           ],
                           1
                         )
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "clearfix" })
-                    ],
-                    2
-                  )
-                : _vm._e()
-            ])
-          }),
-          _vm._v(" "),
-          _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
-            _vm._v("Submit")
-          ])
-        ],
-        2
-      )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    surveyQuestion.type === "ranked"
+                      ? _c(
+                          "div",
+                          { staticClass: "ranked-options" },
+                          [
+                            _vm._l(surveyQuestion.availableOptions, function(
+                              option,
+                              j
+                            ) {
+                              return _c(
+                                "div",
+                                { staticClass: "ranked-option" },
+                                [
+                                  _c("b-form-input", {
+                                    attrs: { id: "input_" + j, type: "text" },
+                                    model: {
+                                      value: option.rank,
+                                      callback: function($$v) {
+                                        _vm.$set(option, "rank", $$v)
+                                      },
+                                      expression: "option.rank"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "input_" + j } },
+                                    [_vm._v(_vm._s(option.option))]
+                                  ),
+                                  _vm._v(" "),
+                                  option.extra
+                                    ? _c("b-form-textarea", {
+                                        staticClass: "option-extra",
+                                        attrs: {
+                                          placeholder:
+                                            "Please explain the issue."
+                                        },
+                                        model: {
+                                          value: option.extraValue,
+                                          callback: function($$v) {
+                                            _vm.$set(option, "extraValue", $$v)
+                                          },
+                                          expression: "option.extraValue"
+                                        }
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "clearfix" })
+                                ],
+                                1
+                              )
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "clearfix" })
+                          ],
+                          2
+                        )
+                      : _vm._e()
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                { attrs: { type: "submit", variant: "primary" } },
+                [_vm._v("Submit")]
+              )
+            ],
+            2
+          )
+        : _vm._e()
     ])
   ])
 }
@@ -99686,6 +99734,12 @@ if (false) {
 
 /***/ }),
 /* 453 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 454 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

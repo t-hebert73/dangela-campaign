@@ -230,7 +230,7 @@ html.lb-disable-scrolling {
 }
 
 .sidebar .nav-link.router-link-exact-active {
-  color: #9d1926;
+  color: #a51e36;
 }
 
 .sidebar .nav-link.active {
@@ -297,7 +297,7 @@ html.lb-disable-scrolling {
 }
 
 .admin-section .card-header.brand-primary {
-  background-color: #9d1926;
+  background-color: #a51e36;
   color: white;
 }
 
@@ -324,18 +324,18 @@ html body a {
 }
 
 html body .btn-primary {
-  background-color: #9d1926;
-  border-color: #9d1926;
+  background-color: #a51e36;
+  border-color: #a51e36;
 }
 
 html body .btn-primary:hover {
-  background-color: #871521;
-  border-color: #9d1926;
+  background-color: #8f1a2f;
+  border-color: #a51e36;
 }
 
 html body .btn-primary:active:not(:disabled):not(.disabled) {
-  background-color: #71121b;
-  border-color: #9d1926;
+  background-color: #7a1628;
+  border-color: #a51e36;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(181, 0, 25, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(181, 0, 25, 0.5);
 }
@@ -360,7 +360,7 @@ html body #main_app .hover-pointer:hover {
 }
 
 html body #main_app header .main-menu-container {
-  background-color: #9d1926;
+  background-color: #a51e36;
   margin-bottom: 30px;
 }
 
@@ -373,15 +373,39 @@ html body #main_app header .main-menu-container .navbar-brand {
           box-shadow: none;
 }
 
+@media (max-width: 767px) {
+  html body #main_app header .main-menu-container .navbar-brand {
+    padding-left: 10px;
+  }
+}
+
 html body #main_app header .main-menu-container .navbar {
   padding: 0;
 }
 
+@media (max-width: 767px) {
+  html body #main_app header .main-menu-container .navbar {
+    width: 100%;
+  }
+}
+
 html body #main_app header .main-menu-container .navbar .navbar-toggler {
-  background-color: black;
-  color: white;
-  margin: 0 auto 10px;
+  background-color: white;
+  color: #a51e36;
   padding: 10px 20px;
+  margin-left: 35px;
+  position: absolute;
+  right: 27px;
+  top: -47px;
+}
+
+@media (max-width: 767px) {
+  html body #main_app header .main-menu-container .navbar .navbar-collapse {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 25;
+  }
 }
 
 html body #main_app header .main-menu-container .navbar .nav .nav-item {
@@ -392,6 +416,8 @@ html body #main_app header .main-menu-container .navbar .nav .nav-item {
 @media (max-width: 767px) {
   html body #main_app header .main-menu-container .navbar .nav .nav-item {
     width: 100%;
+    background-color: #a51e36;
+    border-top: 1px solid black;
   }
 }
 

@@ -52,7 +52,11 @@
         }
     }
 
-    .footer-text{
+    .footer-text {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+
         @media #{$mobile} {
             margin-top: 20px;
         }

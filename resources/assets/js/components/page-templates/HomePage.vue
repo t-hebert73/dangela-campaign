@@ -55,6 +55,7 @@
 <style lang="scss" scoped>
 
     @import "../../../sass/variables";
+    @import "../../../sass/responsive";
 
     .page-content{
         text-align: center;
@@ -67,6 +68,10 @@
 
     .vote-board{
         width: 505px;
+
+        @media #{$mobile} {
+            width: 300px;
+        }
 
         .top-half{
             padding: 10px 30px;
@@ -97,6 +102,10 @@
                 margin: 55px 0 0;
                 font-weight: bold;
                 line-height: 1;
+
+                @media #{$mobile} {
+                    font-size: 3rem;
+                }
 
                 span{
                     font-size: 100%;
@@ -137,6 +146,10 @@
             img{
                 width: 350px;
                 border: 2px solid $brand-primary;
+
+                @media #{$mobile} {
+                    width: 275px;
+                }
             }
 
             .tag-line{

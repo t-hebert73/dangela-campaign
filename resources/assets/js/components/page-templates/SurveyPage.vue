@@ -5,9 +5,7 @@
             <h1 class="mb-3">Please fill out the survey below</h1>
 
             <p class="mb-4">We are gathering data on what the people of Thorold want. Please fill out the questions
-                below so we can better serve you. This is just sample text. We are gathering data on what the people of
-                Thorold want. Please fill out the questions below so we can better serve you. This is just sample
-                text.</p>
+                below so we can better serve you.</p>
 
             <div v-if="alert.message" class="alert alert-success" role="alert">
                 {{ alert.message }}
@@ -19,12 +17,14 @@
                 </li>
             </div>
 
-            <form @submit.prevent="submitSurvey">
+            <div v-if="loading" class="loading mb-3 text-center"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Submitting..</div>
+
+            <form v-if="!loading" @submit.prevent="submitSurvey">
 
                 <b-form-group v-for="(surveyQuestion, i) in surveyQuestions"
                               :key="'survey_question_' + '_' + i">
 
-                    <label :for="'textarea_' + i"> {{ surveyQuestion.question }}</label>
+                    <label :for="'textarea_' + i"> {{ surveyQuestion.question }} <a target="_blank" :href="surveyQuestion.link" v-if="surveyQuestion.link">{{ surveyQuestion.link }}</a></label>
 
                     <div v-if="surveyQuestion.type === 'textarea'">
 
@@ -69,6 +69,7 @@
 
     data () {
       return {
+        loading: false,
         alert: {
           message: '',
         },
@@ -89,10 +90,6 @@
               },
               {
                 rank: '',
-                option: 'Student Issues'
-              },
-              {
-                rank: '',
                 option: 'By-Law Enforcement'
               },
               {
@@ -109,7 +106,7 @@
               },
               {
                 rank: '',
-                option: 'Recreational Facilities'
+                option: 'Policing'
               },
               {
                 rank: '',
@@ -117,19 +114,23 @@
               },
               {
                 rank: '',
+                option: 'Recreational Facilities'
+              },
+              {
+                rank: '',
                 option: 'Road Infrastructure'
               },
               {
                 rank: '',
-                option: 'Policing'
-              },
-              {
-                rank: '',
-                option: 'Water & Sewer Infrastructure'
+                option: 'Student Issues'
               },
               {
                 rank: '',
                 option: 'Taxation'
+              },
+              {
+                rank: '',
+                option: 'Water & Sewer Infrastructure'
               },
               {
                 rank: '',
@@ -158,6 +159,7 @@
           {
             question: 'Do you feel the Rental Housing License By-Law is effective?',
             type: 'textarea',
+            link: 'http://thorold.com/residential-rental-licensing',
             answer: '',
             hasYesNo: true,
             yesNoAnswer: null,
@@ -182,10 +184,16 @@
     },
 
     methods: {
+
+      /**
+       * Submits the survey
+       */
       submitSurvey () {
         let self = this
 
         self.loading = true
+        self.alert.message = null
+        self.serverErrors = null
 
         self.survey.source = self.guessDeviceSource()
         self.survey.surveyData = self.surveyQuestions
@@ -286,6 +294,14 @@
 
 <style lang="scss" scoped>
 
+    @import '../../../sass/variables';
+    @import '../../../sass/responsive';
+
+    .loading{
+        color: $brand-primary;
+        font-size: 1.5rem;
+    }
+
     form {
 
         label {
@@ -299,12 +315,20 @@
                 width: 50%;
                 margin-bottom: 5px;
 
+                @media #{$mobile} {
+                    width: 100%;
+                }
+
                 label, input {
                     float: left;
                 }
 
                 label {
                     padding: 2px 15px;
+
+                    @media #{$mobile} {
+                        font-size: .9rem;
+                    }
                 }
 
                 input {

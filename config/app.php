@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Laravel Mail CSS Inliner
+         */
+        Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
+
     ],
 
     /*
