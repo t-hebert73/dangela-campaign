@@ -6,10 +6,10 @@
  * Time: 9:43 PM
  */
 
-namespace App\Http\Controllers\Api;
+namespace DAngelaCampaign\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\SurveySubmission;
+use DAngelaCampaign\Http\Controllers\Controller;
+use DAngelaCampaign\Models\SurveySubmission;
 
 class SurveySubmissionsController extends Controller
 {

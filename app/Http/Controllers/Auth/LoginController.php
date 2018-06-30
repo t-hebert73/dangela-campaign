@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace DAngelaCampaign\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use DAngelaCampaign\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -67,5 +67,23 @@ class LoginController extends Controller
         ];
 
         return response()->json($response, 200);
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+
+        $authRequirements['email'] = $request->get('email');
+        $authRequirements['password'] = $request->get('password');
+        $authRequirements['active'] = 1;
+
+        return $this->guard()->attempt(
+            $authRequirements, $request->filled('remember')
+        );
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace DAngelaCampaign\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

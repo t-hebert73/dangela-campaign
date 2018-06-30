@@ -6,7 +6,7 @@
  * Time: 9:09 PM
  */
 
-namespace App\Models;
+namespace DAngelaCampaign\Models;
 
 
 use Illuminate\Database\Eloquent\Model;

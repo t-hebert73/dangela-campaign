@@ -6,12 +6,12 @@
  * Time: 8:29 PM
  */
 
-namespace App\Http\Controllers\Api;
+namespace DAngelaCampaign\Http\Controllers\Api;
 
 
-use App\Http\Controllers\Controller;
-use App\Mail\SurveySubmitted;
-use App\Models\SurveySubmission;
+use DAngelaCampaign\Http\Controllers\Controller;
+use DAngelaCampaign\Mail\SurveySubmitted;
+use DAngelaCampaign\Models\SurveySubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

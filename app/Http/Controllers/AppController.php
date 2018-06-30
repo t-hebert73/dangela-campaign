@@ -6,7 +6,7 @@
  * Time: 10:28 AM
  */
 
-namespace App\Http\Controllers;
+namespace DAngelaCampaign\Http\Controllers;
 
 
 class AppController extends Controller

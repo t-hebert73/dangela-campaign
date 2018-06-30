@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        DAngelaCampaign\Providers\AppServiceProvider::class,
+        DAngelaCampaign\Providers\AuthServiceProvider::class,
+        // DAngelaCampaign\Providers\BroadcastServiceProvider::class,
+        DAngelaCampaign\Providers\EventServiceProvider::class,
+        DAngelaCampaign\Providers\RouteServiceProvider::class,
 
         /**
          * Laravel Mail CSS Inliner

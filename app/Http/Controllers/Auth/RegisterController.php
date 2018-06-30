@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace DAngelaCampaign\Http\Controllers\Auth;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Http\Controllers\Controller;
+use DAngelaCampaign\Models\User;
+use DAngelaCampaign\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -78,7 +78,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \DAngelaCampaign\Models\User
      */
     protected function create(array $data)
     {
@@ -86,6 +86,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'active' => 0
         ]);
     }
 }

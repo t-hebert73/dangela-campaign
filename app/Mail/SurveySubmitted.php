@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Mail;
+namespace DAngelaCampaign\Mail;
 
-use App\Models\SurveySubmission;
+use DAngelaCampaign\Models\SurveySubmission;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
