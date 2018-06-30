@@ -54,4 +54,28 @@ class SurveySubmissionsController extends Controller
 
         return response()->json($response);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $surveySubmissions = SurveySubmission::find($id);
+
+        $success = $surveySubmissions->delete();
+
+        $response['surveySubmission'] = $surveySubmissions;
+
+        if ($success) {
+            $status = 200;
+        } else {
+            $response['message'] = 'There was an error. Check the activity log.';
+            $status = 422;
+        }
+
+        return response()->json($response, $status);
+    }
 }

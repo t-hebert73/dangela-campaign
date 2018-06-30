@@ -22,6 +22,7 @@ Route::middleware(['client_credentials'])->group(function () {
     Route::get('survey-submissions', 'Api\SurveySubmissionsController@index');
     Route::get('survey-submissions/latest', 'Api\SurveySubmissionsController@getLatestSurveySubmissions');
     Route::get('survey-submissions/{id}', 'Api\SurveySubmissionsController@retrieve');
+    Route::delete('survey-submissions/{id}', 'Api\SurveySubmissionsController@destroy');
 
 });
 
