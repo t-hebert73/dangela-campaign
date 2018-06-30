@@ -7,8 +7,7 @@
                 <h1>Media Release</h1>
 
                 <p>
-                    Henry D’Angela officially registered to run for Mayor of Thorold
-                    Thorold, Ontario, May 16, 2018 --- Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela filed his campaign papers at Thorold City Hall today. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010.
+                    Henry D’Angela officially registered to run for Mayor of Thorold, May 16, 2018. Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela filed his campaign papers at Thorold City Hall today. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010.
                 </p>
 
                 <p>

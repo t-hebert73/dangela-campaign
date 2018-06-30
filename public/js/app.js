@@ -99039,7 +99039,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -99050,7 +99050,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -99106,7 +99105,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n                Henry D’Angela officially registered to run for Mayor of Thorold\n                Thorold, Ontario, May 16, 2018 --- Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela filed his campaign papers at Thorold City Hall today. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010.\n            "
+              "\n                Henry D’Angela officially registered to run for Mayor of Thorold, May 16, 2018. Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela filed his campaign papers at Thorold City Hall today. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010.\n            "
             )
           ]),
           _vm._v(" "),
