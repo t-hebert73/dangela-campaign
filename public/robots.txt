@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin
 
-Sitemap: https://henrydangela.ca/sitemap.xml
+Sitemap: https://www.henrydangela.ca/sitemap.xml
