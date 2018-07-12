@@ -97981,6 +97981,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -98137,8 +98142,12 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _c("th", { attrs: { width: "200px;" } }, [
-                              _vm._v("Actions")
+                            _c("th", { staticClass: "actions" }, [
+                              _c(
+                                "span",
+                                { staticClass: "d-none d-sm-inline-block" },
+                                [_vm._v("Actions")]
+                              )
                             ])
                           ])
                         ]),
@@ -98212,7 +98221,26 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [_vm._v("Delete")]
+                                    [
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "d-none d-sm-inline-block"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                    Delete\n                                                "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-trash-o d-block d-sm-none",
+                                        attrs: { "aria-hidden": "true" }
+                                      })
+                                    ]
                                   )
                                 ])
                               ]
@@ -98327,7 +98355,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.survey-data[data-v-be2a7292] {\n  margin-bottom: 25px;\n}\n.data-value[data-v-be2a7292] {\n  font-size: 2rem;\n}\n.rank[data-v-be2a7292] {\n  font-weight: bold;\n  min-width: 25px;\n  padding-right: 10px;\n  text-align: center;\n  display: inline-block;\n  font-size: 1.2rem;\n}\n.yes-no-answer[data-v-be2a7292] {\n  text-transform: capitalize;\n  font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 767px) {\np[data-v-be2a7292] {\n    text-align: left;\n}\n}\n@media (max-width: 767px) {\n.card-header[data-v-be2a7292] {\n    padding: 0.5rem 1rem;\n}\n}\n@media (max-width: 767px) {\n.card-body[data-v-be2a7292] {\n    padding: .75rem;\n}\n}\n@media (max-width: 767px) {\nh4[data-v-be2a7292] {\n    font-size: 1rem;\n    margin-bottom: 0;\n}\n}\n.survey-data[data-v-be2a7292] {\n  margin-bottom: 25px;\n}\n.data-value[data-v-be2a7292] {\n  font-size: 2rem;\n}\n@media (max-width: 767px) {\n.data-value[data-v-be2a7292] {\n      font-size: 1rem;\n}\n}\n.rank[data-v-be2a7292] {\n  font-weight: bold;\n  min-width: 25px;\n  padding-right: 10px;\n  text-align: center;\n  display: inline-block;\n  font-size: 1.2rem;\n}\n@media (max-width: 767px) {\n.rank[data-v-be2a7292] {\n      font-size: 1rem;\n}\n}\n@media (max-width: 767px) {\n.option[data-v-be2a7292] {\n    font-size: .75rem;\n}\n}\n.yes-no-answer[data-v-be2a7292] {\n  text-transform: capitalize;\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -98478,7 +98506,7 @@ var render = function() {
     _c(
       "main",
       {
-        staticClass: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4",
+        staticClass: "col-10 col-md-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4",
         attrs: { role: "main" }
       },
       [

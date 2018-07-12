@@ -25,7 +25,7 @@
                                             <th>ID</th>
                                             <th>Source</th>
                                             <th>Submitted <span class="d-none d-sm-block">On</span></th>
-                                            <th width="200px;">Actions</th>
+                                            <th class="actions"><span class="d-none d-sm-inline-block">Actions</span></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -36,7 +36,12 @@
                                             <td class="survey-submission-date">{{ moment(surveySubmission.created_at).format('MMM Do YYYY') }}</td>
                                             <td>
                                                 <a href="#" @click.prevent="deleteSurveySubmission(surveySubmission.id)"
-                                                   v-bind:class="['btn btn-danger', 'delete-survey-submission-'+surveySubmission.id]">Delete</a>
+                                                   v-bind:class="['btn btn-danger', 'delete-survey-submission-'+surveySubmission.id]">
+                                                    <span class="d-none d-sm-inline-block">
+                                                        Delete
+                                                    </span>
+                                                    <i class="fa fa-trash-o d-block d-sm-none" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         </tbody>

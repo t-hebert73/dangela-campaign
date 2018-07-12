@@ -1,6 +1,6 @@
 <template>
     <admin-component>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <main role="main" class="col-10 col-md-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4">
             <div class="container-fluid min-body-height mt-3">
                 <div class="row">
                     <div class="col-md-12">
@@ -127,12 +127,43 @@
 
 <style lang="scss" scoped>
 
+    @import "../../../../sass/responsive";
+
+    p{
+        @media #{$mobile} {
+            text-align: left;
+        }
+    }
+
+    .card-header{
+        @media #{$mobile} {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    .card-body{
+        @media #{$mobile} {
+            padding: .75rem;
+        }
+    }
+
+    h4{
+        @media #{$mobile} {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+    }
+
     .survey-data {
         margin-bottom: 25px;
     }
 
     .data-value {
         font-size: 2rem;
+
+        @media #{$mobile} {
+            font-size: 1rem;
+        }
     }
 
     .rank{
@@ -142,6 +173,16 @@
         text-align: center;
         display: inline-block;
         font-size: 1.2rem;
+
+        @media #{$mobile} {
+            font-size: 1rem;
+        }
+    }
+
+    .option {
+        @media #{$mobile} {
+            font-size: .75rem;
+        }
     }
 
     .yes-no-answer{

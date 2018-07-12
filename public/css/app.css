@@ -247,6 +247,12 @@ html.lb-disable-scrolling {
   color: #333;
 }
 
+@media (max-width: 991px) {
+  .sidebar .nav-link {
+    text-align: center;
+  }
+}
+
 .sidebar .nav-link.router-link-exact-active {
   color: #a51e36;
 }
@@ -324,6 +330,16 @@ html.lb-disable-scrolling {
   .admin-section .table th,
   .admin-section .table td {
     font-size: .8rem;
+  }
+}
+
+.admin-section .table .actions {
+  width: 200px;
+}
+
+@media (max-width: 767px) {
+  .admin-section .table .actions {
+    width: auto;
   }
 }
 

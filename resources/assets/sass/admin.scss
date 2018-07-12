@@ -39,6 +39,10 @@
   font-weight: 500;
   color: #333;
 
+  @media #{$ltDesktop} {
+    text-align: center;
+  }
+
   &.router-link-exact-active {
     color: $brand-primary;
   }
@@ -117,6 +121,14 @@
     th, td{
       @media #{$mobile} {
         font-size: .8rem;
+      }
+    }
+
+    .actions {
+      width: 200px;
+
+      @media #{$mobile} {
+        width: auto;
       }
     }
 
