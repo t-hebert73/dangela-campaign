@@ -163,6 +163,7 @@
 
         @media #{$mobile} {
             font-size: 1rem;
+            text-align: center;
         }
     }
 
