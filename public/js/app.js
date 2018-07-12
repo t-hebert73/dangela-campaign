@@ -95295,7 +95295,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -95306,6 +95306,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -95385,14 +95389,7 @@ var render = function() {
         staticClass: "navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"
       },
       [
-        _c(
-          "a",
-          {
-            staticClass: "navbar-brand col-sm-3 col-md-2 mr-0",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Henry D'Angela Campaign")]
-        ),
+        _vm._m(0),
         _vm._v(" "),
         _c("ul", { staticClass: "navbar-nav flex-row px-3" }, [
           _c(
@@ -95435,7 +95432,27 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand col-2 col-sm-3 col-lg-2 mr-0",
+        attrs: { href: "#" }
+      },
+      [
+        _c("span", { staticClass: "d-block d-sm-none" }, [_vm._v("HD")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "d-none d-sm-block" }, [
+          _vm._v("Henry D'Angela Campaign")
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -95747,7 +95764,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "col-md-2 d-none d-md-block bg-light sidebar" },
+    { staticClass: "col-2 col-sm-3 col-lg-2 bg-light sidebar" },
     [
       _c("div", { staticClass: "sidebar-sticky" }, [
         _c("ul", { staticClass: "nav flex-column" }, [
@@ -95774,9 +95791,11 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fa fa-pie-chart" }),
                   _vm._v(" "),
-                  _c("span", { staticClass: "hidden-xs-down link-text" }, [
-                    _vm._v("Dashboard")
-                  ])
+                  _c(
+                    "span",
+                    { staticClass: "d-none d-sm-inline-block link-text" },
+                    [_vm._v("Dashboard")]
+                  )
                 ]
               )
             ],
@@ -95806,9 +95825,11 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fa fa-file-text" }),
                   _vm._v(" "),
-                  _c("span", { staticClass: "hidden-xs-down link-text" }, [
-                    _vm._v("Survey Data")
-                  ])
+                  _c(
+                    "span",
+                    { staticClass: "d-none d-sm-inline-block link-text" },
+                    [_vm._v("Survey Data")]
+                  )
                 ]
               )
             ],
@@ -97575,7 +97596,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -97588,6 +97609,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layouts_AdminHeader__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layouts_AdminHeader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layouts_AdminHeader__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -97715,7 +97741,7 @@ var render = function() {
     _c(
       "main",
       {
-        staticClass: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4",
+        staticClass: "col-10 col-md-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4",
         attrs: { role: "main" }
       },
       [
@@ -97725,7 +97751,13 @@ var render = function() {
               _c("div", { staticClass: "card mb-3" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "card-title" }, [
-                    _c("h1", [_vm._v("Recent Survey Submissions")])
+                    _c("h1", [_vm._v("Recent Survey Submissions")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-text" }, [
+                      _c("p", [
+                        _vm._v("Below are the latest survey submissions.")
+                      ])
+                    ])
                   ])
                 ])
               ]),
@@ -97746,7 +97778,7 @@ var render = function() {
                               _c(
                                 "th",
                                 {
-                                  staticStyle: { width: "50px" },
+                                  staticClass: "id-field",
                                   attrs: { scope: "col" }
                                 },
                                 [_vm._v("#")]
@@ -97786,8 +97818,9 @@ var render = function() {
                                   _c("b-popover", {
                                     attrs: {
                                       target: i + "_survey_submission",
-                                      placement: "top-left",
+                                      placement: "left",
                                       title: "More Information",
+                                      delay: { show: 500, hide: 800 },
                                       triggers: "hover",
                                       content:
                                         "Click to view more information about this survey submission."
@@ -97895,7 +97928,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -98059,7 +98091,7 @@ var render = function() {
     _c(
       "main",
       {
-        staticClass: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4",
+        staticClass: "col-10 col-md-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4",
         attrs: { role: "main" }
       },
       [
@@ -98098,7 +98130,12 @@ var render = function() {
                             _vm._v(" "),
                             _c("th", [_vm._v("Source")]),
                             _vm._v(" "),
-                            _c("th", [_vm._v("Submitted On")]),
+                            _c("th", [
+                              _vm._v("Submitted "),
+                              _c("span", { staticClass: "d-none d-sm-block" }, [
+                                _vm._v("On")
+                              ])
+                            ]),
                             _vm._v(" "),
                             _c("th", { attrs: { width: "200px;" } }, [
                               _vm._v("Actions")

@@ -1,6 +1,6 @@
 <template>
     <admin-component :flash="$attrs.flash">
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <main role="main" class="col-10 col-md-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4">
             <div class="container-fluid min-body-height mt-3">
                 <div class="row">
                     <div class="col-md-12">
@@ -11,7 +11,6 @@
 
                                     <div class="card-text">
                                         <p>Below are all the survey submissions in the system.</p>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -25,7 +24,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Source</th>
-                                            <th>Submitted On</th>
+                                            <th>Submitted <span class="d-none d-sm-block">On</span></th>
                                             <th width="200px;">Actions</th>
                                         </tr>
                                         </thead>

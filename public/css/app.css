@@ -215,6 +215,24 @@ html.lb-disable-scrolling {
           box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar .nav-link {
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar .nav-link {
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar .nav-link {
+    padding: 0.5rem 0;
+  }
+}
+
 .sidebar-sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -294,6 +312,45 @@ html.lb-disable-scrolling {
 
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
+}
+
+@media (max-width: 767px) {
+  .admin-section .card-title {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-section .table th,
+  .admin-section .table td {
+    font-size: .8rem;
+  }
+}
+
+.admin-section .table .id-field {
+  width: 50px;
+}
+
+@media (max-width: 767px) {
+  .admin-section .table .id-field {
+    width: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-section h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-section p,
+  .admin-section .btn {
+    font-size: .8rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
 }
 
 .admin-section .card-header.brand-primary {

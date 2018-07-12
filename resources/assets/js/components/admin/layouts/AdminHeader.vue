@@ -1,7 +1,11 @@
 <template>
     <header>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Henry D'Angela Campaign</a>
+            <a class="navbar-brand col-2 col-sm-3 col-lg-2 mr-0" href="#">
+                <span class="d-block d-sm-none">HD</span>
+                <span class="d-none d-sm-block">Henry D'Angela Campaign</span>
+
+            </a>
 
             <ul class="navbar-nav flex-row px-3">
                 <li class="nav-item mr-3">
