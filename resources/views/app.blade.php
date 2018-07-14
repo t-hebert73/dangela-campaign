@@ -7,16 +7,51 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-        <title>Vote Henry D'Angela for Mayor of Thorold</title>
+        <?php
 
-        <meta name="description" content="Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010."/>
-        <meta name="keywords" content="Henry, D'Angela, Dangela, mayor, thorold, vote, 2018"/>
+           $currentPath = \Illuminate\Support\Facades\Request::path();
+
+        if($currentPath === '/') {
+
+            $title = "Vote Henry D'Angela For Mayor Of Thorold";
+            $description = "Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. Planning Thorold's Future Together.";
+
+        } elseif ($currentPath === 'survey') {
+
+            $title = "Important Issues Survey | Henry D'Angela";
+            $description = 'We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. ';
+
+        } elseif($currentPath === 'about') {
+
+            $title = "About | Henry D'Angela";
+            $description = 'Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010. ';
+
+        } else {
+
+            $title = 'Page Not Found';
+            $description = '';
+
+        }
+
+       ?>
+
+        <title><?php echo $title; ?></title>
+
+        <meta name="description" content="<?php echo $description; ?>"/>
+        <meta name="keywords" content="Henry, D'Angela, Dangela, DAngela, mayor, thorold, vote, 2018, survey"/>
 
         <link href="/css/app.css" rel="stylesheet"/>
 
         <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
+
+        <meta property="og:title" content="<?php echo $title; ?>">
+        <meta property="og:description" content="<?php echo $description; ?>">
+        <meta property="og:site_name" content="Henry D'Angela">
+        <meta property="og:url" content="<?php echo url()->full(); ?>">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://henrydangela.ca/images/main.jpg">
 
     </head>
     <body>
@@ -35,8 +70,6 @@
                     </header>
 
                     <?php
-
-                        $currentPath = \Illuminate\Support\Facades\Request::path();
 
                         if($currentPath === '/') {
 
