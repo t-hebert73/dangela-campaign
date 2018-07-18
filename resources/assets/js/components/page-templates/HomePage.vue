@@ -26,11 +26,21 @@
 
                 </div>
 
-                <div class="actions">
+                <div class="left-actions">
 
-                    <b-button size="lg" variant="primary" class="survey-btn" :to="{ name: 'survey' }">Survey</b-button>
+                    <b-button size="lg" variant="primary" :to="{ name: 'survey' }">Complete Survey</b-button>
 
-                    <b-button size="lg" variant="primary" class="sign-btn" v-b-popover.hover="'Coming Soon.'">Sign Request</b-button>
+                    <b-button size="lg" variant="primary" :to="{ name: 'sign-request' }">Sign Request</b-button>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="right-actions">
+
+                    <b-button size="lg" variant="primary"  v-b-popover.hover="'Coming Soon.'">Volunteer</b-button>
+
+                    <b-button size="lg" variant="primary"  v-b-popover.hover="'Coming Soon.'">Make Donation</b-button>
 
                     <div class="clearfix"></div>
 
@@ -67,6 +77,7 @@
     }
 
     .vote-board{
+        position: relative;
         width: 505px;
 
         @media #{$mobile} {
@@ -167,16 +178,32 @@
 
     }
 
-    .actions {
-        margin-top: 25px;
-        margin-bottom: 30px;
+    .left-actions, .right-actions {
+        position: absolute;
+        top: 400px;
 
-        .survey-btn {
-            float: left;
+        .btn{
+            min-width: 205px;
+            border-radius: 0;
+            display: block;
+            margin-bottom: 80px;
         }
 
-        .sign-btn {
-            float: right;
+    }
+
+    .left-actions{
+        left: -226px;
+
+        .btn{
+            margin-left: 20px;
+        }
+    }
+
+    .right-actions{
+        right: -226px;
+
+        .btn{
+            margin-right: 20px;
         }
     }
 </style>

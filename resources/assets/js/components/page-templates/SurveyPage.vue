@@ -1,14 +1,16 @@
 <template>
     <div class="container">
         <div class="page-content main-area">
+            
+            <div v-if="alert.message" class="thank-you-message" role="alert">
+                <div v-html="alert.message"></div>
+            </div>
 
-            <h1 class="mb-3">Please fill out the survey below</h1>
+            <div v-else>
+                <h1 class="mb-3">Please fill out the survey below</h1>
 
-            <p class="mb-4">We are gathering data on what the people of Thorold want. Please fill out the questions
-                below so we can better serve you.</p>
-
-            <div v-if="alert.message" class="alert alert-success" role="alert">
-                {{ alert.message }}
+                <p class="mb-4">I am gathering data on the important issues facing Thorold. Please complete the
+                    questions below so I can better serve you.</p>
             </div>
 
             <div class="alert alert-danger" v-if="serverErrors">
@@ -19,7 +21,7 @@
 
             <div v-if="loading" class="loading mb-3 text-center"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Submitting..</div>
 
-            <form v-if="!loading" @submit.prevent="submitSurvey">
+            <form v-if="!loading && !formCompleted" @submit.prevent="submitSurvey">
 
                 <b-form-group v-for="(surveyQuestion, i) in surveyQuestions"
                               :key="'survey_question_' + '_' + i">
@@ -70,6 +72,7 @@
     data () {
       return {
         loading: false,
+        formCompleted: false,
         alert: {
           message: '',
         },
@@ -81,7 +84,7 @@
         },
         surveyQuestions: [
           {
-            question: 'What are the most important issues facing Thorold residents? (Rank top 3)',
+            question: 'What are the most important issues regarding Thorold? (Rank top 3)',
             type: 'ranked',
             availableOptions: [
               {
@@ -221,11 +224,8 @@
             }
           }
 
-          setTimeout(function () {
-            self.alert.message = ''
-          }, 2000)
-
           self.loading = false
+          self.formCompleted = true
 
         }).catch(error => {
           if (error.response.data.errors) {
@@ -300,6 +300,22 @@
     .loading{
         color: $brand-primary;
         font-size: 1.5rem;
+    }
+    
+    .thank-you-message{
+        min-height: inherit;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     form {

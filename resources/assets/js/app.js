@@ -148,6 +148,11 @@ const routes = [
     path: '/survey',
     name: 'survey',
     component: require('./components/page-templates/SurveyPage.vue')
+  },
+  {
+    path: '/sign-request',
+    name: 'sign-request',
+    component: require('./components/page-templates/SignRequest.vue')
   }
 ]
 

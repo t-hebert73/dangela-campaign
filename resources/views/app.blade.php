@@ -26,6 +26,11 @@
             $title = "About | Henry D'Angela";
             $description = 'Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010. ';
 
+        } elseif($currentPath === 'sign-request') {
+
+            $title = "Sign Request | Henry D'Angela";
+            $description = 'Request a sign. Please note, signs are not permitted until Sept 18, 2018. ';
+
         } else {
 
             $title = 'Page Not Found';
@@ -94,6 +99,12 @@
                             echo '<p>' . "&quot;I am familiar with the challenges and opportunities facing our city through my work at the City, at the Region and in the community”, said D’Angela, “but I think it’s essential to take direction from my constituents. I will be talking to Thorold residents and businesses to find out what’s important to them. As Mayor, one of the most important roles, is to listen and advocate for Thorold. I want to ensure that we are meeting Thorold’s needs.&quot;" . '</p>';
 
                             echo '<p>' . "Henry D’Angela was born and raised in Thorold. He is married to Rina, has two children and has run his own accounting firm, D’Angela Financial Services for the past 25 years." . '</p>';
+
+                        } elseif($currentPath === 'sign-request') {
+
+                            echo '<h1>' . "Sign Request" . '</h1>';
+
+                            echo '<p>' . "Please note, signs are not permitted until Sept 18, 2018." . '</p>';
 
                         } else {
 

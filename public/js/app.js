@@ -27101,6 +27101,10 @@ var routes = [{
   path: '/survey',
   name: 'survey',
   component: __webpack_require__(448)
+}, {
+  path: '/sign-request',
+  name: 'sign-request',
+  component: __webpack_require__(462)
 }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -98830,7 +98834,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.page-content[data-v-0279790a] {\n  text-align: center;\n}\n.apostrophe[data-v-0279790a] {\n  font-family: \"Varela\", sans-serif;\n  position: relative;\n}\n.vote-board[data-v-0279790a] {\n  width: 505px;\n}\n@media (max-width: 767px) {\n.vote-board[data-v-0279790a] {\n      width: 300px;\n}\n}\n.vote-board .top-half[data-v-0279790a] {\n    padding: 10px 30px;\n    background-color: #a51e36;\n    color: white;\n    position: relative;\n    overflow: hidden;\n}\n.vote-board .top-half .vote[data-v-0279790a] {\n      background-color: white;\n      color: #a51e36;\n      padding: 2px 70px;\n      font-size: 1.7rem;\n      font-weight: bold;\n      position: absolute;\n      top: 15px;\n      left: -60px;\n      /* IE 9 */\n      -webkit-transform: rotate(-32deg);\n      /* Safari 3-8 */\n      transform: rotate(-32deg);\n      text-transform: uppercase;\n      font-family: \"Heebo\", sans-serif;\n}\n.vote-board .top-half h1[data-v-0279790a] {\n      font-size: 4rem;\n      text-align: left;\n      margin: 55px 0 0;\n      font-weight: bold;\n      line-height: 1;\n}\n@media (max-width: 767px) {\n.vote-board .top-half h1[data-v-0279790a] {\n          font-size: 3rem;\n}\n}\n.vote-board .top-half h1 span[data-v-0279790a] {\n        font-size: 100%;\n        text-transform: uppercase;\n}\n.vote-board .top-half h1 .apostrophe[data-v-0279790a] {\n        top: 4px;\n}\n.vote-board .bottom-half .for-mayor[data-v-0279790a] {\n    color: #a51e36;\n    font-family: \"Heebo\", sans-serif;\n    font-weight: bold;\n}\n.vote-board .bottom-half .for-mayor span[data-v-0279790a] {\n      display: block;\n      line-height: normal;\n}\n.vote-board .bottom-half .for-mayor span.for[data-v-0279790a] {\n        text-transform: uppercase;\n        font-size: 1.2rem;\n        margin-top: 5px;\n}\n.vote-board .bottom-half .for-mayor span.mayor[data-v-0279790a] {\n        font-size: 3.7rem;\n        line-height: 3rem;\n        margin-bottom: 30px;\n}\n.vote-board .bottom-half img[data-v-0279790a] {\n    width: 350px;\n    border: 2px solid #a51e36;\n}\n@media (max-width: 767px) {\n.vote-board .bottom-half img[data-v-0279790a] {\n        width: 275px;\n}\n}\n.vote-board .bottom-half .tag-line[data-v-0279790a] {\n    font-family: \"Heebo\", sans-serif;\n    color: #a51e36;\n    font-size: 2rem;\n    font-weight: 500;\n}\n.vote-board .bottom-half .tag-line .apostrophe[data-v-0279790a] {\n      top: 1px;\n      font-size: 100%;\n}\n.actions[data-v-0279790a] {\n  margin-top: 25px;\n  margin-bottom: 30px;\n}\n.actions .survey-btn[data-v-0279790a] {\n    float: left;\n}\n.actions .sign-btn[data-v-0279790a] {\n    float: right;\n}\n", ""]);
+exports.push([module.i, "\n.page-content[data-v-0279790a] {\n  text-align: center;\n}\n.apostrophe[data-v-0279790a] {\n  font-family: \"Varela\", sans-serif;\n  position: relative;\n}\n.vote-board[data-v-0279790a] {\n  position: relative;\n  width: 505px;\n}\n@media (max-width: 767px) {\n.vote-board[data-v-0279790a] {\n      width: 300px;\n}\n}\n.vote-board .top-half[data-v-0279790a] {\n    padding: 10px 30px;\n    background-color: #a51e36;\n    color: white;\n    position: relative;\n    overflow: hidden;\n}\n.vote-board .top-half .vote[data-v-0279790a] {\n      background-color: white;\n      color: #a51e36;\n      padding: 2px 70px;\n      font-size: 1.7rem;\n      font-weight: bold;\n      position: absolute;\n      top: 15px;\n      left: -60px;\n      /* IE 9 */\n      -webkit-transform: rotate(-32deg);\n      /* Safari 3-8 */\n      transform: rotate(-32deg);\n      text-transform: uppercase;\n      font-family: \"Heebo\", sans-serif;\n}\n.vote-board .top-half h1[data-v-0279790a] {\n      font-size: 4rem;\n      text-align: left;\n      margin: 55px 0 0;\n      font-weight: bold;\n      line-height: 1;\n}\n@media (max-width: 767px) {\n.vote-board .top-half h1[data-v-0279790a] {\n          font-size: 3rem;\n}\n}\n.vote-board .top-half h1 span[data-v-0279790a] {\n        font-size: 100%;\n        text-transform: uppercase;\n}\n.vote-board .top-half h1 .apostrophe[data-v-0279790a] {\n        top: 4px;\n}\n.vote-board .bottom-half .for-mayor[data-v-0279790a] {\n    color: #a51e36;\n    font-family: \"Heebo\", sans-serif;\n    font-weight: bold;\n}\n.vote-board .bottom-half .for-mayor span[data-v-0279790a] {\n      display: block;\n      line-height: normal;\n}\n.vote-board .bottom-half .for-mayor span.for[data-v-0279790a] {\n        text-transform: uppercase;\n        font-size: 1.2rem;\n        margin-top: 5px;\n}\n.vote-board .bottom-half .for-mayor span.mayor[data-v-0279790a] {\n        font-size: 3.7rem;\n        line-height: 3rem;\n        margin-bottom: 30px;\n}\n.vote-board .bottom-half img[data-v-0279790a] {\n    width: 350px;\n    border: 2px solid #a51e36;\n}\n@media (max-width: 767px) {\n.vote-board .bottom-half img[data-v-0279790a] {\n        width: 275px;\n}\n}\n.vote-board .bottom-half .tag-line[data-v-0279790a] {\n    font-family: \"Heebo\", sans-serif;\n    color: #a51e36;\n    font-size: 2rem;\n    font-weight: 500;\n}\n.vote-board .bottom-half .tag-line .apostrophe[data-v-0279790a] {\n      top: 1px;\n      font-size: 100%;\n}\n.left-actions[data-v-0279790a], .right-actions[data-v-0279790a] {\n  position: absolute;\n  top: 400px;\n}\n.left-actions .btn[data-v-0279790a], .right-actions .btn[data-v-0279790a] {\n    min-width: 205px;\n    border-radius: 0;\n    display: block;\n    margin-bottom: 80px;\n}\n.left-actions[data-v-0279790a] {\n  left: -226px;\n}\n.left-actions .btn[data-v-0279790a] {\n    margin-left: 20px;\n}\n.right-actions[data-v-0279790a] {\n  right: -226px;\n}\n.right-actions .btn[data-v-0279790a] {\n    margin-right: 20px;\n}\n", ""]);
 
 // exports
 
@@ -98841,6 +98845,16 @@ exports.push([module.i, "\n.page-content[data-v-0279790a] {\n  text-align: cente
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -98907,19 +98921,56 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "actions" },
+          { staticClass: "left-actions" },
           [
             _c(
               "b-button",
               {
-                staticClass: "survey-btn",
                 attrs: {
                   size: "lg",
                   variant: "primary",
                   to: { name: "survey" }
                 }
               },
-              [_vm._v("Survey")]
+              [_vm._v("Complete Survey")]
+            ),
+            _vm._v(" "),
+            _c(
+              "b-button",
+              {
+                attrs: {
+                  size: "lg",
+                  variant: "primary",
+                  to: { name: "sign-request" }
+                }
+              },
+              [_vm._v("Sign Request")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "right-actions" },
+          [
+            _c(
+              "b-button",
+              {
+                directives: [
+                  {
+                    name: "b-popover",
+                    rawName: "v-b-popover.hover",
+                    value: "Coming Soon.",
+                    expression: "'Coming Soon.'",
+                    modifiers: { hover: true }
+                  }
+                ],
+                attrs: { size: "lg", variant: "primary" }
+              },
+              [_vm._v("Volunteer")]
             ),
             _vm._v(" "),
             _c(
@@ -98934,10 +98985,9 @@ var render = function() {
                     modifiers: { hover: true }
                   }
                 ],
-                staticClass: "sign-btn",
                 attrs: { size: "lg", variant: "primary" }
               },
-              [_vm._v("Sign Request")]
+              [_vm._v("Make Donation")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "clearfix" })
@@ -99274,7 +99324,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.loading[data-v-4fd8ac94] {\n  color: #a51e36;\n  font-size: 1.5rem;\n}\nform label[data-v-4fd8ac94] {\n  font-weight: bold;\n}\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n  float: left;\n  width: 50%;\n  margin-bottom: 5px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n      width: 100%;\n}\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94], form .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    float: left;\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n    padding: 2px 15px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n        font-size: .9rem;\n}\n}\nform .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    width: 50px;\n    text-align: center;\n}\nform .ranked-options .ranked-option textarea.option-extra[data-v-4fd8ac94] {\n    width: 400px;\n    text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.loading[data-v-4fd8ac94] {\n  color: #a51e36;\n  font-size: 1.5rem;\n}\n.thank-you-message[data-v-4fd8ac94] {\n  min-height: inherit;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n}\nform label[data-v-4fd8ac94] {\n  font-weight: bold;\n}\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n  float: left;\n  width: 50%;\n  margin-bottom: 5px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option[data-v-4fd8ac94] {\n      width: 100%;\n}\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94], form .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    float: left;\n}\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n    padding: 2px 15px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option label[data-v-4fd8ac94] {\n        font-size: .9rem;\n}\n}\nform .ranked-options .ranked-option input[data-v-4fd8ac94] {\n    width: 50px;\n    text-align: center;\n}\nform .ranked-options .ranked-option textarea.option-extra[data-v-4fd8ac94] {\n    width: 400px;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -99350,6 +99400,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'survey-page',
@@ -99357,6 +99409,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       loading: false,
+      formCompleted: false,
       alert: {
         message: ''
       },
@@ -99367,7 +99420,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         source: ''
       },
       surveyQuestions: [{
-        question: 'What are the most important issues facing Thorold residents? (Rank top 3)',
+        question: 'What are the most important issues regarding Thorold? (Rank top 3)',
         type: 'ranked',
         availableOptions: [{
           rank: '',
@@ -99485,11 +99538,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
 
-        setTimeout(function () {
-          self.alert.message = '';
-        }, 2000);
-
         self.loading = false;
+        self.formCompleted = true;
       }).catch(function (error) {
         if (error.response.data.errors) {
           self.serverErrors = error.response.data.errors;
@@ -99566,27 +99616,23 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "page-content main-area" }, [
-      _c("h1", { staticClass: "mb-3" }, [
-        _vm._v("Please fill out the survey below")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "mb-4" }, [
-        _vm._v(
-          "We are gathering data on what the people of Thorold want. Please fill out the questions\n            below so we can better serve you."
-        )
-      ]),
-      _vm._v(" "),
       _vm.alert.message
         ? _c(
             "div",
-            { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [
-              _vm._v(
-                "\n            " + _vm._s(_vm.alert.message) + "\n        "
-              )
-            ]
+            { staticClass: "thank-you-message", attrs: { role: "alert" } },
+            [_c("div", { domProps: { innerHTML: _vm._s(_vm.alert.message) } })]
           )
-        : _vm._e(),
+        : _c("div", [
+            _c("h1", { staticClass: "mb-3" }, [
+              _vm._v("Please fill out the survey below")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-4" }, [
+              _vm._v(
+                "I am gathering data on the important issues facing Thorold. Please complete the\n                questions below so I can better serve you."
+              )
+            ])
+          ]),
       _vm._v(" "),
       _vm.serverErrors
         ? _c(
@@ -99610,7 +99656,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      !_vm.loading
+      !_vm.loading && !_vm.formCompleted
         ? _c(
             "form",
             {
@@ -99790,6 +99836,385 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(463)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(465)
+/* template */
+var __vue_template__ = __webpack_require__(466)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3f5b1096"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/page-templates/SignRequest.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3f5b1096", Component.options)
+  } else {
+    hotAPI.reload("data-v-3f5b1096", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 463 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(464);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(9)("8f4cf7e6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f5b1096\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SignRequest.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f5b1096\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SignRequest.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 464 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.loading[data-v-3f5b1096] {\n  color: #a51e36;\n  font-size: 1.5rem;\n}\n.thank-you-message[data-v-3f5b1096] {\n  min-height: inherit;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n}\nform label[data-v-3f5b1096] {\n  font-weight: bold;\n}\nform .ranked-options .ranked-option[data-v-3f5b1096] {\n  float: left;\n  width: 50%;\n  margin-bottom: 5px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option[data-v-3f5b1096] {\n      width: 100%;\n}\n}\nform .ranked-options .ranked-option label[data-v-3f5b1096], form .ranked-options .ranked-option input[data-v-3f5b1096] {\n    float: left;\n}\nform .ranked-options .ranked-option label[data-v-3f5b1096] {\n    padding: 2px 15px;\n}\n@media (max-width: 767px) {\nform .ranked-options .ranked-option label[data-v-3f5b1096] {\n        font-size: .9rem;\n}\n}\nform .ranked-options .ranked-option input[data-v-3f5b1096] {\n    width: 50px;\n    text-align: center;\n}\nform .ranked-options .ranked-option textarea.option-extra[data-v-3f5b1096] {\n    width: 400px;\n    text-align: left;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 465 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'survey-page',
+
+  data: function data() {
+    return {
+      loading: false,
+      formCompleted: false,
+      alert: {
+        message: ''
+      },
+      serverErrors: null,
+      signRequest: {
+        signRequestData: {},
+        source: ''
+      },
+      signRequestFormFields: [{
+        label: 'Name',
+        value: ''
+      }, {
+        label: 'Street Number',
+        value: ''
+      }, {
+        label: 'Street Address',
+        value: ''
+      }, {
+        label: 'Contact #',
+        value: ''
+      }]
+    };
+  },
+
+
+  methods: {
+
+    /**
+     * Submits the survey
+     */
+    submitSignRequest: function submitSignRequest() {
+      var self = this;
+
+      self.loading = true;
+      self.alert.message = null;
+      self.serverErrors = null;
+
+      self.survey.source = self.guessDeviceSource();
+      self.survey.surveyData = self.surveyQuestions;
+
+      window.axios.post(self.API_ROUTE + 'form-submissions/survey', self.survey).then(function (response) {
+
+        self.serverErrors = null;
+        self.alert.message = response.data.message;
+
+        for (var i = 0; i < self.surveyQuestions.length; i++) {
+          self.surveyQuestions[i].answer = '';
+
+          if (self.surveyQuestions[i].type === 'ranked') {
+            for (var j = 0; j < self.surveyQuestions[i].availableOptions.length; j++) {
+              self.surveyQuestions[i].availableOptions[j].rank = '';
+
+              if (self.surveyQuestions[i].availableOptions[j].extra) {
+                self.surveyQuestions[i].availableOptions[j].extraValue = '';
+              }
+            }
+          }
+
+          if (self.surveyQuestions[i].hasYesNo) {
+            self.surveyQuestions[i].yesNoAnswer = null;
+          }
+        }
+
+        self.loading = false;
+        self.formCompleted = true;
+      }).catch(function (error) {
+        if (error.response.data.errors) {
+          self.serverErrors = error.response.data.errors;
+        }
+        flash(error.response.data.message, 'error');
+        self.loading = false;
+      });
+
+      self.scrollToTop();
+
+      return;
+    },
+
+
+    /**
+     * Attempts to determine the device size based on screen width
+     *
+     * @returns {string}
+     */
+    guessDeviceSource: function guessDeviceSource() {
+      // determine device source
+      var width = $(window).width();
+
+      var deviceSource = '';
+
+      switch (true) {
+        case width < 768:
+          deviceSource = 'mobile';
+          break;
+        case width < 980:
+          deviceSource = 'tablet';
+          break;
+        default:
+          deviceSource = 'desktop';
+          break;
+      }
+
+      return deviceSource;
+    },
+
+
+    /**
+     * Scrolls to the top
+     */
+    scrollToTop: function scrollToTop() {
+
+      var scrollTo = this.$el.querySelector('h1');
+
+      if (scrollTo) {
+        scrollTo.scrollIntoView(false);
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 466 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "page-content main-area" }, [
+      _vm.alert.message
+        ? _c(
+            "div",
+            { staticClass: "thank-you-message", attrs: { role: "alert" } },
+            [_c("div", { domProps: { innerHTML: _vm._s(_vm.alert.message) } })]
+          )
+        : _c("div", [
+            _c("h1", { staticClass: "mb-3" }, [_vm._v("Sign Request")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-4" }, [
+              _vm._v(
+                "Please note, signs are not permitted until Sept 18, 2018."
+              )
+            ])
+          ]),
+      _vm._v(" "),
+      _vm.serverErrors
+        ? _c(
+            "div",
+            { staticClass: "alert alert-danger" },
+            _vm._l(_vm.serverErrors, function(error, i) {
+              return _c("li", [
+                error[0] ? _c("span", [_vm._v(_vm._s(error[0]))]) : _vm._e()
+              ])
+            })
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "loading mb-3 text-center" }, [
+            _c("i", {
+              staticClass: "fa fa-spinner fa-spin",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" Submitting..")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.loading && !_vm.formCompleted
+        ? _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submitSignRequest($event)
+                }
+              }
+            },
+            [
+              _vm._l(_vm.signRequestFormFields, function(
+                signRequestFormField,
+                i
+              ) {
+                return _c(
+                  "b-form-group",
+                  { key: "sign_request_question_" + "_" + i },
+                  [
+                    _c("label", { attrs: { for: "input" + i } }, [
+                      _vm._v(" " + _vm._s(signRequestFormField.label))
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-input", {
+                      model: {
+                        value: signRequestFormField.value,
+                        callback: function($$v) {
+                          _vm.$set(signRequestFormField, "value", $$v)
+                        },
+                        expression: "signRequestFormField.value"
+                      }
+                    })
+                  ],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                { attrs: { type: "submit", variant: "primary" } },
+                [_vm._v("Submit")]
+              )
+            ],
+            2
+          )
+        : _vm._e()
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3f5b1096", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

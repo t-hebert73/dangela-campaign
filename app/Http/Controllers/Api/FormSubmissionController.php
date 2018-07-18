@@ -69,7 +69,8 @@ class FormSubmissionController extends Controller
 
         Mail::to(env('SURVEY_MAIL_TO'))->send(new SurveySubmitted($surveySubmission));
 
-        $response['message'] = 'Thank you for filling out the survey!';
+        $response['message'] = "<p>Thank you for taking the time to complete the survey. Your feedback is greatly appreciated.
+Sincerely, </p> <p>Henry D'Angela</p>";
 
         return response()->json($response);
     }
