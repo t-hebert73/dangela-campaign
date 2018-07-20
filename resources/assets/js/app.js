@@ -153,6 +153,16 @@ const routes = [
     path: '/sign-request',
     name: 'sign-request',
     component: require('./components/page-templates/SignRequest.vue')
+  },
+  {
+    path: '/volunteer',
+    name: 'volunteer',
+    component: require('./components/page-templates/VolunteerRequest.vue')
+  },
+  {
+    path: '/donation',
+    name: 'donation',
+    component: require('./components/page-templates/SignRequest.vue')
   }
 ]
 

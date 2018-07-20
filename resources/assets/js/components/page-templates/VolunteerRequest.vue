@@ -7,9 +7,7 @@
             </div>
 
             <div v-else>
-                <h1 class="mb-3">Sign Request</h1>
-
-                <p class="mb-4">Please note, signs are not permitted until Sept 18, 2018.</p>
+                <h1 class="mb-3">Volunteer</h1>
             </div>
 
             <div class="alert alert-danger" v-if="serverErrors">
@@ -20,37 +18,43 @@
 
             <div v-if="loading" class="loading mb-3 text-center"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Submitting..</div>
 
-            <form v-if="!loading && !formCompleted" @submit.prevent="submitSignRequest">
+            <form v-if="!loading && !formCompleted" @submit.prevent="submitVolunteerRequest">
 
                 <b-form-group >
 
-                    <label :for="'sign_request_name'">Name</label>
+                    <label :for="'volunteer_name'">Name</label>
 
-                    <b-form-input id="sign_request_name" v-model="signRequest.name" :required="true"></b-form-input>
+                    <b-form-input id="volunteer_name" v-model="volunteer.name" :required="true"></b-form-input>
                     
                 </b-form-group>
 
                 <b-form-group >
 
-                    <label :for="'sign_request_number'">Street Number</label>
+                    <label :for="'volunteer_address'">Street Address</label>
 
-                    <b-form-input id="sign_request_number" v-model="signRequest.streetNumber" :required="true"></b-form-input>
-
-                </b-form-group>
-
-                <b-form-group >
-
-                    <label :for="'sign_request_address'">Street Address</label>
-
-                    <b-form-input id="sign_request_address" v-model="signRequest.streetAddress" :required="true"></b-form-input>
+                    <b-form-input id="volunteer_address" v-model="volunteer.streetAddress" :required="true"></b-form-input>
 
                 </b-form-group>
 
                 <b-form-group >
 
-                    <label :for="'sign_request_contact'">Contact #</label>
+                    <label :for="'volunteer_contact'">Contact #</label>
 
-                    <b-form-input id="sign_request_contact" v-model="signRequest.contact" :required="true"></b-form-input>
+                    <b-form-input id="volunteer_contact" v-model="volunteer.contact" :required="true"></b-form-input>
+
+                </b-form-group>
+
+                <b-form-group >
+
+                    <label :for="'volunteer_contact'">Interested in helping by:</label>
+
+                    <b-form-select id="volunteer_contact" v-model="volunteer.helpingBy" :required="true" >
+                        <option :value="null">Choose One</option>
+                        <option>Delivering Flyers</option>
+                        <option>Taking a sign</option>
+                        <option>Installing Signs</option>
+                        <option>Other (specify)</option>
+                    </b-form-select>
 
                 </b-form-group>
 
@@ -62,7 +66,7 @@
 
 <script>
   export default {
-    name: 'sign-request-page',
+    name: 'volunteer-request-page',
 
     data () {
       return {
@@ -72,11 +76,11 @@
           message: '',
         },
         serverErrors: null,
-        signRequest: {
+        volunteer: {
           name: '',
-          streetNumber: '',
           streetAddress: '',
-          contact: ''
+          contact: '',
+          helpingBy: null
         }
       }
     },
@@ -84,29 +88,29 @@
     methods: {
 
       /**
-       * Submits the sign request
+       * Submits the survey
        */
-      submitSignRequest () {
+      submitVolunteerRequest () {
         let self = this
 
         self.loading = true
         self.alert.message = null
         self.serverErrors = null
 
-        window.axios.post(self.API_ROUTE + 'form-submissions/sign-request', {
-          name: self.signRequest.name,
-          street_number: self.signRequest.streetNumber,
-          street_address: self.signRequest.streetAddress,
-          contact: self.signRequest.contact
+        window.axios.post(self.API_ROUTE + 'form-submissions/volunteer', {
+          name: self.volunteer.name,
+          street_address: self.volunteer.streetAddress,
+          contact: self.volunteer.contact,
+          helping_by: self.volunteer.helpingBy
         }).then(response => {
 
           self.serverErrors = null
           self.alert.message = response.data.message
 
-          self.signRequest.name = ''
-          self.signRequest.streetNumber = ''
-          self.signRequest.streetAddress = ''
-          self.signRequest.contact = ''
+          self.volunteer.name = ''
+          self.volunteer.streetAddress = ''
+          self.volunteer.contact = ''
+          self.volunteer.helpingBy = ''
 
           self.loading = false
           self.formCompleted = true

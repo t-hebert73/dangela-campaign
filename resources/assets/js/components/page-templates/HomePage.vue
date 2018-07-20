@@ -38,9 +38,9 @@
 
                 <div class="right-actions">
 
-                    <b-button size="lg" variant="primary"  v-b-popover.hover="'Coming Soon.'">Volunteer</b-button>
+                    <b-button size="lg" variant="primary" :to="{ name: 'volunteer' }">Volunteer</b-button>
 
-                    <b-button size="lg" variant="primary"  v-b-popover.hover="'Coming Soon.'">Make Donation</b-button>
+                    <b-button size="lg" variant="primary" :to="{ name: 'donation' }">Make Donation</b-button>
 
                     <div class="clearfix"></div>
 

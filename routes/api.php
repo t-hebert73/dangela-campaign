@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 
 
 Route::post('form-submissions/survey', 'Api\FormSubmissionController@submitSurvey');
+Route::post('form-submissions/sign-request', 'Api\FormSubmissionController@submitSignRequest');
+Route::post('form-submissions/volunteer', 'Api\FormSubmissionController@submitVolunteerRequest');
+Route::post('form-submissions/donation', 'Api\FormSubmissionController@submitDonationRequest');
 
 Route::middleware(['client_credentials'])->group(function () {
 
