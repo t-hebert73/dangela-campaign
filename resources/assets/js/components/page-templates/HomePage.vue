@@ -182,11 +182,26 @@
         position: absolute;
         top: 400px;
 
+        @media #{$mobile} {
+            position: static;
+
+        }
+
         .btn{
             min-width: 205px;
             border-radius: 0;
             display: block;
             margin-bottom: 80px;
+
+            @media #{$small} {
+                font-size: 1rem;
+                min-width: 165px;
+            }
+
+            @media #{$mobile} {
+                margin-top: 20px;
+                margin-bottom: 0;
+            }
         }
 
     }
@@ -194,16 +209,32 @@
     .left-actions{
         left: -226px;
 
+        @media #{$small} {
+            left: -135px;
+        }
+
         .btn{
             margin-left: 20px;
+
+            @media #{$mobile} {
+                margin-left: 0;
+            }
         }
     }
 
     .right-actions{
         right: -226px;
 
+        @media #{$small} {
+            right: -135px;
+        }
+
         .btn{
             margin-right: 20px;
+
+            @media #{$mobile} {
+                margin-right: 0;
+            }
         }
     }
 </style>

@@ -15,8 +15,6 @@ class SurveySubmitted extends Mailable
     public $surveySubmission;
 
     /**
-     * Create a new message instance.
-     *
      * SurveySubmitted constructor.
      * @param SurveySubmission $surveySubmission
      */

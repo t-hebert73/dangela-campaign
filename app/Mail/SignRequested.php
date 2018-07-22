@@ -21,9 +21,7 @@ class SignRequested extends Mailable
     public $signRequest;
 
     /**
-     * Create a new message instance.
-     *
-     * SurveySubmitted constructor.
+     * SignRequested constructor.
      * @param SignRequest $signRequest
      */
     public function __construct(SignRequest $signRequest)

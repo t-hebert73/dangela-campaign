@@ -27,6 +27,21 @@ Route::middleware(['client_credentials'])->group(function () {
     Route::get('survey-submissions/{id}', 'Api\SurveySubmissionsController@retrieve');
     Route::delete('survey-submissions/{id}', 'Api\SurveySubmissionsController@destroy');
 
+    Route::get('sign-requests', 'Api\SignRequestsController@index');
+    Route::get('sign-requests/latest', 'Api\SignRequestsController@getLatestSignRequests');
+    Route::get('sign-requests/{id}', 'Api\SignRequestsController@retrieve');
+    Route::delete('sign-requests/{id}', 'Api\SignRequestsController@destroy');
+
+    Route::get('volunteers', 'Api\VolunteersController@index');
+    Route::get('volunteers/latest', 'Api\VolunteersController@getLatestVolunteers');
+    Route::get('volunteers/{id}', 'Api\VolunteersController@retrieve');
+    Route::delete('volunteers/{id}', 'Api\VolunteersController@destroy');
+
+    Route::get('donations', 'Api\DonationsController@index');
+    Route::get('donations/latest', 'Api\DonationsController@getLatestDonations');
+    Route::get('donations/{id}', 'Api\DonationsController@retrieve');
+    Route::delete('donations/{id}', 'Api\DonationsController@destroy');
+
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

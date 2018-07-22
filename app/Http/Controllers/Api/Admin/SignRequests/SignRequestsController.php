@@ -9,9 +9,9 @@
 namespace DAngelaCampaign\Http\Controllers\Api;
 
 use DAngelaCampaign\Http\Controllers\Controller;
-use DAngelaCampaign\Models\SurveySubmission;
+use DAngelaCampaign\Models\SignRequest;
 
-class SurveySubmissionsController extends Controller
+class SignRequestsController extends Controller
 {
 
     /**
@@ -20,9 +20,9 @@ class SurveySubmissionsController extends Controller
     public function index()
     {
 
-        $surveySubmissions = SurveySubmission::all();
+        $signRequests = SignRequest::all();
 
-        $response['surveySubmissions'] = $surveySubmissions;
+        $response['signRequests'] = $signRequests;
 
         return response()->json($response);
     }
@@ -35,9 +35,9 @@ class SurveySubmissionsController extends Controller
      */
     public function retrieve($id)
     {
-        $page = SurveySubmission::find($id);
+        $page = SignRequest::find($id);
 
-        $response['surveySubmission'] = $page;
+        $response['signRequest'] = $page;
 
         $status = 200;
 
@@ -47,10 +47,10 @@ class SurveySubmissionsController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getLatestSurveySubmissions() {
-        $surveySubmissions = SurveySubmission::orderBy('created_at', 'desc')->take(4)->get();
+    public function getLatestSignRequests() {
+        $signRequests = SignRequest::orderBy('created_at', 'desc')->take(4)->get();
 
-        $response['surveySubmissions'] = $surveySubmissions;
+        $response['signRequests'] = $signRequests;
 
         return response()->json($response);
     }
@@ -63,11 +63,11 @@ class SurveySubmissionsController extends Controller
      */
     public function destroy($id)
     {
-        $surveySubmissions = SurveySubmission::find($id);
+        $signRequests = SignRequest::find($id);
 
-        $success = $surveySubmissions->delete();
+        $success = $signRequests->delete();
 
-        $response['surveySubmission'] = $surveySubmissions;
+        $response['signRequest'] = $signRequests;
 
         if ($success) {
             $status = 200;

@@ -11,32 +11,48 @@
 
            $currentPath = \Illuminate\Support\Facades\Request::path();
 
-        if($currentPath === '/') {
+            // this is horrendous, but time constraints so...
+           switch($currentPath) {
 
-            $title = "Vote Henry D'Angela For Mayor Of Thorold";
-            $description = "Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. Planning Thorold's Future Together.";
+               case '/':
+                   $title = "Vote Henry D'Angela For Mayor Of Thorold";
+                   $description = "Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. Planning Thorold's Future Together.";
+                   break;
 
-        } elseif ($currentPath === 'survey') {
+               case 'survey':
+                   $title = "Important Issues Survey | Henry D'Angela";
+                   $description = 'We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. ';
+                   break;
 
-            $title = "Important Issues Survey | Henry D'Angela";
-            $description = 'We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. ';
+               case 'about':
+                   $title = "About | Henry D'Angela";
+                   $description = 'Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010. ';
+                   break;
 
-        } elseif($currentPath === 'about') {
+               case 'sign-request':
+                   $title = "Sign Request | Henry D'Angela";
+                   $description = 'Request a sign. Please note, signs are not permitted until Sept 18, 2018. ';
+                   break;
 
-            $title = "About | Henry D'Angela";
-            $description = 'Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010. ';
+               case 'volunteer':
+                   $title = "Volunteer | Henry D'Angela";
+                   $description = "Request to volunteer for the Henry D'Angela Campaign. ";
+                   break;
 
-        } elseif($currentPath === 'sign-request') {
+               case 'donate':
+                   $title = "Donation | Henry D'Angela";
+                   $description = "Request to make a donation to the Henry D'Angela Campaign. ";
+                   break;
 
-            $title = "Sign Request | Henry D'Angela";
-            $description = 'Request a sign. Please note, signs are not permitted until Sept 18, 2018. ';
+               default:
+                   $title = 'Page Not Found';
+                   $description = '';
+           }
 
-        } else {
-
-            $title = 'Page Not Found';
-            $description = '';
-
-        }
+            if (strpos($currentPath, 'admin') !== false) {
+                $title = "Admin | Henry D'Angela";
+                $description = '';
+            }
 
        ?>
 
@@ -70,6 +86,9 @@
                                 <li class="nav-item"><a href="/" class="nav-link" title="Home">Home</a></li>
                                 <li class="nav-item"><a href="/about" class="nav-link" title="About">About</a></li>
                                 <li class="nav-item"><a href="/survey" class="nav-link" title="Survey">Survey</a></li>
+                                <li class="nav-item"><a href="/sign-request" class="nav-link" title="Survey">Sign Request</a></li>
+                                <li class="nav-item"><a href="/volunteer" class="nav-link" title="Survey">Volunteer</a></li>
+                                <li class="nav-item"><a href="/donate" class="nav-link" title="Survey">Donate</a></li>
                             </ul>
                         </nav>
                     </header>
@@ -81,12 +100,6 @@
                             echo '<h1>' . "Vote Henry D'Angela For Mayor" . '</h1>';
 
                             echo '<p>' . "Planning Thorold's Future Together." . '</p>';
-
-                        } elseif ($currentPath === 'survey') {
-
-                            echo '<h1>' . "Please fill out the survey below" . '</h1>';
-
-                            echo '<p>' . "We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you." . '</p>';
 
                         } elseif($currentPath === 'about') {
 
@@ -100,16 +113,38 @@
 
                             echo '<p>' . "Henry D’Angela was born and raised in Thorold. He is married to Rina, has two children and has run his own accounting firm, D’Angela Financial Services for the past 25 years." . '</p>';
 
+                        } elseif ($currentPath === 'survey') {
+
+                            echo '<h1>' . "Please fill out the survey below" . '</h1>';
+
+                            echo '<p>' . "We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you." . '</p>';
+
                         } elseif($currentPath === 'sign-request') {
 
                             echo '<h1>' . "Sign Request" . '</h1>';
 
                             echo '<p>' . "Please note, signs are not permitted until Sept 18, 2018." . '</p>';
 
+                        } elseif($currentPath === 'volunteer') {
+
+                            echo '<h1>' . "Volunteer For The Henry D'Angela Campaign" . '</h1>';
+
+                            echo '<p>' . "Become a volunteer for the Henry D'Angela campaign for Thorold mayor." . '</p>';
+
+                        } elseif($currentPath === 'donate') {
+
+                            echo '<h1>' . "Donate To The Henry D'Angela Campaign" . '</h1>';
+
+                            echo '<p>' . "Make a donation to the Henry D'Angela campaign for Thorold mayor." . '</p>';
+
                         } else {
 
                             echo '<h1> Page Not Found </h1>';
 
+                        }
+
+                        if (strpos($currentPath, 'admin') !== false) {
+                            echo '<h1> Admin Section </h1>';
                         }
                     ?>
 

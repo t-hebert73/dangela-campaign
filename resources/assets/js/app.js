@@ -135,6 +135,42 @@ const routes = [
     props: true
   },
   {
+    path: '/admin/sign-requests',
+    name: 'sign-requests.index',
+    component: require('./components/admin/sign-requests/SignRequestList.vue'),
+    props: true
+  },
+  {
+    path: '/admin/sign-requests/:id',
+    name: 'sign-requests.show',
+    component: require('./components/admin/sign-requests/SignRequestShow.vue'),
+    props: true
+  },
+  {
+    path: '/admin/volunteers',
+    name: 'volunteers.index',
+    component: require('./components/admin/volunteers/VolunteerList.vue'),
+    props: true
+  },
+  {
+    path: '/admin/volunteers/:id',
+    name: 'volunteers.show',
+    component: require('./components/admin/volunteers/VolunteerShow.vue'),
+    props: true
+  },
+  {
+    path: '/admin/donations',
+    name: 'donations.index',
+    component: require('./components/admin/donations/DonationList.vue'),
+    props: true
+  },
+  {
+    path: '/admin/donations/:id',
+    name: 'donations.show',
+    component: require('./components/admin/donations/DonationShow.vue'),
+    props: true
+  },
+  {
     path: '/',
     name: 'home',
     component: require('./components/page-templates/HomePage.vue')
@@ -160,9 +196,9 @@ const routes = [
     component: require('./components/page-templates/VolunteerRequest.vue')
   },
   {
-    path: '/donation',
+    path: '/donate',
     name: 'donation',
-    component: require('./components/page-templates/SignRequest.vue')
+    component: require('./components/page-templates/DonationRequest.vue')
   }
 ]
 

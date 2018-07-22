@@ -9,9 +9,9 @@
 namespace DAngelaCampaign\Http\Controllers\Api;
 
 use DAngelaCampaign\Http\Controllers\Controller;
-use DAngelaCampaign\Models\SurveySubmission;
+use DAngelaCampaign\Models\Volunteer;
 
-class SurveySubmissionsController extends Controller
+class VolunteersController extends Controller
 {
 
     /**
@@ -20,9 +20,9 @@ class SurveySubmissionsController extends Controller
     public function index()
     {
 
-        $surveySubmissions = SurveySubmission::all();
+        $volunteers = Volunteer::all();
 
-        $response['surveySubmissions'] = $surveySubmissions;
+        $response['volunteers'] = $volunteers;
 
         return response()->json($response);
     }
@@ -35,9 +35,9 @@ class SurveySubmissionsController extends Controller
      */
     public function retrieve($id)
     {
-        $page = SurveySubmission::find($id);
+        $page = Volunteer::find($id);
 
-        $response['surveySubmission'] = $page;
+        $response['volunteer'] = $page;
 
         $status = 200;
 
@@ -47,10 +47,10 @@ class SurveySubmissionsController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getLatestSurveySubmissions() {
-        $surveySubmissions = SurveySubmission::orderBy('created_at', 'desc')->take(4)->get();
+    public function getLatestVolunteers() {
+        $volunteers = Volunteer::orderBy('created_at', 'desc')->take(4)->get();
 
-        $response['surveySubmissions'] = $surveySubmissions;
+        $response['volunteers'] = $volunteers;
 
         return response()->json($response);
     }
@@ -63,11 +63,11 @@ class SurveySubmissionsController extends Controller
      */
     public function destroy($id)
     {
-        $surveySubmissions = SurveySubmission::find($id);
+        $volunteers = Volunteer::find($id);
 
-        $success = $surveySubmissions->delete();
+        $success = $volunteers->delete();
 
-        $response['surveySubmission'] = $surveySubmissions;
+        $response['volunteer'] = $volunteers;
 
         if ($success) {
             $status = 200;

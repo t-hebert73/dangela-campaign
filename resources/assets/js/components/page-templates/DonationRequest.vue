@@ -7,7 +7,9 @@
             </div>
 
             <div v-else>
-                <h1 class="mb-3">Volunteer</h1>
+                <h1 class="mb-3">Make A Donation</h1>
+
+                <p>To make a donation fill out the form below, or contact Henry at <em>905-227-8298</em></p>
             </div>
 
             <div class="alert alert-danger" v-if="serverErrors">
@@ -18,51 +20,29 @@
 
             <div v-if="loading" class="loading mb-3 text-center"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Submitting..</div>
 
-            <form v-if="!loading && !formCompleted" @submit.prevent="submitVolunteerRequest">
+            <form v-if="!loading && !formCompleted" @submit.prevent="submitDonationRequest">
 
                 <b-form-group >
 
-                    <label :for="'volunteer_name'">Name</label>
+                    <label :for="'donation_name'">Name</label>
 
-                    <b-form-input id="volunteer_name" v-model="volunteer.name" :required="true"></b-form-input>
+                    <b-form-input id="donation_name" v-model="donation.name" :required="true"></b-form-input>
                     
                 </b-form-group>
 
                 <b-form-group >
 
-                    <label :for="'volunteer_address'">Street Address</label>
+                    <label :for="'donation_address'">Address</label>
 
-                    <b-form-input id="volunteer_address" v-model="volunteer.streetAddress" :required="true"></b-form-input>
-
-                </b-form-group>
-
-                <b-form-group >
-
-                    <label :for="'volunteer_contact'">Contact #</label>
-
-                    <b-form-input id="volunteer_contact" v-model="volunteer.contact" :required="true"></b-form-input>
+                    <b-form-input id="donation_address" v-model="donation.address" :required="true"></b-form-input>
 
                 </b-form-group>
 
                 <b-form-group >
 
-                    <label :for="'volunteer_helping_by'">Interested in helping by:</label>
+                    <label :for="'donation_contact'">Contact #</label>
 
-                    <b-form-select id="volunteer_helping_by" v-model="volunteer.helpingBy" :required="true" @change="helpingByChanged">
-                        <option :value="null">Choose One</option>
-                        <option>Delivering Flyers</option>
-                        <option>Taking a sign</option>
-                        <option>Installing Signs</option>
-                        <option value="other">Other (specify)</option>
-                    </b-form-select>
-
-                </b-form-group>
-
-                <b-form-group v-if="helpingByOtherChosen">
-
-                    <label :for="'volunteer_helping_by_other'">Please specify:</label>
-
-                    <b-form-input id="volunteer_helping_by_other" v-model="helpingByOther"></b-form-input>
+                    <b-form-input id="donation_contact" v-model="donation.contact" :required="true"></b-form-input>
 
                 </b-form-group>
 
@@ -74,7 +54,7 @@
 
 <script>
   export default {
-    name: 'volunteer-request-page',
+    name: 'donation-request-page',
 
     data () {
       return {
@@ -84,14 +64,11 @@
           message: '',
         },
         serverErrors: null,
-        volunteer: {
+        donation: {
           name: '',
-          streetAddress: '',
-          contact: '',
-          helpingBy: null,
-        },
-        helpingByOtherChosen: false,
-        helpingByOther: ''
+          address: '',
+          contact: ''
+        }
       }
     },
 
@@ -100,31 +77,21 @@
       /**
        * Submits the survey
        */
-      submitVolunteerRequest () {
+      submitDonationRequest () {
         let self = this
 
         self.loading = true
         self.alert.message = null
         self.serverErrors = null
 
-        if(self.helpingByOtherChosen) {
-          self.volunteer.helpingBy = self.helpingByOther
-        }
-
-        window.axios.post(self.API_ROUTE + 'form-submissions/volunteer', {
-          name: self.volunteer.name,
-          street_address: self.volunteer.streetAddress,
-          contact: self.volunteer.contact,
-          helping_by: self.volunteer.helpingBy
-        }).then(response => {
+        window.axios.post(self.API_ROUTE + 'form-submissions/donation', self.donation).then(response => {
 
           self.serverErrors = null
           self.alert.message = response.data.message
 
-          self.volunteer.name = ''
-          self.volunteer.streetAddress = ''
-          self.volunteer.contact = ''
-          self.volunteer.helpingBy = null
+          self.donation.name = ''
+          self.donation.address = ''
+          self.donation.contact = ''
 
           self.loading = false
           self.formCompleted = true

@@ -21,9 +21,7 @@ class VolunteerRequested extends Mailable
     public $volunteer;
 
     /**
-     * Create a new message instance.
-     *
-     * SurveySubmitted constructor.
+     * VolunteerRequested constructor.
      * @param Volunteer $volunteer
      */
     public function __construct(Volunteer $volunteer)

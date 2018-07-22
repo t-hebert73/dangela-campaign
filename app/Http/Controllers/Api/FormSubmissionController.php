@@ -10,9 +10,11 @@ namespace DAngelaCampaign\Http\Controllers\Api;
 
 
 use DAngelaCampaign\Http\Controllers\Controller;
+use DAngelaCampaign\Mail\DonationRequested;
 use DAngelaCampaign\Mail\SignRequested;
 use DAngelaCampaign\Mail\SurveySubmitted;
 use DAngelaCampaign\Mail\VolunteerRequested;
+use DAngelaCampaign\Models\Donation;
 use DAngelaCampaign\Models\SignRequest;
 use DAngelaCampaign\Models\SurveySubmission;
 use DAngelaCampaign\Models\Volunteer;
@@ -123,7 +125,30 @@ Sincerely, </p> <p>Henry D'Angela</p>";
 
         Mail::to(env('SURVEY_MAIL_TO'))->send(new VolunteerRequested($signRequest));
 
-        $response['message'] = "<p>Thank you for the volunteering. We will get back to you with more information.
+        $response['message'] = "<p>Thank you for requesting to volunteer. We will get back to you with more information.
+Sincerely, </p> <p>Henry D'Angela</p>";
+
+        return response()->json($response);
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function submitDonationRequest() {
+
+        $formData = $this->validate(request(), [
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required'
+        ]);
+
+        $donationRequest = new Donation($formData);
+
+        $donationRequest->save();
+
+        Mail::to(env('SURVEY_MAIL_TO'))->send(new DonationRequested($donationRequest));
+
+        $response['message'] = "<p>Thank you for requesting to donate. We will get back to you with more information.
 Sincerely, </p> <p>Henry D'Angela</p>";
 
         return response()->json($response);
