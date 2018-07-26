@@ -20,7 +20,7 @@ class VolunteersController extends Controller
     public function index()
     {
 
-        $volunteers = Volunteer::all();
+        $volunteers = Volunteer::orderBy('created_at', 'desc')->get();
 
         $response['volunteers'] = $volunteers;
 

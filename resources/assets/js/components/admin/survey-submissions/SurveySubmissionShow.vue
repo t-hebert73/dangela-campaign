@@ -50,6 +50,7 @@
                                                     Yes or No: <span class="yes-no-answer">{{ surveyData.yesNoAnswer }}</span>
                                                 </div>
 
+                                                <p v-if="!surveyData.answer"> No answer given.</p>
                                                 <p class="" v-html="surveyData.answer"></p>
 
                                                 <div v-if="surveyData.type === 'ranked'">

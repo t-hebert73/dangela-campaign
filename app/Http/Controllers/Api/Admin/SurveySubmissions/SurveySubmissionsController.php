@@ -20,7 +20,7 @@ class SurveySubmissionsController extends Controller
     public function index()
     {
 
-        $surveySubmissions = SurveySubmission::all();
+        $surveySubmissions = SurveySubmission::orderBy('created_at', 'desc')->get();
 
         $response['surveySubmissions'] = $surveySubmissions;
 

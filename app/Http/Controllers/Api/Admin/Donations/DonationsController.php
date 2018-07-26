@@ -20,7 +20,7 @@ class DonationsController extends Controller
     public function index()
     {
 
-        $donations = Donation::all();
+        $donations = Donation::orderBy('created_at', 'desc')->get();
 
         $response['donations'] = $donations;
 

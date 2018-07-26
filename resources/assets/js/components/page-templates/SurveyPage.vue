@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="page-content main-area">
-            
+
             <div v-if="alert.message" class="thank-you-message" role="alert">
                 <div v-html="alert.message"></div>
             </div>
@@ -19,14 +19,22 @@
                 </li>
             </div>
 
-            <div v-if="loading" class="loading mb-3 text-center"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Submitting..</div>
+            <div v-if="loading" class="loading mb-3 text-center"><i class="fa fa-spinner fa-spin"
+                                                                    aria-hidden="true"></i> Submitting..
+            </div>
 
             <form v-if="!loading && !formCompleted" @submit.prevent="submitSurvey">
 
                 <b-form-group v-for="(surveyQuestion, i) in surveyQuestions"
                               :key="'survey_question_' + '_' + i">
 
-                    <label :for="'textarea_' + i"> {{ surveyQuestion.question }} <a target="_blank" :href="surveyQuestion.link" v-if="surveyQuestion.link">{{ surveyQuestion.link }}</a></label>
+                    <label :for="'textarea_' + i"> {{ surveyQuestion.question }} <a target="_blank"
+                                                                                    :href="surveyQuestion.link"
+                                                                                    v-if="surveyQuestion.link">{{
+                        surveyQuestion.link }}</a></label>
+
+                    <b-form-text v-if="surveyQuestion.type === 'ranked'">Click on an issue to rank it.
+                        <a href="#" @click.prevent="resetRankedItems">Click here if you wish to reset the ranking.</a></b-form-text>
 
                     <div v-if="surveyQuestion.type === 'textarea'">
 
@@ -42,11 +50,14 @@
 
                     <div v-if="surveyQuestion.type === 'ranked'" class="ranked-options">
 
-                        <div class="ranked-option" v-for="(option, j) in surveyQuestion.availableOptions">
+                        <div class="ranked-option" v-for="(option, j) in surveyQuestion.availableOptions"
+                             @click="rankedItemClicked(option)">
 
-                            <b-form-input :id="'input_' + j" type="text" v-model="option.rank"></b-form-input>
+                            <div class="option-rank"> {{ option.rank }}</div>
+                            <!--         <b-form-input :id="'input_' + j" type="text" v-model="option.rank"></b-form-input>-->
 
-                            <label :for="'input_' + j">{{ option.option }}</label>
+                            <!--<label :for="'input_' + j">{{ option.option }}</label>-->
+                            <label>{{ option.option }}</label>
 
                             <b-form-textarea class="option-extra" v-if="option.extra" v-model="option.extraValue"
                                              placeholder="Please explain the issue."></b-form-textarea>
@@ -82,6 +93,7 @@
           surveyData: {},
           source: ''
         },
+        optionRankIndex: 1,
         surveyQuestions: [
           {
             question: 'What are the most important issues regarding Thorold? (Rank top 3)',
@@ -241,6 +253,39 @@
       },
 
       /**
+       * @param option
+       */
+      rankedItemClicked (option) {
+
+        if (!option.rank) {
+          option.rank = this.optionRankIndex
+          this.optionRankIndex += 1
+        } else {
+          if (option.rank > this.optionRankIndex) {
+            option.rank = this.optionRankIndex
+            this.optionRankIndex += 1
+          }
+        }
+
+      },
+
+      /**
+       * Reset the ranked items
+       */
+      resetRankedItems () {
+        let self = this
+
+        for (let i = 0; i < self.surveyQuestions.length; i++) {
+          if (self.surveyQuestions[i].type === 'ranked') {
+            for (let j = 0; j < self.surveyQuestions[i].availableOptions.length; j++) {
+              self.surveyQuestions[i].availableOptions[j].rank = ''
+            }
+            this.optionRankIndex = 1
+          }
+        }
+      },
+
+      /**
        * Attempts to determine the device size based on screen width
        *
        * @returns {string}
@@ -297,12 +342,12 @@
     @import '../../../sass/variables';
     @import '../../../sass/responsive';
 
-    .loading{
+    .loading {
         color: $brand-primary;
         font-size: 1.5rem;
     }
-    
-    .thank-you-message{
+
+    .thank-you-message {
         min-height: inherit;
         display: -webkit-box;
         display: -moz-box;
@@ -320,6 +365,20 @@
 
     form {
 
+        .form-text {
+            line-height: 1.6;
+            margin-top: 0;
+            margin-bottom: 10px;
+
+            a{
+                font-size: inherit;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+
         label {
             font-weight: bold;
         }
@@ -331,11 +390,15 @@
                 width: 50%;
                 margin-bottom: 5px;
 
+                &:hover {
+                    cursor: pointer;
+                }
+
                 @media #{$mobile} {
                     width: 100%;
                 }
 
-                label, input {
+                label, input, .option-rank {
                     float: left;
                 }
 
@@ -345,11 +408,19 @@
                     @media #{$mobile} {
                         font-size: .9rem;
                     }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
-                input {
+                input, .option-rank {
                     width: 50px;
                     text-align: center;
+                    min-height: 38px;
+                    border: 1px solid #ced4da;
+                    border-radius: 0.25rem;
+
                 }
 
                 textarea {

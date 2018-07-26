@@ -20,7 +20,7 @@ class SignRequestsController extends Controller
     public function index()
     {
 
-        $signRequests = SignRequest::all();
+        $signRequests = SignRequest::orderBy('created_at', 'desc')->get();
 
         $response['signRequests'] = $signRequests;
 
