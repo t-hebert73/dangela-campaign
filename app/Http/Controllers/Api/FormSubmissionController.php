@@ -27,7 +27,8 @@ class FormSubmissionController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function submitSurvey() {
+    public function submitSurvey()
+    {
 
         $formData = $this->validate(request(), [
             'surveyData' => 'required',
@@ -36,21 +37,21 @@ class FormSubmissionController extends Controller
 
         $atLeastOneQuestionAnswered = false;
 
-        foreach($formData['surveyData'] as $surveyData) {
-            if($surveyData['type'] === 'ranked') {
-                foreach($surveyData['availableOptions'] as $option) {
-                    if(isset($option['rank'])) {
+        foreach ($formData['surveyData'] as $surveyData) {
+            if ($surveyData['type'] === 'ranked') {
+                foreach ($surveyData['availableOptions'] as $option) {
+                    if (isset($option['rank'])) {
                         $atLeastOneQuestionAnswered = true;
                     }
                 }
             } else {
-                if(isset($surveyData['answer'])) {
+                if (isset($surveyData['answer'])) {
                     $atLeastOneQuestionAnswered = true;
                 }
             }
         }
 
-        if(!$atLeastOneQuestionAnswered) {
+        if (!$atLeastOneQuestionAnswered) {
 
             $errors = [
                 'fill' => [
@@ -64,19 +65,25 @@ class FormSubmissionController extends Controller
             return response()->json($response, 422);
         }
 
+        $previousSurveySubmission = SurveySubmission::where(['ip' => request()->getClientIp()])->get();
 
-        $formDataParsed = [];
-        $formDataParsed['source'] = $formData['source'];
-        $formDataParsed['survey_data'] = json_encode($formData['surveyData']);
+        if ($previousSurveySubmission->count()) {
+            $response['message'] = "<p>You have already filled out the survey previously. Thank you.</p>";
+        } else {
+            $formDataParsed = [];
+            $formDataParsed['source'] = $formData['source'];
+            $formDataParsed['ip'] = request()->getClientIp();
+            $formDataParsed['survey_data'] = json_encode($formData['surveyData']);
 
-        $surveySubmission = new SurveySubmission($formDataParsed);
+            $surveySubmission = new SurveySubmission($formDataParsed);
 
-        $surveySubmission->save();
+            $surveySubmission->save();
 
-        Mail::to(env('SURVEY_MAIL_TO'))->send(new SurveySubmitted($surveySubmission));
+            Mail::to(env('SURVEY_MAIL_TO'))->send(new SurveySubmitted($surveySubmission));
 
-        $response['message'] = "<p>Thank you for taking the time to complete the survey. Your feedback is greatly appreciated.
+            $response['message'] = "<p>Thank you for taking the time to complete the survey. Your feedback is greatly appreciated.
 Sincerely, </p> <p>Henry D'Angela</p>";
+        }
 
         return response()->json($response);
     }
@@ -85,7 +92,8 @@ Sincerely, </p> <p>Henry D'Angela</p>";
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function submitSignRequest() {
+    public function submitSignRequest()
+    {
 
         $formData = $this->validate(request(), [
             'name' => 'required',
@@ -110,7 +118,8 @@ Sincerely, </p> <p>Henry D'Angela</p>";
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function submitVolunteerRequest() {
+    public function submitVolunteerRequest()
+    {
 
         $formData = $this->validate(request(), [
             'name' => 'required',
@@ -134,7 +143,8 @@ Sincerely, </p> <p>Henry D'Angela</p>";
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function submitDonationRequest() {
+    public function submitDonationRequest()
+    {
 
         $formData = $this->validate(request(), [
             'name' => 'required',

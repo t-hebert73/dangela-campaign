@@ -21,12 +21,15 @@ class SurveySubmission extends Model
      */
     protected $fillable = [
         'survey_data',
-        'source'
+        'source',
+        'ip'
     ];
 
     protected $survey_data;
 
     protected $source;
+
+    protected $ip;
 
     /**
      * @param $value
