@@ -486,6 +486,13 @@ html body #main_app header .main-menu-container .navbar .nav .nav-item {
   margin-left: 10px;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  html body #main_app header .main-menu-container .navbar .nav .nav-item {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
 @media (max-width: 767px) {
   html body #main_app header .main-menu-container .navbar .nav .nav-item {
     width: 100%;
@@ -498,8 +505,14 @@ html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link
   font-size: 1.2rem;
   text-transform: uppercase;
   color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
+    font-size: 1rem;
+  }
 }
 
 html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link.router-link-exact-active {

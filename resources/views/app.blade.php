@@ -24,9 +24,9 @@
                    $description = 'We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you. ';
                    break;
 
-               case 'about':
-                   $title = "About | Henry D'Angela";
-                   $description = 'Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010. ';
+               case 'bio':
+                   $title = "Bio | Henry D'Angela";
+                   $description = "Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 27 years.";
                    break;
 
                case 'sign-request':
@@ -42,6 +42,16 @@
                case 'donate':
                    $title = "Donation | Henry D'Angela";
                    $description = "Request to make a donation to the Henry D'Angela Campaign. ";
+                   break;
+
+               case 'community-involvement':
+                   $title = "Community Involvement | Henry D'Angela";
+                   $description = 'Being part of a community means more than just calling Thorold “home”.  For Henry being a real part of Thorold means giving back to the people who helped raise and influence you.  It means sharing your neighbours’ burdens, joys, sorrows and successes.  It means serving your fellow citizens in ways that benefit the whole community.';
+                   break;
+
+               case 'political-experience':
+                   $title = "Political Experience | Henry D'Angela";
+                   $description = 'Henry has long believed he could make a difference by taking an active role in municipal governance. At the age of 31, he won his first electoral victory – becoming a member of the Thorold Hydro Electric Commission for the 1997-2000 term. ';
                    break;
 
                default:

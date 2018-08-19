@@ -176,9 +176,19 @@ const routes = [
     component: require('./components/page-templates/HomePage.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    component: require('./components/page-templates/AboutPage.vue')
+    path: '/bio',
+    name: 'bio',
+    component: require('./components/page-templates/BioPage.vue')
+  },
+  {
+    path: '/community-involvement',
+    name: 'community-involvement',
+    component: require('./components/page-templates/CommunityInvolvementPage.vue')
+  },
+  {
+    path: '/political-experience',
+    name: 'political-experience',
+    component: require('./components/page-templates/PoliticalExperiencePage.vue')
   },
   {
     path: '/survey',

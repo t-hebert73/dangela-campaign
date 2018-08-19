@@ -14,7 +14,13 @@
                         <b-navbar-nav>
                             <b-nav>
                                 <li class="nav-item">
-                                    <router-link :to="{ path: '/about'}" class="nav-link">About</router-link>
+                                    <router-link :to="{ path: '/bio'}" class="nav-link">Bio</router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link :to="{ path: '/community-involvement'}" class="nav-link">Community Involvement</router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link :to="{ path: '/political-experience'}" class="nav-link">Political Experience</router-link>
                                 </li>
                             </b-nav>
                         </b-navbar-nav>
