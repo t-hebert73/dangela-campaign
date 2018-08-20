@@ -50,6 +50,7 @@
       // determine if we are at /admin or not
       this.determineAdminSection(this.$route.path)
 
+      this.trackSiteView()
     },
 
     methods: {
@@ -78,7 +79,49 @@
             //this.headerClass = 'admin shrink'
           }
         }
-      }
+      },
+
+      /**
+       * Tracks the site view. Only allows one tracking record per 24 hours
+       */
+      trackSiteView () {
+        let clientData = {
+          externalReferrer: document.referrer,
+          source: this.guessDeviceSource()
+        }
+
+        let path = this.$router.currentRoute.fullPath
+        if(!path.includes('admin')) { //track non admin routes
+          window.axios.post(this.API_ROUTE + 'tracking/site-view', clientData)
+        }
+
+      },
+
+      /**
+       * Attempts to determine the device size based on screen width
+       *
+       * @returns {string}
+       */
+      guessDeviceSource () {
+        // determine device source
+        let width = $(window).width()
+
+        let deviceSource = ''
+
+        switch (true) {
+          case (width < 768):
+            deviceSource = 'mobile'
+            break
+          case (width < 980):
+            deviceSource = 'tablet'
+            break
+          default:
+            deviceSource = 'desktop'
+            break
+        }
+
+        return deviceSource
+      },
     }
   }
 </script>

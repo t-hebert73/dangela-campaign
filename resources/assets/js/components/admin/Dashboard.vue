@@ -3,6 +3,34 @@
         <main role="main" class="col-10 col-md-9 col-sm-9 ml-sm-auto col-lg-10 pt-3 px-2 px-sm-4">
             <div class="container-fluid min-body-height mt-3">
                 <div class="row">
+
+                    <div class="col-12 mb-5">
+                        <b-card-group class="mt-4" deck>
+                            <b-card no-body align="center">
+                                <b-card-header class="brand-primary">
+                                    <h4>Site Views</h4>
+                                </b-card-header>
+                                <b-card-body>
+                                    <p class="card-text data-value big">
+                                        {{ siteViews }}
+                                    </p>
+                                </b-card-body>
+                            </b-card>
+
+                            <b-card no-body align="center">
+                                <b-card-header class="brand-primary">
+                                    <h4>Unique Site Views</h4>
+                                </b-card-header>
+                                <b-card-body>
+                                    <div class="card-text data-value">
+                                        {{ uniqueSiteViews }}
+                                    </div>
+                                </b-card-body>
+                            </b-card>
+
+                        </b-card-group>
+                    </div>
+
                     <div class="col-12 col-md-6">
                         <div class="card mb-3">
                             <div class="card-body">
@@ -205,7 +233,9 @@
         surveySubmissions: {},
         signRequests: {},
         volunteers: {},
-        donations: {}
+        donations: {},
+        siteViews: 0,
+        uniqueSiteViews: 0
       }
     },
 
@@ -233,6 +263,14 @@
 
       window.axios.get(this.API_ROUTE + 'donations/latest').then(response => {
         this.donations = response.data.donations
+        this.loading = false
+      }).catch(error => {
+        flash('Error loading pages. Reason: ' + error.response.data.message, 'error')
+      })
+
+      window.axios.get(this.API_ROUTE + 'dashboard/get-stats').then(response => {
+        this.siteViews = response.data.siteViews
+        this.uniqueSiteViews = response.data.uniqueSiteViews
         this.loading = false
       }).catch(error => {
         flash('Error loading pages. Reason: ' + error.response.data.message, 'error')

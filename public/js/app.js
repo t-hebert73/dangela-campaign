@@ -26935,8 +26935,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(205);
-__webpack_require__(492);
-module.exports = __webpack_require__(493);
+__webpack_require__(502);
+module.exports = __webpack_require__(503);
 
 
 /***/ }),
@@ -27126,31 +27126,31 @@ var routes = [{
 }, {
   path: '/bio',
   name: 'bio',
-  component: __webpack_require__(501)
+  component: __webpack_require__(467)
 }, {
   path: '/community-involvement',
   name: 'community-involvement',
-  component: __webpack_require__(506)
+  component: __webpack_require__(472)
 }, {
   path: '/political-experience',
   name: 'political-experience',
-  component: __webpack_require__(511)
+  component: __webpack_require__(477)
 }, {
   path: '/survey',
   name: 'survey',
-  component: __webpack_require__(472)
+  component: __webpack_require__(482)
 }, {
   path: '/sign-request',
   name: 'sign-request',
-  component: __webpack_require__(477)
+  component: __webpack_require__(487)
 }, {
   path: '/volunteer',
   name: 'volunteer',
-  component: __webpack_require__(482)
+  component: __webpack_require__(492)
 }, {
   path: '/donate',
   name: 'donation',
-  component: __webpack_require__(487)
+  component: __webpack_require__(497)
 }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -95276,6 +95276,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     // determine if we are at /admin or not
     this.determineAdminSection(this.$route.path);
+
+    this.trackSiteView();
   },
 
 
@@ -95306,6 +95308,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           //this.headerClass = 'admin shrink'
         }
       }
+    },
+
+
+    /**
+     * Tracks the site view. Only allows one tracking record per 24 hours
+     */
+    trackSiteView: function trackSiteView() {
+      var clientData = {
+        externalReferrer: document.referrer,
+        source: this.guessDeviceSource()
+      };
+
+      var path = this.$router.currentRoute.fullPath;
+      if (!path.includes('admin')) {
+        //track non admin routes
+        window.axios.post(this.API_ROUTE + 'tracking/site-view', clientData);
+      }
+    },
+
+
+    /**
+     * Attempts to determine the device size based on screen width
+     *
+     * @returns {string}
+     */
+    guessDeviceSource: function guessDeviceSource() {
+      // determine device source
+      var width = $(window).width();
+
+      var deviceSource = '';
+
+      switch (true) {
+        case width < 768:
+          deviceSource = 'mobile';
+          break;
+        case width < 980:
+          deviceSource = 'tablet';
+          break;
+        default:
+          deviceSource = 'desktop';
+          break;
+      }
+
+      return deviceSource;
     }
   }
 });
@@ -98017,6 +98063,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -98029,7 +98103,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       surveySubmissions: {},
       signRequests: {},
       volunteers: {},
-      donations: {}
+      donations: {},
+      siteViews: 0,
+      uniqueSiteViews: 0
     };
   },
   mounted: function mounted() {
@@ -98058,6 +98134,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     window.axios.get(this.API_ROUTE + 'donations/latest').then(function (response) {
       _this.donations = response.data.donations;
+      _this.loading = false;
+    }).catch(function (error) {
+      flash('Error loading pages. Reason: ' + error.response.data.message, 'error');
+    });
+
+    window.axios.get(this.API_ROUTE + 'dashboard/get-stats').then(function (response) {
+      _this.siteViews = response.data.siteViews;
+      _this.uniqueSiteViews = response.data.uniqueSiteViews;
       _this.loading = false;
     }).catch(function (error) {
       flash('Error loading pages. Reason: ' + error.response.data.message, 'error');
@@ -98177,6 +98261,62 @@ var render = function() {
       [
         _c("div", { staticClass: "container-fluid min-body-height mt-3" }, [
           _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-12 mb-5" },
+              [
+                _c(
+                  "b-card-group",
+                  { staticClass: "mt-4", attrs: { deck: "" } },
+                  [
+                    _c(
+                      "b-card",
+                      { attrs: { "no-body": "", align: "center" } },
+                      [
+                        _c("b-card-header", { staticClass: "brand-primary" }, [
+                          _c("h4", [_vm._v("Site Views")])
+                        ]),
+                        _vm._v(" "),
+                        _c("b-card-body", [
+                          _c("p", { staticClass: "card-text data-value big" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.siteViews) +
+                                "\n                                "
+                            )
+                          ])
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-card",
+                      { attrs: { "no-body": "", align: "center" } },
+                      [
+                        _c("b-card-header", { staticClass: "brand-primary" }, [
+                          _c("h4", [_vm._v("Unique Site Views")])
+                        ]),
+                        _vm._v(" "),
+                        _c("b-card-body", [
+                          _c("div", { staticClass: "card-text data-value" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.uniqueSiteViews) +
+                                "\n                                "
+                            )
+                          ])
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _c("div", { staticClass: "col-12 col-md-6" }, [
               _c("div", { staticClass: "card mb-3" }, [
                 _c("div", { staticClass: "card-body" }, [
@@ -102333,11 +102473,213 @@ if (false) {
 }
 
 /***/ }),
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
+/* 467 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(468)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(470)
+/* template */
+var __vue_template__ = __webpack_require__(471)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-d3a9874c"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/page-templates/BioPage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d3a9874c", Component.options)
+  } else {
+    hotAPI.reload("data-v-d3a9874c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 468 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(469);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("6f160078", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3a9874c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BioPage.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3a9874c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BioPage.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 469 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 470 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'bio-page'
+});
+
+/***/ }),
+/* 471 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "main-area" }, [
+        _c("div", { staticClass: "page-content" }, [
+          _c("h1", [_vm._v("Biography")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                For Thorold native Henry D’Angela, there has been so much more to life than just personal and financial achievement….much more.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 27 years.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                He and his wife of 21 years, Rina, have two children, Julie and Kyle.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              '\n                His business expertise and dedication earned him the 2006 Niagara "Top 40 Under 40" business award. For Henry, success can only be realized when those around you succeed as well. This philosophy has launched a lifetime of community involvement, sharing and public service.\n            '
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Whether his participation is as a volunteer, as an executive member of a community organization, or as an elected official, Henry brings the same dedication to service and shared success.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                For Henry, service is a way of life, and Thorold is a better place because of his strong sense of community. Now Henry again offers himself in the service of his hometown. As your Mayor, Henry D'Angela will be committed to open, accountable and attentive local government. It's the only way he knows how to serve you. Henry will attend and fully participate in meetings to make sure your voice is heard.\n            "
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d3a9874c", module.exports)
+  }
+}
+
+/***/ }),
 /* 472 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -102351,6 +102693,651 @@ var normalizeComponent = __webpack_require__(5)
 var __vue_script__ = __webpack_require__(475)
 /* template */
 var __vue_template__ = __webpack_require__(476)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-90cec4e4"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/page-templates/CommunityInvolvementPage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-90cec4e4", Component.options)
+  } else {
+    hotAPI.reload("data-v-90cec4e4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 473 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(474);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("49d62ac4", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90cec4e4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommunityInvolvementPage.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90cec4e4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommunityInvolvementPage.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 475 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'community-involvement-page'
+});
+
+/***/ }),
+/* 476 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "main-area" }, [
+        _c("div", { staticClass: "page-content" }, [
+          _c("h1", [_vm._v("Community Involvement")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Being part of a community means more than just calling Thorold “home”.  For Henry being a real part of Thorold means giving back to the people who helped raise and influence you.  It means sharing your neighbours’ burdens, joys, sorrows and successes.  It means serving your fellow citizens in ways that benefit the whole community.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                For Henry service is a way of life, and Thorold is a better place because of his strong sense of community.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", [
+              _vm._v(
+                "Among the organizations in which Henry has and is serving are:"
+              )
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [_vm._v("Alzheimer Society Coffee Beak Committee")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Canada Summer Games (2021) Bid Committee")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Community Care (Thorold & St Catharines) - volunteer")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Community Easter Egg Hunt - co-creator, committee chair and volunteer"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Club Capri - member and volunteer")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Club Castropignano (Niagara) Inc. - trustee, constitution committee member"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Denis Morris High School Girls Hockey - coach")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Denis Morris High School Boys Baseball - coach")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Harvest of Hope Campaign - chair")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Heart and Stroke (Thorold Chapter) - president and special events coordinator"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Henderson’s High School Baseball Tournament – convener and organizer"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Holy Rosary Church - financial council advisor")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Knights of Columbus - fund raising volunteer")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Niagara Falls Rapid Girls Hockey - coach")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Niagara Sport Commission - board chair and volunteer")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Thorold Amateur Athletics Association - coach, trainer and manager"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Thorold Arts & Crafts Festival - volunteer")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Thorold Community Activities Group - director and volunteer"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Thorold Festival Committee ")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Thorold Jr-B Blackhawks Hockey Team - volunteer")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Thorold Legion Baseball - coach")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Thorold High School Boys Baseball - coach")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Thorold Non-Profit Housing - board of director")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Thorold Soccer Association - coach")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Royal Canadian Legion, Branch #17 - member and volunteer"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Rick Hansen Wheels in Motion - committee member")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Bullett Proof Prospect Baseball Team - coach")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("St. Catharines Cycling club - treasurer, coach")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Welland Canal Foundation - treasurer")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry believes Thorold can be an even stronger community with the full participation of all its citizens.  As your mayor, he will work with you and your neighbours to ensure we can all be part of the exciting future of our city.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(" ")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-90cec4e4", module.exports)
+  }
+}
+
+/***/ }),
+/* 477 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(478)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(480)
+/* template */
+var __vue_template__ = __webpack_require__(481)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-8be092ce"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/page-templates/PoliticalExperiencePage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8be092ce", Component.options)
+  } else {
+    hotAPI.reload("data-v-8be092ce", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 478 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(479);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("3740b647", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8be092ce\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PoliticalExperiencePage.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8be092ce\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PoliticalExperiencePage.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 479 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 480 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'political-experience-page'
+});
+
+/***/ }),
+/* 481 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "main-area" }, [
+        _c("div", { staticClass: "page-content" }, [
+          _c("h1", [_vm._v("Political Experience")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry has long believed he could make a difference by taking an active role in municipal governance.  At the age of 31, he won his first electoral victory – becoming a member of the Thorold Hydro Electric Commission for the 1997-2000 term. As Transition Steering Committee Chair, Henry helped guide the change to the current hydro service provider, resulting in the sale of $17.1 million worth of Thorold Hydro assets that now are held by the City for all its citizens.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry ran successfully for City Council in 2000 and expanded his experience to include numerous committees that benefit the residents of Thorold such as the Downtown Redevelopment Task Force, Thorold Non-Profit Housing Corporation, Thorold Festival Committee and the Sports Advisory Committee.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", [
+              _vm._v(
+                "Henry was elected Mayor in 2006 and during the four-year term, his leadership led to the establishment of the following new committees:"
+              )
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _vm._v(
+                  "Mayor’s Canada Day Picnic Committee \t&\tMayor’s Youth Advisory Committee"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Volunteer Recognition Committee\t\t&\tPublic Advisory Committees "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry also participated on many other important city initiatives such as the Community Policing Committee, the Chamber of Commerce Prosperity Council and all Public Advisory Committees.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", [
+              _vm._v(
+                "Henry was elected to Regional Council in 2010 and again in 2014.  During his terms on Regional Council, Henry served on the following:"
+              )
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [_vm._v("Audit Committee - Chair\t")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Budget Review Committee - Vice Chair")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Corporate Services Committee - Co-Chair ")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Investment Committee - Chair")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Niagara Gateway and Economic Zone Committee - Vice Chair "
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Niagara Regional Police Service Board - Chair")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Niagara Regional Housing Board - Chair")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Niagara Regional Housing Board - Development Committee - Chair"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "Niagara Regional Housing Board - Investment Committee - Chair"
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Niagara Regional Housing Board Structure Committee ")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Physician Recruitment Committee")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Planning & Economic Development Committee")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Property Tax and Assessment Reform Committee - Chair")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Public Health and Social Services Committee")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Public Works Committee")]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v("Social Housing Alternative Service Delivery Task Force")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Transportation Steering Committee")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                Henry was also elected by his Regional peers to serve on the Niagara Regional Police Service Board and Niagara Regional Housing Board.  Henry served as the Police Board Chair for three years and as the Niagara Housing Board Chair for the past two years.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(" ")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8be092ce", module.exports)
+  }
+}
+
+/***/ }),
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(483)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(485)
+/* template */
+var __vue_template__ = __webpack_require__(486)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -102389,13 +103376,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 473 */
+/* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(474);
+var content = __webpack_require__(484);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -102415,7 +103402,7 @@ if(false) {
 }
 
 /***/ }),
-/* 474 */
+/* 484 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -102429,7 +103416,7 @@ exports.push([module.i, "\n.loading[data-v-4fd8ac94] {\n  color: #a51e36;\n  fon
 
 
 /***/ }),
-/* 475 */
+/* 485 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102752,7 +103739,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 476 */
+/* 486 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -102993,19 +103980,19 @@ if (false) {
 }
 
 /***/ }),
-/* 477 */
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(478)
+  __webpack_require__(488)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(480)
+var __vue_script__ = __webpack_require__(490)
 /* template */
-var __vue_template__ = __webpack_require__(481)
+var __vue_template__ = __webpack_require__(491)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -103044,13 +104031,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 478 */
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(479);
+var content = __webpack_require__(489);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -103070,7 +104057,7 @@ if(false) {
 }
 
 /***/ }),
-/* 479 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -103084,7 +104071,7 @@ exports.push([module.i, "\n.loading[data-v-3f5b1096] {\n  color: #a51e36;\n  fon
 
 
 /***/ }),
-/* 480 */
+/* 490 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103231,7 +104218,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 481 */
+/* 491 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -103397,19 +104384,19 @@ if (false) {
 }
 
 /***/ }),
-/* 482 */
+/* 492 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(483)
+  __webpack_require__(493)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(485)
+var __vue_script__ = __webpack_require__(495)
 /* template */
-var __vue_template__ = __webpack_require__(486)
+var __vue_template__ = __webpack_require__(496)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -103448,13 +104435,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 483 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(484);
+var content = __webpack_require__(494);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -103474,7 +104461,7 @@ if(false) {
 }
 
 /***/ }),
-/* 484 */
+/* 494 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -103488,7 +104475,7 @@ exports.push([module.i, "\n.loading[data-v-3351d2dc] {\n  color: #a51e36;\n  fon
 
 
 /***/ }),
-/* 485 */
+/* 495 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103665,7 +104652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 486 */
+/* 496 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -103867,19 +104854,19 @@ if (false) {
 }
 
 /***/ }),
-/* 487 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(488)
+  __webpack_require__(498)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(490)
+var __vue_script__ = __webpack_require__(500)
 /* template */
-var __vue_template__ = __webpack_require__(491)
+var __vue_template__ = __webpack_require__(501)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -103918,13 +104905,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 488 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(489);
+var content = __webpack_require__(499);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -103944,7 +104931,7 @@ if(false) {
 }
 
 /***/ }),
-/* 489 */
+/* 499 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -103958,7 +104945,7 @@ exports.push([module.i, "\n.loading[data-v-570a6d80] {\n  color: #a51e36;\n  fon
 
 
 /***/ }),
-/* 490 */
+/* 500 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -104102,7 +105089,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 491 */
+/* 501 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -104255,875 +105242,16 @@ if (false) {
 }
 
 /***/ }),
-/* 492 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 493 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(502)
-}
-var normalizeComponent = __webpack_require__(5)
-/* script */
-var __vue_script__ = __webpack_require__(504)
-/* template */
-var __vue_template__ = __webpack_require__(505)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-d3a9874c"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/page-templates/BioPage.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d3a9874c", Component.options)
-  } else {
-    hotAPI.reload("data-v-d3a9874c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 502 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(503);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("6f160078", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3a9874c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BioPage.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3a9874c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BioPage.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 503 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 504 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'bio-page'
-});
-
-/***/ }),
-/* 505 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "main-area" }, [
-        _c("div", { staticClass: "page-content" }, [
-          _c("h1", [_vm._v("Biography")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                For Thorold native Henry D’Angela, there has been so much more to life than just personal and financial achievement….much more.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 27 years.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                He and his wife of 21 years, Rina, have two children, Julie and Kyle.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              '\n                His business expertise and dedication earned him the 2006 Niagara "Top 40 Under 40" business award. For Henry, success can only be realized when those around you succeed as well. This philosophy has launched a lifetime of community involvement, sharing and public service.\n            '
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Whether his participation is as a volunteer, as an executive member of a community organization, or as an elected official, Henry brings the same dedication to service and shared success.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                For Henry, service is a way of life, and Thorold is a better place because of his strong sense of community. Now Henry again offers himself in the service of his hometown. As your Mayor, Henry D'Angela will be committed to open, accountable and attentive local government. It's the only way he knows how to serve you. Henry will attend and fully participate in meetings to make sure your voice is heard.\n            "
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d3a9874c", module.exports)
-  }
-}
-
-/***/ }),
-/* 506 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(507)
-}
-var normalizeComponent = __webpack_require__(5)
-/* script */
-var __vue_script__ = __webpack_require__(509)
-/* template */
-var __vue_template__ = __webpack_require__(510)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-90cec4e4"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/page-templates/CommunityInvolvementPage.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-90cec4e4", Component.options)
-  } else {
-    hotAPI.reload("data-v-90cec4e4", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 507 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(508);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("49d62ac4", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90cec4e4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommunityInvolvementPage.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90cec4e4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommunityInvolvementPage.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 508 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 509 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'community-involvement-page'
-});
-
-/***/ }),
-/* 510 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "main-area" }, [
-        _c("div", { staticClass: "page-content" }, [
-          _c("h1", [_vm._v("Community Involvement")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Being part of a community means more than just calling Thorold “home”.  For Henry being a real part of Thorold means giving back to the people who helped raise and influence you.  It means sharing your neighbours’ burdens, joys, sorrows and successes.  It means serving your fellow citizens in ways that benefit the whole community.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                For Henry service is a way of life, and Thorold is a better place because of his strong sense of community.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [
-              _vm._v(
-                "Among the organizations in which Henry has and is serving are:"
-              )
-            ]),
-            _vm._v(" "),
-            _c("ul", [
-              _c("li", [_vm._v("Alzheimer Society Coffee Beak Committee")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Canada Summer Games (2021) Bid Committee")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Community Care (Thorold & St Catharines) - volunteer")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Community Easter Egg Hunt - co-creator, committee chair and volunteer"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Club Capri - member and volunteer")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Club Castropignano (Niagara) Inc. - trustee, constitution committee member"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Denis Morris High School Girls Hockey - coach")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Denis Morris High School Boys Baseball - coach")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Harvest of Hope Campaign - chair")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Heart and Stroke (Thorold Chapter) - president and special events coordinator"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Henderson’s High School Baseball Tournament – convener and organizer"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Holy Rosary Church - financial council advisor")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Knights of Columbus - fund raising volunteer")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Niagara Falls Rapid Girls Hockey - coach")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Niagara Sport Commission - board chair and volunteer")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Thorold Amateur Athletics Association - coach, trainer and manager"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Thorold Arts & Crafts Festival - volunteer")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Thorold Community Activities Group - director and volunteer"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Thorold Festival Committee ")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Thorold Jr-B Blackhawks Hockey Team - volunteer")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Thorold Legion Baseball - coach")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Thorold High School Boys Baseball - coach")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Thorold Non-Profit Housing - board of director")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Thorold Soccer Association - coach")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Royal Canadian Legion, Branch #17 - member and volunteer"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Rick Hansen Wheels in Motion - committee member")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Bullett Proof Prospect Baseball Team - coach")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("St. Catharines Cycling club - treasurer, coach")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Welland Canal Foundation - treasurer")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry believes Thorold can be an even stronger community with the full participation of all its citizens.  As your mayor, he will work with you and your neighbours to ensure we can all be part of the exciting future of our city.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v(" ")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-90cec4e4", module.exports)
-  }
-}
-
-/***/ }),
-/* 511 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(512)
-}
-var normalizeComponent = __webpack_require__(5)
-/* script */
-var __vue_script__ = __webpack_require__(514)
-/* template */
-var __vue_template__ = __webpack_require__(515)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-8be092ce"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/page-templates/PoliticalExperiencePage.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8be092ce", Component.options)
-  } else {
-    hotAPI.reload("data-v-8be092ce", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 512 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(513);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("3740b647", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8be092ce\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PoliticalExperiencePage.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8be092ce\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PoliticalExperiencePage.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 513 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 514 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'political-experience-page'
-});
-
-/***/ }),
-/* 515 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "main-area" }, [
-        _c("div", { staticClass: "page-content" }, [
-          _c("h1", [_vm._v("Political Experience")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry has long believed he could make a difference by taking an active role in municipal governance.  At the age of 31, he won his first electoral victory – becoming a member of the Thorold Hydro Electric Commission for the 1997-2000 term. As Transition Steering Committee Chair, Henry helped guide the change to the current hydro service provider, resulting in the sale of $17.1 million worth of Thorold Hydro assets that now are held by the City for all its citizens.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry ran successfully for City Council in 2000 and expanded his experience to include numerous committees that benefit the residents of Thorold such as the Downtown Redevelopment Task Force, Thorold Non-Profit Housing Corporation, Thorold Festival Committee and the Sports Advisory Committee.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [
-              _vm._v(
-                "Henry was elected Mayor in 2006 and during the four-year term, his leadership led to the establishment of the following new committees:"
-              )
-            ]),
-            _vm._v(" "),
-            _c("ul", [
-              _c("li", [
-                _vm._v(
-                  "Mayor’s Canada Day Picnic Committee \t&\tMayor’s Youth Advisory Committee"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Volunteer Recognition Committee\t\t&\tPublic Advisory Committees "
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry also participated on many other important city initiatives such as the Community Policing Committee, the Chamber of Commerce Prosperity Council and all Public Advisory Committees.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [
-              _vm._v(
-                "Henry was elected to Regional Council in 2010 and again in 2014.  During his terms on Regional Council, Henry served on the following:"
-              )
-            ]),
-            _vm._v(" "),
-            _c("ul", [
-              _c("li", [_vm._v("Audit Committee - Chair\t")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Budget Review Committee - Vice Chair")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Corporate Services Committee - Co-Chair ")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Investment Committee - Chair")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Niagara Gateway and Economic Zone Committee - Vice Chair "
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Niagara Regional Police Service Board - Chair")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Niagara Regional Housing Board - Chair")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Niagara Regional Housing Board - Development Committee - Chair"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Niagara Regional Housing Board - Investment Committee - Chair"
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Niagara Regional Housing Board Structure Committee ")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Physician Recruitment Committee")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Planning & Economic Development Committee")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Property Tax and Assessment Reform Committee - Chair")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Public Health and Social Services Committee")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Public Works Committee")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Social Housing Alternative Service Delivery Task Force")
-              ]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Transportation Steering Committee")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                Henry was also elected by his Regional peers to serve on the Niagara Regional Police Service Board and Niagara Regional Housing Board.  Henry served as the Police Board Chair for three years and as the Niagara Housing Board Chair for the past two years.\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v(" ")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8be092ce", module.exports)
-  }
-}
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -19,6 +19,7 @@ Route::post('form-submissions/survey', 'Api\FormSubmissionController@submitSurve
 Route::post('form-submissions/sign-request', 'Api\FormSubmissionController@submitSignRequest');
 Route::post('form-submissions/volunteer', 'Api\FormSubmissionController@submitVolunteerRequest');
 Route::post('form-submissions/donation', 'Api\FormSubmissionController@submitDonationRequest');
+Route::post('tracking/site-view', 'Api\TrackingController@trackSiteView');
 
 Route::middleware(['client_credentials'])->group(function () {
 
@@ -41,6 +42,8 @@ Route::middleware(['client_credentials'])->group(function () {
     Route::get('donations/latest', 'Api\DonationsController@getLatestDonations');
     Route::get('donations/{id}', 'Api\DonationsController@retrieve');
     Route::delete('donations/{id}', 'Api\DonationsController@destroy');
+
+    Route::get('dashboard/get-stats', 'Api\DashboardController@getDashboardStats');
 
 });
 
