@@ -97594,7 +97594,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row justify-content-center footer-text" }, [
           _vm._v(
-            "\n            ©2018 Henry D'Angela. All Rights Reserved\n        "
+            "\n            Authorized and paid for by Henry D’Angela, © 2018 Henry D'Angela. All Rights Reserved\n        "
           )
         ])
       ])

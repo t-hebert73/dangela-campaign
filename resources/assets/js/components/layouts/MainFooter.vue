@@ -2,7 +2,7 @@
     <footer>
         <div class="container">
             <div class="row justify-content-center footer-text">
-                &copy;2018 Henry D'Angela. All Rights Reserved
+                Authorized and paid for by Henry D’Angela, © 2018 Henry D'Angela. All Rights Reserved
             </div>
         </div>
 
