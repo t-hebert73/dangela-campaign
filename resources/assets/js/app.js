@@ -209,6 +209,26 @@ const routes = [
     path: '/donate',
     name: 'donation',
     component: require('./components/page-templates/DonationRequest.vue')
+  },
+  {
+    path: '/accomplishments/mayor',
+    name: 'mayor-accomplishments',
+    component: require('./components/page-templates/MayorAccomplishmentsPage.vue')
+  },
+  {
+    path: '/accomplishments/regional-councillor',
+    name: 'regional-councillor-accomplishments',
+    component: require('./components/page-templates/RegionalCouncillorAccomplishmentsPage.vue')
+  },
+  {
+    path: '/supports',
+    name: 'supports',
+    component: require('./components/page-templates/SupportsPage.vue')
+  },
+  {
+    path: '/fundraiser',
+    name: 'fundraiser',
+    component: require('./components/page-templates/FundraiserPage.vue')
   }
 ]
 

@@ -22,6 +22,17 @@
                                 <li class="nav-item">
                                     <router-link :to="{ path: '/political-experience'}" class="nav-link">Political Experience</router-link>
                                 </li>
+                                <b-nav-item-dropdown text="Accomplishments">
+                                    <b-dropdown-item>
+                                        <router-link :to="{ path: '/accomplishments/mayor'}" class="nav-link">As Mayor</router-link>
+                                    </b-dropdown-item>
+                                    <b-dropdown-item>
+                                        <router-link :to="{ path: '/accomplishments/regional-councillor'}" class="nav-link">As Regional Councillor</router-link>
+                                    </b-dropdown-item>
+                                </b-nav-item-dropdown>
+                                <li class="nav-item">
+                                    <router-link :to="{ path: '/supports'}" class="nav-link">Supports</router-link>
+                                </li>
                             </b-nav>
                         </b-navbar-nav>
                     </b-collapse>

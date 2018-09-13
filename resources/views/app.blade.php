@@ -54,6 +54,26 @@
                    $description = 'Henry has long believed he could make a difference by taking an active role in municipal governance. At the age of 31, he won his first electoral victory – becoming a member of the Thorold Hydro Electric Commission for the 1997-2000 term. ';
                    break;
 
+               case 'accomplishments/mayor':
+                   $title = "Accomplishments As Mayor | Henry D'Angela";
+                   $description = 'Henry’s active participation, exemplary attendance and experience has lead to the following accomplishments. 100% attendance at Thorold city council meeting during the four-year term. constructed a new outdoor aquatic centre at Richmond Street Park. constructed a new splash pad in Port Robinson';
+                   break;
+
+               case 'accomplishments/regional-councillor':
+                   $title = "Accomplishments As Regional Councillor | Henry D'Angela";
+                   $description = 'Henry’s active participation, exemplary attendance and experience has lead to the following accomplishments. uploading of Collier road to the Region of Niagara. the city of Thorold receiving funding for Collier/Richmond intersection upgrades. the arterial road review with three more city roads being uploaded to the Region of Niagara';
+                   break;
+
+               case 'supports':
+                   $title = "Supports | Henry D'Angela";
+                   $description = 'Henry supports a wide variety of issues listed below. Local government being open and transparent. Stable, responsible taxes reflect real needs, not political wish lists. Council remaining accountable throughout its term of office';
+                   break;
+
+               case 'fundraiser':
+                   $title = "Fundraiser | Henry D'Angela";
+                   $description = 'Thorold Mayoral Candidate Henry D’Angela is inviting constituents to join him at a Wine and Cheese Fundraiser on September 20 in Thorold.';
+                   break;
+
                default:
                    $title = 'Page Not Found';
                    $description = '';

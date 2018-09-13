@@ -21,7 +21,7 @@
 
                         <img class="mb-4" src="images/main.jpg" alt="Henry D'Angela" title="Henry D'Angela">
 
-                        <p class="tag-line">Planning Thorold<span class="apostrophe">'</span>s Future Together</p>
+                        <p class="tag-line">Leadership and Experience working for you!</p>
                     </div>
 
                 </div>
@@ -69,6 +69,10 @@
 
     .page-content{
         text-align: center;
+
+        @media #{$mobile} {
+            margin-bottom: 25px;
+        }
     }
 
     .apostrophe{

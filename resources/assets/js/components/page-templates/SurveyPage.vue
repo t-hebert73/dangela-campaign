@@ -70,7 +70,7 @@
                     </div>
                 </b-form-group>
 
-                <b-button type="submit" variant="primary">Submit</b-button>
+                <b-button type="submit" variant="primary" class="mb-2">Submit</b-button>
             </form>
         </div>
     </div>

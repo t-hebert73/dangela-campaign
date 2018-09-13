@@ -432,18 +432,55 @@ html body #main_app .hover-pointer:hover {
   cursor: pointer;
 }
 
+html body #main_app header {
+  margin-bottom: 30px;
+}
+
+html body #main_app header .fundraiser {
+  background-color: #173a61;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+html body #main_app header .fundraiser .fa {
+  font-size: 1.2rem;
+}
+
+html body #main_app header .fundraiser .fundraiser-text {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+html body #main_app header .fundraiser .fundraiser-text,
+html body #main_app header .fundraiser .fundraiser-link {
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  html body #main_app header .fundraiser .fundraiser-link {
+    margin-top: 10px;
+  }
+}
+
 html body #main_app header .main-menu-container {
   background-color: #a51e36;
-  margin-bottom: 30px;
 }
 
 html body #main_app header .main-menu-container .navbar-brand {
   color: white;
-  padding: 10px 0;
+  padding: 20px 0;
   background-color: transparent;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  html body #main_app header .main-menu-container .navbar-brand {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -469,7 +506,7 @@ html body #main_app header .main-menu-container .navbar .navbar-toggler {
   margin-left: 35px;
   position: absolute;
   right: 27px;
-  top: -47px;
+  top: -57px;
 }
 
 @media (max-width: 767px) {
@@ -482,15 +519,8 @@ html body #main_app header .main-menu-container .navbar .navbar-toggler {
 }
 
 html body #main_app header .main-menu-container .navbar .nav .nav-item {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  html body #main_app header .main-menu-container .navbar .nav .nav-item {
-    margin-right: 5px;
-    margin-left: 5px;
-  }
+  margin-right: 0;
+  margin-left: 0;
 }
 
 @media (max-width: 767px) {
@@ -502,16 +532,21 @@ html body #main_app header .main-menu-container .navbar .nav .nav-item {
 }
 
 html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: white;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  padding: 1.3rem .5rem;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
+    font-size: .9rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link {
-    font-size: 1rem;
+    font-size: .8rem;
   }
 }
 
@@ -529,6 +564,101 @@ html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+html body #main_app header .main-menu-container .navbar .nav .nav-item .nav-link span {
+  font-size: inherit;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu {
+  border-color: #a51e36;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item {
+  outline: none !important;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item:active,
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #a51e36;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item:active .nav-link,
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item:hover .nav-link {
+  color: white;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item .nav-link {
+  color: #a51e36;
+  padding: 0;
+}
+
+html body #main_app header .main-menu-container .navbar .nav .nav-item .dropdown-menu .dropdown-item .nav-link:hover {
+  background-color: transparent;
+}
+
+html body #main_app footer {
+  background-color: #173a61;
+  color: white;
+}
+
+html body #main_app footer .social-links {
+  text-align: center;
+}
+
+html body #main_app footer .social-links .fa {
+  color: white;
+  font-size: 1.8rem;
+}
+
+html body #main_app footer .social-links .fa:hover {
+  opacity: 0.8;
+}
+
+html body #main_app footer .info-bar {
+  text-align: center;
+  color: white;
+  border-top: 5px solid #a51e36;
+}
+
+html body #main_app footer .info-bar a {
+  color: white;
+}
+
+html body #main_app footer .info-bar a:hover {
+  opacity: 0.8;
+}
+
+html body #main_app footer .info-bar .better-niagara {
+  margin: auto;
+  display: inline-block;
+  padding: 18px;
+}
+
+@media (max-width: 767px) {
+  html body #main_app footer .info-bar .better-niagara {
+    padding: 18px 5px;
+  }
+}
+
+html body #main_app footer .info-bar .better-niagara .better-niagara-logo {
+  background-image: url("/images/better-niagara.jpg");
+  background-size: cover;
+  width: 57px;
+  height: 57px;
+  float: left;
+}
+
+html body #main_app footer .info-bar .better-niagara span {
+  margin-top: 15px;
+  display: inline-block;
+  padding-left: 15px;
+}
+
+@media (max-width: 767px) {
+  html body #main_app footer .info-bar .better-niagara span {
+    font-size: .9rem;
+  }
+}
+
 html body #main_app .main-area {
   min-height: 792px;
 }
@@ -541,7 +671,7 @@ html body #main_app .main-area {
 
 @media (min-width: 1921px) {
   html body #main_app .main-area {
-    min-height: 1150px;
+    min-height: 991px;
   }
 }
 
@@ -566,6 +696,12 @@ html body #main_app .main-area .alesco-logo {
 html body #main_app .page-content {
   z-index: 2;
   position: relative;
+}
+
+@media (max-width: 767px) {
+  html body #main_app .page-content h1 {
+    font-size: 2.2rem;
+  }
 }
 
 html body #main_app .page-content.left-bar {
