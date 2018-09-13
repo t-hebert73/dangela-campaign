@@ -114,7 +114,13 @@
                         <nav>
                             <ul class="nav">
                                 <li class="nav-item"><a href="/" class="nav-link" title="Home">Home</a></li>
-                                <li class="nav-item"><a href="/about" class="nav-link" title="About">About</a></li>
+                                <li class="nav-item"><a href="/bio" class="nav-link" title="Bio">Bio</a></li>
+                                <li class="nav-item"><a href="/community-involvement" class="nav-link" title="Community Involvement">Community Involvement</a></li>
+                                <li class="nav-item"><a href="/political-experience" class="nav-link" title="Political Experience">Political Experience</a></li>
+                                <li class="nav-item"><a href="/accomplishments/mayor" class="nav-link" title="Accomplishments As Mayor">Accomplishments As Mayor</a></li>
+                                <li class="nav-item"><a href="/accomplishments/regional-councillor" class="nav-link" title="Accomplishments As Regional Councillor">Accomplishments As Regional Councillor</a></li>
+                                <li class="nav-item"><a href="/supports" class="nav-link" title="Supports">Supports</a></li>
+                                <li class="nav-item"><a href="/fundraiser" class="nav-link" title="Fundraiser">Fundraiser</a></li>
                                 <li class="nav-item"><a href="/survey" class="nav-link" title="Survey">Survey</a></li>
                                 <li class="nav-item"><a href="/sign-request" class="nav-link" title="Survey">Sign Request</a></li>
                                 <li class="nav-item"><a href="/volunteer" class="nav-link" title="Survey">Volunteer</a></li>
@@ -131,17 +137,17 @@
 
                             echo '<p>' . "Planning Thorold's Future Together." . '</p>';
 
-                        } elseif($currentPath === 'about') {
+                        } elseif($currentPath === 'bio') {
 
-                            echo '<h1>' . "Media Release" . '</h1>';
+                            echo '<h1>' . "Biography" . '</h1>';
 
-                            echo '<p>' . "Henry D’Angela officially registered to run for Mayor of Thorold, May 16, 2018. Thorold Regional Councillor Henry D’Angela is officially running for Mayor of Thorold. D’Angela filed his campaign papers at Thorold City Hall today. D’Angela is well aware of the responsibilities that come with the position as Mayor. D’Angela has been currently serving as Regional Councillor for the past eight years and was Mayor of Thorold from 2006-2010." . '</p>';
+                            echo '<p>' . "For Thorold native Henry D’Angela, there has been so much more to life than just personal and financial achievement….much more." . '</p>';
 
-                            echo '<p>' . "In addition to being elected to represent Thorold as its Regional Councillor in 2010, D’Angela was elected to Thorold Hydro Electric Commission in 1997 and elected to Thorold City Councillor in 2000 before becoming Mayor in 2006. Henry has served as treasurer on the Welland Canal Foundation, chair of the Niagara Sports Commission and chaired numerous regional committees. He is currently Chair of the Niagara Regional Housing (NRH) Board and last term served as the Niagara Regional Police Board Chair." . '</p>';
+                            echo '<p>' . "Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 27 years." . '</p>';
 
-                            echo '<p>' . "&quot;I am familiar with the challenges and opportunities facing our city through my work at the City, at the Region and in the community”, said D’Angela, “but I think it’s essential to take direction from my constituents. I will be talking to Thorold residents and businesses to find out what’s important to them. As Mayor, one of the most important roles, is to listen and advocate for Thorold. I want to ensure that we are meeting Thorold’s needs.&quot;" . '</p>';
+                            echo '<p>' . "He and his wife of 21 years, Rina, have two children, Julie and Kyle." . '</p>';
 
-                            echo '<p>' . "Henry D’Angela was born and raised in Thorold. He is married to Rina, has two children and has run his own accounting firm, D’Angela Financial Services for the past 25 years." . '</p>';
+                            echo '<p>' . 'His business expertise and dedication earned him the 2006 Niagara "Top 40 Under 40" business award. For Henry, success can only be realized when those around you succeed as well. This philosophy has launched a lifetime of community involvement, sharing and public service.' . '</p>';
 
                         } elseif ($currentPath === 'survey') {
 
@@ -185,7 +191,14 @@
             </main-app>
         </div>
 
-        <footer>
+        <footer style="height: 0px; overflow: hidden;">
+
+            <p>Henry D'Angela is endorsed by <a target="_blank" href="https://www.abetterniagara.com/endorsements">A Better Niagara</a> </p>
+
+            <p><a target="_blank" href="https://www.facebook.com/people/Henry-DAngela/100010470600081">Henry's Facebook</a></p>
+
+            <p>Authorized and paid for by Henry D’Angela, © 2018 Henry D'Angela. All Rights Reserved</p>
+
             <script async src="/js/app.js"></script>
 
             <!-- Global site tag (gtag.js) - Google Analytics -->
