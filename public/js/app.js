@@ -26935,8 +26935,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(205);
-__webpack_require__(517);
-module.exports = __webpack_require__(518);
+__webpack_require__(522);
+module.exports = __webpack_require__(523);
 
 
 /***/ }),
@@ -27166,7 +27166,7 @@ var routes = [{
 }, {
   path: '/fundraiser',
   name: 'fundraiser',
-  component: __webpack_require__(526)
+  component: __webpack_require__(517)
 }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -96202,7 +96202,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96213,6 +96213,16 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -96238,45 +96248,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "header",
-    [
-      _c("div", { staticClass: "fundraiser" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "fundraiser-link" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { to: { path: "/fundraiser" } }
-              },
-              [_vm._v("View Details")]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("main-menu")
-    ],
-    1
-  )
+  return _c("header", [_c("main-menu"), _vm._v(" "), _vm._m(0)], 1)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fundraiser-text" }, [
-      _c("i", {
-        staticClass: "fa fa-bullhorn mr-2",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Wine & Cheese Fundraiser - September 20th")
+    return _c("div", { staticClass: "info-bar" }, [
+      _c("div", { staticClass: "better-niagara" }, [
+        _c(
+          "a",
+          {
+            staticClass: "external-link",
+            attrs: {
+              target: "_blank",
+              title: "Regional Council Voting Record",
+              alt: "Regional Council Voting Record",
+              href: "images/REGIONVOTING.png"
+            }
+          },
+          [
+            _c("div", { staticClass: "title" }, [_vm._v("A Better Niagara")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "better-niagara-logo" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Regional Council Voting Record")])
+          ]
+        )
+      ])
     ])
   }
 ]
@@ -106231,7 +106231,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("li", [
               _vm._v(
-                "supporting economic and tourism activities such as the Canal bank Shuffle, Home Show, Dog Show and many others"
+                "supporting economic and tourism activities such as the Canal Bank Shuffle, Home Show, Dog Show and many others"
               )
             ])
           ])
@@ -106251,37 +106251,18 @@ if (false) {
 
 /***/ }),
 /* 517 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 518 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(531)
+  __webpack_require__(518)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(529)
+var __vue_script__ = __webpack_require__(520)
 /* template */
-var __vue_template__ = __webpack_require__(530)
+var __vue_template__ = __webpack_require__(521)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106320,13 +106301,53 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 527 */,
-/* 528 */,
-/* 529 */
+/* 518 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(519);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("d1af1266", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b857fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FundraiserPage.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b857fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FundraiserPage.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 519 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fundraiser-details .left[data-v-6b857fe7], .fundraiser-details .right[data-v-6b857fe7] {\n  font-size: 1.2rem;\n  float: left;\n}\n@media (max-width: 767px) {\n.fundraiser-details .left[data-v-6b857fe7], .fundraiser-details .right[data-v-6b857fe7] {\n      font-size: 1rem;\n      float: none;\n      text-align: center;\n}\n}\n.fundraiser-details .left[data-v-6b857fe7] {\n  font-weight: bold;\n  min-width: 120px;\n}\n.fundraiser-ticket[data-v-6b857fe7] {\n  background-image: url(\"/images/fundraiser-ticket.png\");\n  background-repeat: no-repeat;\n  background-size: contain;\n  width: 500px;\n  height: 450px;\n  margin: auto;\n}\n@media (max-width: 767px) {\n.fundraiser-ticket[data-v-6b857fe7] {\n      width: 100%;\n      height: 300px;\n      margin-bottom: 25px;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 520 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -106387,7 +106408,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 530 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -106404,7 +106425,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "main-area" }, [
         _c("div", { staticClass: "page-content" }, [
-          _c("h1", [_vm._v("Wine & Cheese Fundraiser")]),
+          _c("h1", [_vm._v("Wine & Cheese Fundraiser ")]),
+          _vm._v(" "),
+          _c("h2", [
+            _vm._v("This event has now passed. Thanks everyone for coming! ")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "fundraiser" }, [
             _c("div", { staticClass: "fundraiser-details mt-3 mb-4" }, [
@@ -106494,44 +106519,16 @@ if (false) {
 }
 
 /***/ }),
-/* 531 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 522 */
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(532);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(6)("d1af1266", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b857fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FundraiserPage.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b857fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FundraiserPage.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 532 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 523 */
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.fundraiser-details .left[data-v-6b857fe7], .fundraiser-details .right[data-v-6b857fe7] {\n  font-size: 1.2rem;\n  float: left;\n}\n@media (max-width: 767px) {\n.fundraiser-details .left[data-v-6b857fe7], .fundraiser-details .right[data-v-6b857fe7] {\n      font-size: 1rem;\n      float: none;\n      text-align: center;\n}\n}\n.fundraiser-details .left[data-v-6b857fe7] {\n  font-weight: bold;\n  min-width: 120px;\n}\n.fundraiser-ticket[data-v-6b857fe7] {\n  background-image: url(\"/images/fundraiser-ticket.png\");\n  background-repeat: no-repeat;\n  background-size: contain;\n  width: 500px;\n  height: 450px;\n  margin: auto;\n}\n@media (max-width: 767px) {\n.fundraiser-ticket[data-v-6b857fe7] {\n      width: 100%;\n      height: 300px;\n      margin-bottom: 25px;\n}\n}\n", ""]);
-
-// exports
-
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

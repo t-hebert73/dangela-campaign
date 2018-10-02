@@ -23,7 +23,7 @@
                     <li>stronger by-law enforcement</li>
                     <li>downtown revitalization</li>
                     <li>supporting community activities such as Canada Day celebrations, Easter Egg Hunt, Santa Claus Parade and many others</li>
-                    <li>supporting economic and tourism activities such as the Canal bank Shuffle, Home Show, Dog Show and many others</li>
+                    <li>supporting economic and tourism activities such as the Canal Bank Shuffle, Home Show, Dog Show and many others</li>
                 </ul>
             </div>
         </div>

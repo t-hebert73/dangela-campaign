@@ -4,7 +4,9 @@
 
             <div class="page-content">
 
-                <h1>Wine & Cheese Fundraiser</h1>
+                <h1>Wine & Cheese Fundraiser </h1>
+
+                <h2>This event has now passed. Thanks everyone for coming! </h2>
 
                 <div class="fundraiser">
                     <div class="fundraiser-details mt-3 mb-4">

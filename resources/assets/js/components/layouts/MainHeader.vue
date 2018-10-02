@@ -1,12 +1,22 @@
 <template>
     <header>
-        <div class="fundraiser">
+<!--        <div class="fundraiser">
             <div class="fundraiser-text"><i class="fa fa-bullhorn mr-2" aria-hidden="true"></i> Wine & Cheese Fundraiser - September 20th</div>
             <div class="fundraiser-link">
                 <router-link :to="{ path: '/fundraiser'}" class="btn btn-primary">View Details</router-link>
             </div>
-        </div>
+        </div>-->
         <main-menu></main-menu>
+
+        <div class="info-bar">
+            <div class="better-niagara">
+                <a class="external-link" target="_blank" title="Regional Council Voting Record" alt="Regional Council Voting Record" href="images/REGIONVOTING.png">
+                    <div class="title">A Better Niagara</div>
+                    <div class="better-niagara-logo"></div>
+                    <span>Regional Council Voting Record</span>
+                </a>
+            </div>
+        </div>
     </header>
 </template>
 
