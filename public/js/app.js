@@ -96202,7 +96202,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96213,6 +96213,13 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -96256,7 +96263,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "info-bar" }, [
-      _c("div", { staticClass: "better-niagara" }, [
+      _c("div", { staticClass: "better-niagara mb-3" }, [
         _c(
           "a",
           {
@@ -96275,6 +96282,28 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("span", [_vm._v("Regional Council Voting Record")])
           ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clearfix" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "community-quotes" }, [
+        _c("i", {
+          staticClass: "fa fa-quote-right",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "community-quotes-link",
+            attrs: {
+              title: "Community Quotes",
+              href: "files/quotebrochure.pdf",
+              target: "_blank"
+            }
+          },
+          [_vm._v("Community Quotes")]
         )
       ])
     ])

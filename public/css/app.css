@@ -444,6 +444,31 @@ html body #main_app header .info-bar {
   right: 85px;
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
+  padding: 8px 20px 20px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html body #main_app header .info-bar {
+    padding: 10px 20px 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html body #main_app header .info-bar {
+    padding: 8px 15px 15px;
+  }
+}
+
+@media (min-width: 1500px) {
+  html body #main_app header .info-bar {
+    padding: 8px 20px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  html body #main_app header .info-bar {
+    padding: 18px 5px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -512,31 +537,6 @@ html body #main_app header .info-bar a:hover {
 html body #main_app header .info-bar .better-niagara {
   margin: auto;
   display: inline-block;
-  padding: 8px 20px 20px;
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  html body #main_app header .info-bar .better-niagara {
-    padding: 10px 20px 10px;
-  }
-}
-
-@media (min-width: 1200px) {
-  html body #main_app header .info-bar .better-niagara {
-    padding: 8px 15px 15px;
-  }
-}
-
-@media (min-width: 1500px) {
-  html body #main_app header .info-bar .better-niagara {
-    padding: 8px 20px 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  html body #main_app header .info-bar .better-niagara {
-    padding: 18px 5px;
-  }
 }
 
 html body #main_app header .info-bar .better-niagara .better-niagara-logo {
@@ -568,6 +568,56 @@ html body #main_app header .info-bar .better-niagara span {
 @media (max-width: 767px) {
   html body #main_app header .info-bar .better-niagara span {
     font-size: .9rem;
+  }
+}
+
+html body #main_app header .info-bar .community-quotes {
+  text-align: left;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html body #main_app header .info-bar .community-quotes {
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 991px) {
+  html body #main_app header .info-bar .community-quotes {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+html body #main_app header .info-bar .community-quotes .fa {
+  font-size: 2.2rem;
+  width: 57px;
+  height: 37px;
+  float: left;
+  text-align: center;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html body #main_app header .info-bar .community-quotes .fa {
+    float: none;
+  }
+}
+
+html body #main_app header .info-bar .community-quotes .community-quotes-link {
+  margin-left: 17px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html body #main_app header .info-bar .community-quotes .community-quotes-link {
+    margin-left: 5px;
+    vertical-align: top;
+  }
+}
+
+@media (max-width: 991px) {
+  html body #main_app header .info-bar .community-quotes .community-quotes-link {
+    margin-left: 5px;
+    vertical-align: top;
   }
 }
 
