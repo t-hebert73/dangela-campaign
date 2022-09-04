@@ -7,7 +7,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h1>Volunteer Management</h1>
+                                    <h1>Volunteers</h1>
 
                                     <div class="card-text">
                                         <p>Below are all the volunteers in the system.</p>

@@ -1,6 +1,6 @@
 <?php
 
-namespace DAngelaCampaign\Http\Controllers\Api;
+namespace DAngelaCampaign\Http\Controllers\Api\Admin\Tracking;
 
 use DAngelaCampaign\Http\Controllers\Controller;
 use DAngelaCampaign\Models\SiteView;

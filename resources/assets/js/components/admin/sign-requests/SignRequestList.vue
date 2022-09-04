@@ -7,7 +7,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h1>Sign Request Management</h1>
+                                    <h1>Sign Requests</h1>
 
                                     <div class="card-text">
                                         <p>Below are all the sign requests in the system.</p>

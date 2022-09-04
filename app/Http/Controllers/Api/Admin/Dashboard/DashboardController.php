@@ -6,7 +6,7 @@
  * Time: 8:26 PM
  */
 
-namespace DAngelaCampaign\Http\Controllers\Api;
+namespace DAngelaCampaign\Http\Controllers\Api\Admin\Dashboard;
 
 
 use DAngelaCampaign\Http\Controllers\Controller;

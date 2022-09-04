@@ -7,7 +7,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h1>Donation Management</h1>
+                                    <h1>Donations</h1>
 
                                     <div class="card-text">
                                         <p>Below are all the donations in the system.</p>

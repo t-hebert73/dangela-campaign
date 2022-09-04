@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="site-header">
 <!--        <div class="fundraiser">
             <div class="fundraiser-text"><i class="fa fa-bullhorn mr-2" aria-hidden="true"></i> Wine & Cheese Fundraiser - September 20th</div>
             <div class="fundraiser-link">

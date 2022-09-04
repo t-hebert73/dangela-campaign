@@ -54,7 +54,11 @@ html {
       }
 
       header {
-        margin-bottom: 30px;
+
+        &.site-header {
+          margin-bottom: 30px;
+        }
+        
 
         .info-bar {
           text-align: center;

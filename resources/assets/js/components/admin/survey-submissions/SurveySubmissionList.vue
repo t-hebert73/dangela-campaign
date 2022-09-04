@@ -7,7 +7,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h1>Survey Submission Management</h1>
+                                    <h1>Survey Submissions</h1>
 
                                     <div class="card-text">
                                         <p>Below are all the survey submissions in the system.</p>

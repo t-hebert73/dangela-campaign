@@ -6,7 +6,7 @@
  * Time: 9:43 PM
  */
 
-namespace DAngelaCampaign\Http\Controllers\Api;
+namespace DAngelaCampaign\Http\Controllers\Api\Admin\Volunteers;
 
 use DAngelaCampaign\Http\Controllers\Controller;
 use DAngelaCampaign\Models\Volunteer;
