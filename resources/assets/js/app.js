@@ -6,6 +6,8 @@
 
 require('./bootstrap')
 
+import Vue from 'vue';
+
 window.Vue = require('vue')
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -24,7 +26,7 @@ import moment from 'moment' // time formatting
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import 'font-awesome/scss/font-awesome.scss'
+//import 'font-awesome/scss/font-awesome.scss'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -61,7 +63,7 @@ window.flash = function (message, type) {
   window.events.$emit('flash', message, type)
 }
 
-Vue.component('flash', require('vue-flash'))
+Vue.component('flash', require('vue-flash').default)
 
 // set all subsequent axios requests to have access token
 window.axios.interceptors.request.use(function (config) {
@@ -103,132 +105,132 @@ Object.defineProperties(Vue.prototype, {
   }
 })
 
-Vue.component('main-app', require('./components/MainApp.vue'))
+Vue.component('main-app', require('./components/MainApp.vue').default)
 Vue.component('admin-component',
-  require('./components/admin/AdminComponent.vue'))
+  require('./components/admin/AdminComponent.vue').default)
 
-Vue.component('main-header', require('./components/layouts/MainHeader.vue'))
-Vue.component('main-menu', require('./components/widgets/menu/MainMenu.vue'))
-Vue.component('main-footer', require('./components/layouts/MainFooter.vue'))
+Vue.component('main-header', require('./components/layouts/MainHeader.vue').default)
+Vue.component('main-menu', require('./components/widgets/menu/MainMenu.vue').default)
+Vue.component('main-footer', require('./components/layouts/MainFooter.vue').default)
 
 const routes = [
   {
     path: '/login',
     name: 'pages.login',
-    component: require('./components/page-templates/LoginPage.vue')
+    component: require('./components/page-templates/LoginPage.vue').default
   },
   {
     path: '/admin',
     name: 'admin.dashboard',
-    component: require('./components/admin/Dashboard.vue')
+    component: require('./components/admin/Dashboard.vue').default
   },
   {
     path: '/admin/survey-submissions',
     name: 'survey-submissions.index',
-    component: require('./components/admin/survey-submissions/SurveySubmissionList.vue'),
+    component: require('./components/admin/survey-submissions/SurveySubmissionList.vue').default,
     props: true
   },
   {
     path: '/admin/survey-submissions/:id',
     name: 'survey-submissions.show',
-    component: require('./components/admin/survey-submissions/SurveySubmissionShow.vue'),
+    component: require('./components/admin/survey-submissions/SurveySubmissionShow.vue').default,
     props: true
   },
   {
     path: '/admin/sign-requests',
     name: 'sign-requests.index',
-    component: require('./components/admin/sign-requests/SignRequestList.vue'),
+    component: require('./components/admin/sign-requests/SignRequestList.vue').default,
     props: true
   },
   {
     path: '/admin/sign-requests/:id',
     name: 'sign-requests.show',
-    component: require('./components/admin/sign-requests/SignRequestShow.vue'),
+    component: require('./components/admin/sign-requests/SignRequestShow.vue').default,
     props: true
   },
   {
     path: '/admin/volunteers',
     name: 'volunteers.index',
-    component: require('./components/admin/volunteers/VolunteerList.vue'),
+    component: require('./components/admin/volunteers/VolunteerList.vue').default,
     props: true
   },
   {
     path: '/admin/volunteers/:id',
     name: 'volunteers.show',
-    component: require('./components/admin/volunteers/VolunteerShow.vue'),
+    component: require('./components/admin/volunteers/VolunteerShow.vue').default,
     props: true
   },
   {
     path: '/admin/donations',
     name: 'donations.index',
-    component: require('./components/admin/donations/DonationList.vue'),
+    component: require('./components/admin/donations/DonationList.vue').default,
     props: true
   },
   {
     path: '/admin/donations/:id',
     name: 'donations.show',
-    component: require('./components/admin/donations/DonationShow.vue'),
+    component: require('./components/admin/donations/DonationShow.vue').default,
     props: true
   },
   {
     path: '/',
     name: 'home',
-    component: require('./components/page-templates/HomePage.vue')
+    component: require('./components/page-templates/HomePage.vue').default
   },
   {
     path: '/bio',
     name: 'bio',
-    component: require('./components/page-templates/BioPage.vue')
+    component: require('./components/page-templates/BioPage.vue').default
   },
   {
     path: '/community-involvement',
     name: 'community-involvement',
-    component: require('./components/page-templates/CommunityInvolvementPage.vue')
+    component: require('./components/page-templates/CommunityInvolvementPage.vue').default
   },
   {
     path: '/political-experience',
     name: 'political-experience',
-    component: require('./components/page-templates/PoliticalExperiencePage.vue')
+    component: require('./components/page-templates/PoliticalExperiencePage.vue').default
   },
   {
     path: '/survey',
     name: 'survey',
-    component: require('./components/page-templates/SurveyPage.vue')
+    component: require('./components/page-templates/SurveyPage.vue').default
   },
   {
     path: '/sign-request',
     name: 'sign-request',
-    component: require('./components/page-templates/SignRequest.vue')
+    component: require('./components/page-templates/SignRequest.vue').default
   },
   {
     path: '/volunteer',
     name: 'volunteer',
-    component: require('./components/page-templates/VolunteerRequest.vue')
+    component: require('./components/page-templates/VolunteerRequest.vue').default
   },
   {
     path: '/donate',
     name: 'donation',
-    component: require('./components/page-templates/DonationRequest.vue')
+    component: require('./components/page-templates/DonationRequest.vue').default
   },
   {
     path: '/accomplishments/mayor',
     name: 'mayor-accomplishments',
-    component: require('./components/page-templates/MayorAccomplishmentsPage.vue')
+    component: require('./components/page-templates/MayorAccomplishmentsPage.vue').default
   },
   {
     path: '/accomplishments/regional-councillor',
     name: 'regional-councillor-accomplishments',
-    component: require('./components/page-templates/RegionalCouncillorAccomplishmentsPage.vue')
+    component: require('./components/page-templates/RegionalCouncillorAccomplishmentsPage.vue').default
   },
   {
     path: '/supports',
     name: 'supports',
-    component: require('./components/page-templates/SupportsPage.vue')
+    component: require('./components/page-templates/SupportsPage.vue').default
   },
   {
     path: '/fundraiser',
     name: 'fundraiser',
-    component: require('./components/page-templates/FundraiserPage.vue')
+    component: require('./components/page-templates/FundraiserPage.vue').default
   }
 ]
 
@@ -238,7 +240,6 @@ const router = new VueRouter({
 })
 
 const app = new Vue({
-  el: '#main_app',
   router
 
-}).$mount()
+}).$mount('#main_app')
