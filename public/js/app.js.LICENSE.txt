@@ -5,13 +5,6 @@
   */
 
 /*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-/*!
  * Masonry v4.2.2
  * Cascading grid layout library
  * https://masonry.desandro.com
@@ -23,13 +16,6 @@
  * Outlayer v2.1.1
  * the brains and guts of a layout library
  * MIT license
- */
-
-/*!
- * Quill Editor v1.3.7
- * https://quilljs.com/
- * Copyright (c) 2014, Jason Chen
- * Copyright (c) 2013, salesforce.com
  */
 
 /*!

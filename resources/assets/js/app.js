@@ -21,7 +21,6 @@ import { VueMasonryPlugin } from 'vue-masonry'
 import VeeValidate from 'vee-validate'
 import VueLocalStorage from 'vue-ls'
 import VueSweetalert2 from 'vue-sweetalert2'
-import VueEditor from 'vue2-editor'
 import moment from 'moment' // time formatting
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -41,7 +40,6 @@ let lsOptions = {
 }
 
 Vue.use(VueLocalStorage, lsOptions)
-Vue.use(VueEditor)
 
 window.vue = Vue
 
