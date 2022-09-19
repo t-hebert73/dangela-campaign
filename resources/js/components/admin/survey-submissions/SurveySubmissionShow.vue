@@ -83,8 +83,11 @@
 </template>
 
 <script>
+import AdminComponent from '../AdminComponent.vue'
   export default {
     name: 'survey-submission-show',
+
+    components: { AdminComponent },
 
     data () {
       return {

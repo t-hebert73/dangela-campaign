@@ -9,7 +9,7 @@
             <div v-else>
                 <h1 class="mb-3">Sign Request</h1>
 
-                <p class="mb-4">Please note, signs are not permitted until Sept 18, 2018.</p>
+                <p class="mb-4">Request a sign.</p>
             </div>
 
             <div class="alert alert-danger" v-if="serverErrors">

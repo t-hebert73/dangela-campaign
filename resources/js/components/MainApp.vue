@@ -16,19 +16,33 @@
 </template>
 
 <script>
-  import AdminHeader from './admin/layouts/AdminHeader'
   export default {
-    components: {AdminHeader},
+    components: {
+      AdminHeader: () => import(/* webpackChunkName: "admin" */'./admin/layouts/AdminHeader'),
+    },
+
+    metaInfo () {
+      return {
+        title: this.metaTitle,
+        meta: [
+          { vmid: 'description', name: 'description', content: this.metaDesc }
+        ]
+      }
+    },
+
     data () {
       return {
         loggedIn: false,
-        isAdminSection: false
+        isAdminSection: false,
+        metaTitle: '',
+        metaDesc: ''
       }
     },
 
     // watch for route changes and determine if we are at /admin
     watch: {
       '$route': function (route) {
+        this.setMetaTitle(route.path)
         this.determineAdminSection(route.path)
       }
     },
@@ -49,11 +63,23 @@
 
       // determine if we are at /admin or not
       this.determineAdminSection(this.$route.path)
+      this.setMetaTitle(this.$route.path)
 
       this.trackSiteView()
     },
 
     methods: {
+
+      setMetaTitle(routePath) {
+        const routeWithoutFirstSlash = (routePath !== '/') ? routePath.substring(1) : routePath
+        if (window.metaInfo[routeWithoutFirstSlash]) {
+          this.metaTitle = window.metaInfo[routeWithoutFirstSlash].title
+          this.metaDesc = window.metaInfo[routeWithoutFirstSlash].desc
+        } else {
+          this.metaTitle = window.metaInfo['default'].title
+          this.metaDesc = window.metaInfo['default'].desc
+        }
+      },
       /**
        * Sets the necessary logged in variables for the nav to function correctly based on passed boolean
        */

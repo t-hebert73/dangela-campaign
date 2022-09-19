@@ -223,10 +223,11 @@
 
 <script>
   import AdminHeader from './layouts/AdminHeader'
+  import AdminComponent from './AdminComponent.vue'
 
   export default {
     name: 'dashboard',
-    components: {AdminHeader},
+    components: {AdminHeader, AdminComponent},
 
     data () {
       return {

@@ -70,7 +70,7 @@
                     </div>
                 </b-form-group>
 
-                <b-button type="submit" variant="primary" class="mb-2">Submit</b-button>
+                <b-button type="submit" variant="primary" class="mb-5">Submit</b-button>
             </form>
         </div>
     </div>
@@ -114,6 +114,10 @@
               {
                 rank: '',
                 option: 'Employment'
+              },
+              {
+                rank: '',
+                option: 'Environment'
               },
               {
                 rank: '',
@@ -172,22 +176,9 @@
             answer: ''
           },
           {
-            question: 'Do you feel the Rental Housing License By-Law is effective?',
+            question: 'What environmental initatives should the City of Thorold support?',
             type: 'textarea',
-            link: 'http://thorold.com/residential-rental-licensing',
             answer: '',
-            hasYesNo: true,
-            yesNoAnswer: null,
-            radios: [
-              {
-                text: 'Yes',
-                value: 'yes'
-              },
-              {
-                text: 'No',
-                value: 'no'
-              }
-            ]
           },
           {
             question: 'Do you have any additional comments?',

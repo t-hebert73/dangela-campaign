@@ -61,7 +61,10 @@
 </template>
 
 <script>
+  import AdminComponent from '../AdminComponent.vue'
   export default {
+
+    components: { AdminComponent },
     data () {
       return {
         params: {

@@ -23,11 +23,14 @@
                                     <router-link :to="{ path: '/political-experience'}" class="nav-link">Political Experience</router-link>
                                 </li>
                                 <b-nav-item-dropdown text="Accomplishments">
-                                    <b-dropdown-item>
-                                        <router-link :to="{ path: '/accomplishments/mayor'}" class="nav-link">As Mayor</router-link>
+                                    <b-dropdown-item :to="{ path: '/accomplishments/mayor'}" link-class="nav-link">
+                                        As Mayor
                                     </b-dropdown-item>
-                                    <b-dropdown-item>
-                                        <router-link :to="{ path: '/accomplishments/regional-councillor'}" class="nav-link">As Regional Councillor</router-link>
+                                    <b-dropdown-item :to="{ path: '/accomplishments/regional-councillor'}" link-class="nav-link">
+                                        As Regional Councillor
+                                    </b-dropdown-item>
+                                    <b-dropdown-item href="/files/quotebrochure.pdf" title="View Brochure" link-class="nav-link" target="_blank">
+                                        Initiatives
                                     </b-dropdown-item>
                                 </b-nav-item-dropdown>
                                 <li class="nav-item">
@@ -38,13 +41,17 @@
                     </b-collapse>
 
                 </b-navbar>
+
+                <info-bar :show-gt="1200"></info-bar>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import InfoBar from '../InfoBar.vue';
     export default {
-        name: "main-menu"
-    }
+    name: "main-menu",
+    components: { InfoBar }
+}
 </script>

@@ -1,5 +1,18 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/login.js": "/js/login.js",
+    "/js/admin.js": "/js/admin.js",
+    "/js/bio.js": "/js/bio.js",
+    "/js/community-involvement.js": "/js/community-involvement.js",
+    "/js/political-experience.js": "/js/political-experience.js",
+    "/js/survey.js": "/js/survey.js",
+    "/js/sign-request.js": "/js/sign-request.js",
+    "/js/volunteer.js": "/js/volunteer.js",
+    "/js/donation.js": "/js/donation.js",
+    "/js/mayor-accomplishments.js": "/js/mayor-accomplishments.js",
+    "/js/mayor-regional-councillor-accomplishments.js": "/js/mayor-regional-councillor-accomplishments.js",
+    "/js/supports.js": "/js/supports.js",
+    "/js/page-not-found.js": "/js/page-not-found.js",
     "/css/app.css": "/css/app.css",
     "/css/emails.css": "/css/emails.css"
 }

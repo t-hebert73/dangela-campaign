@@ -89,8 +89,12 @@
 </template>
 
 <script>
+import AdminComponent from '../AdminComponent.vue'
+
   export default {
     name: 'sign-request-show',
+
+    components: { AdminComponent },
 
     data () {
       return {

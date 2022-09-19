@@ -16,7 +16,7 @@
                     <div class="bottom-half">
                         <p class="for-mayor">
                             <span class="for">for</span>
-                            <span class="mayor">Mayor</span>
+                            <span class="mayor">Thorold Council</span>
                         </p>
 
                         <img class="mb-4" src="images/main.jpg" alt="Henry D'Angela" title="Henry D'Angela">

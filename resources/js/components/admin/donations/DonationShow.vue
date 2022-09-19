@@ -89,8 +89,12 @@
 </template>
 
 <script>
+import AdminComponent from '../AdminComponent.vue'
+
   export default {
     name: 'donation-show',
+
+    components: { AdminComponent },
 
     data () {
       return {

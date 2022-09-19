@@ -11,11 +11,11 @@
                 </p>
 
                 <p>
-                    Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 27 years.
+                    Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 31 years.
                 </p>
 
                 <p>
-                    He and his wife of 21 years, Rina, have two children, Julie and Kyle.
+                    He and his wife of 26 years, Rina, have two children, Julie and Kyle.
                 </p>
 
                 <p>

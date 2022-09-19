@@ -89,9 +89,12 @@
 </template>
 
 <script>
+    import AdminComponent from '../AdminComponent.vue'
+
   export default {
     name: 'volunteer-show',
-
+    
+    components: { AdminComponent },
     data () {
       return {
         loading: true,

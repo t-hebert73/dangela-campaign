@@ -2,12 +2,12 @@
     <footer>
 
         <div class="info-bar">
-            <div class="better-niagara">
+            <!-- <div class="better-niagara">
                 <a class="external-link" target="_blank" href="https://www.abetterniagara.com/endorsements">
                     <div class="better-niagara-logo"></div>
                     <span>Endorsed By A Better Niagara</span>
                 </a>
-            </div>
+            </div> -->
         </div>
 
         <div class="social-links">
@@ -18,7 +18,7 @@
 
         <div class="container">
             <div class="row justify-content-center footer-text">
-                Authorized and paid for by Henry D’Angela, © 2018 Henry D'Angela. All Rights Reserved
+                Authorized and paid for by Henry D’Angela, © 2022 Henry D'Angela. All Rights Reserved
             </div>
         </div>
 

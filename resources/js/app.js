@@ -16,6 +16,7 @@ window.Vue = require('vue')
  */
 
 import VueRouter from 'vue-router'
+import VueMeta from 'vue-meta'
 import BootstrapVue from 'bootstrap-vue'
 import { VueMasonryPlugin } from 'vue-masonry'
 import VeeValidate from 'vee-validate'
@@ -32,6 +33,7 @@ Vue.use(BootstrapVue)
 Vue.use(VueMasonryPlugin)
 Vue.use(VeeValidate)
 Vue.use(VueSweetalert2)
+Vue.use(VueMeta)
 
 Vue.prototype.moment = moment
 
@@ -72,10 +74,6 @@ window.axios.interceptors.request.use(function (config) {
   return config
 })
 
-const BASE_PATH = (process.env.NODE_ENV === 'production')
-  ? 'alescosalon.herokuapp.com'
-  : 'http://localhost:8000'
-
 // Event Bus to allow emitting and receiving events in different components
 // Also set global api route variable
 var EventBus = new Vue()
@@ -88,12 +86,7 @@ Object.defineProperties(Vue.prototype, {
   },
   THEME_NAME: {
     get: function () {
-      return "Henry D'angela"
-    }
-  },
-  BASE_PATH: {
-    get: function () {
-      return BASE_PATH
+      return "Henry D'Angela"
     }
   },
   API_ROUTE: {
@@ -104,8 +97,6 @@ Object.defineProperties(Vue.prototype, {
 })
 
 Vue.component('main-app', require('./components/MainApp.vue').default)
-Vue.component('admin-component',
-  require('./components/admin/AdminComponent.vue').default)
 
 Vue.component('main-header', require('./components/layouts/MainHeader.vue').default)
 Vue.component('main-menu', require('./components/widgets/menu/MainMenu.vue').default)
@@ -115,121 +106,122 @@ const routes = [
   {
     path: '/login',
     name: 'pages.login',
-    component: require('./components/page-templates/LoginPage.vue').default
+    component: () => import(/* webpackChunkName: "login" */'./components/page-templates/LoginPage.vue'),
   },
   {
     path: '/admin',
     name: 'admin.dashboard',
-    component: require('./components/admin/Dashboard.vue').default
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/Dashboard.vue'),
   },
   {
     path: '/admin/survey-submissions',
     name: 'survey-submissions.index',
-    component: require('./components/admin/survey-submissions/SurveySubmissionList.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/survey-submissions/SurveySubmissionList.vue'),
     props: true
   },
   {
     path: '/admin/survey-submissions/:id',
     name: 'survey-submissions.show',
-    component: require('./components/admin/survey-submissions/SurveySubmissionShow.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/survey-submissions/SurveySubmissionShow.vue'),
     props: true
   },
   {
     path: '/admin/sign-requests',
     name: 'sign-requests.index',
-    component: require('./components/admin/sign-requests/SignRequestList.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/sign-requests/SignRequestList.vue'),
     props: true
   },
   {
     path: '/admin/sign-requests/:id',
     name: 'sign-requests.show',
-    component: require('./components/admin/sign-requests/SignRequestShow.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/sign-requests/SignRequestShow.vue'),
     props: true
   },
   {
     path: '/admin/volunteers',
     name: 'volunteers.index',
-    component: require('./components/admin/volunteers/VolunteerList.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/volunteers/VolunteerList.vue'),
     props: true
   },
   {
     path: '/admin/volunteers/:id',
     name: 'volunteers.show',
-    component: require('./components/admin/volunteers/VolunteerShow.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/volunteers/VolunteerShow.vue'),
     props: true
   },
   {
     path: '/admin/donations',
     name: 'donations.index',
-    component: require('./components/admin/donations/DonationList.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/donations/DonationList.vue'),
     props: true
   },
   {
     path: '/admin/donations/:id',
     name: 'donations.show',
-    component: require('./components/admin/donations/DonationShow.vue').default,
+    component: () => import(/* webpackChunkName: "admin" */'./components/admin/donations/DonationShow.vue'),
     props: true
   },
   {
     path: '/',
     name: 'home',
-    component: require('./components/page-templates/HomePage.vue').default
+    component: require('./components/page-templates/HomePage.vue').default,
   },
   {
     path: '/bio',
     name: 'bio',
-    component: require('./components/page-templates/BioPage.vue').default
+    component: () => import(/* webpackChunkName: "bio" */'./components/page-templates/BioPage.vue'),
   },
   {
     path: '/community-involvement',
     name: 'community-involvement',
-    component: require('./components/page-templates/CommunityInvolvementPage.vue').default
+    component: () => import(/* webpackChunkName: "community-involvement" */'./components/page-templates/CommunityInvolvementPage.vue'),
   },
   {
     path: '/political-experience',
     name: 'political-experience',
-    component: require('./components/page-templates/PoliticalExperiencePage.vue').default
+    component: () => import(/* webpackChunkName: "political-experience" */'./components/page-templates/PoliticalExperiencePage.vue'),
   },
   {
     path: '/survey',
     name: 'survey',
-    component: require('./components/page-templates/SurveyPage.vue').default
+    component: () => import(/* webpackChunkName: "survey" */'./components/page-templates/SurveyPage.vue'),
   },
   {
     path: '/sign-request',
     name: 'sign-request',
-    component: require('./components/page-templates/SignRequest.vue').default
+    component: () => import(/* webpackChunkName: "sign-request" */'./components/page-templates/SignRequest.vue'),
   },
   {
     path: '/volunteer',
     name: 'volunteer',
-    component: require('./components/page-templates/VolunteerRequest.vue').default
+    component: () => import(/* webpackChunkName: "volunteer" */'./components/page-templates/VolunteerRequest.vue'),
   },
   {
     path: '/donate',
     name: 'donation',
-    component: require('./components/page-templates/DonationRequest.vue').default
+    component: () => import(/* webpackChunkName: "donation" */'./components/page-templates/DonationRequest.vue'),
   },
   {
     path: '/accomplishments/mayor',
     name: 'mayor-accomplishments',
-    component: require('./components/page-templates/MayorAccomplishmentsPage.vue').default
+    component: () => import(/* webpackChunkName: "mayor-accomplishments" */'./components/page-templates/MayorAccomplishmentsPage.vue'),
   },
   {
     path: '/accomplishments/regional-councillor',
     name: 'regional-councillor-accomplishments',
-    component: require('./components/page-templates/RegionalCouncillorAccomplishmentsPage.vue').default
+    component: () => import(/* webpackChunkName: "mayor-regional-councillor-accomplishments" */'./components/page-templates/RegionalCouncillorAccomplishmentsPage.vue'),
   },
   {
     path: '/supports',
     name: 'supports',
-    component: require('./components/page-templates/SupportsPage.vue').default
+    component: () => import(/* webpackChunkName: "supports" */'./components/page-templates/SupportsPage.vue'),
   },
-  {
-    path: '/fundraiser',
-    name: 'fundraiser',
-    component: require('./components/page-templates/FundraiserPage.vue').default
-  }
+  // {
+  //   path: '/fundraiser',
+  //   name: 'fundraiser',
+  //   component: require('./components/page-templates/FundraiserPage.vue').default
+  // },
+  { path: "*", component: () => import(/* webpackChunkName: "page-not-found" */'./components/page-templates/PageNotFound.vue'), }
 ]
 
 const router = new VueRouter({

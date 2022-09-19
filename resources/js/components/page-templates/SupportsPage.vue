@@ -15,15 +15,15 @@
                     <li>a comprehensive strategic plan for the City of Thorold</li>
                     <li>economic development and job creation</li>
                     <li>affordable and senior housing built in Thorold</li>
-                    <li>improved recreational facilities including the replacement of the Whyte arena</li>
+                    <li>improved recreational facilities</li>
                     <li>a long-term care facility to meet the needs of Thorold residents</li>
                     <li>enhanced public transportation </li>
                     <li>improved road, water and sewer infrastructure</li>
                     <li>historical preservation</li>
                     <li>stronger by-law enforcement</li>
                     <li>downtown revitalization</li>
-                    <li>supporting community activities such as Canada Day celebrations, Easter Egg Hunt, Santa Claus Parade and many others</li>
-                    <li>supporting economic and tourism activities such as the Canal Bank Shuffle, Home Show, Dog Show and many others</li>
+                    <li>supported community activities such as Canada Day celebrations, Easter Egg Hunt, Santa Claus Parade and many others</li>
+                    <li>supported economic and tourism activities such as the Canal Bank Shuffle, Home Show, Dog Show and many others</li>
                 </ul>
             </div>
         </div>
