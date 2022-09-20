@@ -29,7 +29,7 @@
                                     <b-dropdown-item :to="{ path: '/accomplishments/regional-councillor'}" link-class="nav-link">
                                         As Regional Councillor
                                     </b-dropdown-item>
-                                    <b-dropdown-item href="/files/quotebrochure.pdf" title="View Brochure" link-class="nav-link" target="_blank">
+                                    <b-dropdown-item href="/files/initiatives.pdf" title="View Initiatives" link-class="nav-link" target="_blank">
                                         Initiatives
                                     </b-dropdown-item>
                                 </b-nav-item-dropdown>

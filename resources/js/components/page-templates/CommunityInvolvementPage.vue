@@ -51,7 +51,7 @@
                 </div>
 
                 <p>
-                    Henry believes Thorold can be an even stronger community with the full participation of all its citizens.  As your mayor, he will work with you and your neighbours to ensure we can all be part of the exciting future of our city.
+                    Henry believes Thorold can be an even stronger community with the full participation of all its citizens.  As your City Councillor, he will work with you and your neighbours to ensure we can all be part of the exciting future of our city.
                 </p>
 
                 <p>&nbsp;</p>

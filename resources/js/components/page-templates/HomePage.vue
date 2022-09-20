@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="bottom-half">
-                        <p class="for-mayor">
+                        <p class="for-council">
                             <span class="for">for</span>
                             <span class="mayor">Thorold Council</span>
                         </p>
@@ -135,7 +135,7 @@
 
         .bottom-half{
 
-            .for-mayor{
+            .for-council{
                 color: $brand-primary;
                 font-family: $font-family-header;
                 font-weight: bold;

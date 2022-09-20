@@ -27,7 +27,7 @@
                 </p>
 
                 <p>
-                    For Henry, service is a way of life, and Thorold is a better place because of his strong sense of community. Now Henry again offers himself in the service of his hometown. As your Mayor, Henry D'Angela will be committed to open, accountable and attentive local government. It's the only way he knows how to serve you. Henry will attend and fully participate in meetings to make sure your voice is heard.
+                    For Henry, service is a way of life, and Thorold is a better place because of his strong sense of community. Now Henry again offers himself in the service of his hometown. As your City Councillor, Henry D'Angela will be committed to open, accountable and attentive local government. It's the only way he knows how to serve you. Henry will attend and fully participate in meetings to make sure your voice is heard.
                 </p>
             </div>
         </div>
