@@ -15,7 +15,7 @@
     $metaInfo = [
         '/' => [
             'title' => "Vote Henry D'Angela For Thorold Council",
-            'desc' => "Thorold Regional Councillor Henry D’Angela is officially running for Thorold Council. Planning Thorold's Future Together."
+            'desc' => "Henry D’Angela is officially running for Thorold Council. Planning Thorold's Future Together."
         ],
         'survey' => [
             'title' => "Important Issues Survey | Henry D'Angela",
