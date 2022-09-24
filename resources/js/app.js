@@ -93,6 +93,16 @@ Object.defineProperties(Vue.prototype, {
     get: function () {
       return '/api/'
     }
+  },
+  APP_ENV: {
+    get: function() {
+      return process.env.MIX_APP_ENV
+    }
+  },
+  IS_PROD: {
+    get: function() {
+      return (this.APP_ENV === 'production')
+    }
   }
 })
 

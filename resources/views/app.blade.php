@@ -15,62 +15,62 @@
     $metaInfo = [
         '/' => [
             'title' => "Vote Henry D'Angela For Thorold Council",
-            'desc' => "Henry D’Angela is officially running for Thorold Council. Planning Thorold's Future Together."
+            'desc' => "Henry D’Angela is officially running for Thorold Council. Planning Thorold's Future Together. Leadership and Experience working for you!"
         ],
         'survey' => [
-            'title' => "Important Issues Survey | Henry D'Angela",
+            'title' => "Important Issues Survey | Henry D'Angela For Thorold Council",
             'desc' => 'We are gathering data on what the people of Thorold want. Please fill out the questions below so we can better serve you.'
         ],
         'bio' => [
-            'title' => "Bio | Henry D'Angela",
-            'desc' => "Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989 with a degree in economics. He is the President and CEO of D'Angela Financial Services, which has been providing personal and corporate tax planning for the past 31 years."
+            'title' => "Bio | Henry D'Angela For Thorold Council",
+            'desc' => "Henry was born and raised in Thorold and graduated from Wilfrid Laurier University in 1989. He is the President and CEO of D'Angela Financial Services."
         ],
         'sign-request' => [
-            'title' => "Sign Request | Henry D'Angela",
+            'title' => "Sign Request | Henry D'Angela For Thorold Council",
             'desc' => 'Request a sign.'
         ],
         'volunteer' => [
-            'title' => "Volunteer | Henry D'Angela",
+            'title' => "Volunteer | Henry D'Angela For Thorold Council",
             'desc' => "Request to volunteer for the Henry D'Angela Campaign."
         ],
         'donate' => [
-            'title' => "Donation | Henry D'Angela",
+            'title' => "Donation | Henry D'Angela For Thorold Council",
             'desc' => "Request to make a donation to the Henry D'Angela Campaign."
         ],
         'community-involvement' => [
-            'title' => "Community Involvement | Henry D'Angela",
-            'desc' => 'Being part of a community means more than just calling Thorold “home”.  For Henry being a real part of Thorold means giving back to the people who helped raise and influence you.  It means sharing your neighbours’ burdens, joys, sorrows and successes.  It means serving your fellow citizens in ways that benefit the whole community.'
+            'title' => "Community Involvement | Henry D'Angela For Thorold Council",
+            'desc' => 'Being part of a community means more than just calling Thorold “home”. For Henry being a real part of Thorold means giving back to the people who helped raise and influence you.'
         ],
         'political-experience' => [
-            'title' => "Political Experience | Henry D'Angela",
-            'desc' => 'Henry has long believed he could make a difference by taking an active role in municipal governance. At the age of 31, he won his first electoral victory – becoming a member of the Thorold Hydro Electric Commission for the 1997-2000 term. '
+            'title' => "Political Experience | Henry D'Angela For Thorold Council",
+            'desc' => 'Henry has long believed he could make a difference by taking an active role in municipal governance.'
         ],
         'accomplishments/mayor' => [
-            'title' => "Accomplishments As Mayor | Henry D'Angela",
-            'desc' => 'Henry’s active participation, exemplary attendance and experience has lead to the following accomplishments. 100% attendance at Thorold city council meeting during the four-year term. constructed a new outdoor aquatic centre at Richmond Street Park. constructed a new splash pad in Port Robinson'
+            'title' => "Accomplishments As Mayor | Henry D'Angela For Thorold Council",
+            'desc' => 'Henry’s experience has lead to many accomplishments such as constructing a new outdoor aquatic centre at Richmond Street Park, a new splash pad in Port Robinson and much more.'
         ],
         'accomplishments/regional-councillor' => [
-            'title' => "Accomplishments As Regional Councillor | Henry D'Angela",
-            'desc' => 'Henry’s active participation, exemplary attendance and experience has lead to the following accomplishments. uploading of Collier road to the Region of Niagara. the city of Thorold receiving funding for Collier/Richmond intersection upgrades. the arterial road review with three more city roads being uploaded to the Region of Niagara'
+            'title' => "Accomplishments As Regional Councillor | Henry D'Angela For Thorold Council",
+            'desc' => 'Henry’s experience has lead to many accomplishments such as the city of Thorold receiving funding for Collier/Richmond intersection upgrades, uploading of Collier road to the Region of Niagara and much more.'
         ],
         'supports' => [
-            'title' => "Supports | Henry D'Angela",
-            'desc' => 'Henry supports a wide variety of issues listed below. Local government being open and transparent. Stable, responsible taxes reflect real needs, not political wish lists. Council remaining accountable throughout its term of office'
+            'title' => "Supports | Henry D'Angela For Thorold Council",
+            'desc' => 'Henry supports a wide variety of issues listed below. Local government being open and transparent. Stable, responsible taxes reflect real needs, not political wish lists.'
         ],
         'fundraiser' => [
-            'title' => "Fundraiser | Henry D'Angela",
+            'title' => "Fundraiser | Henry D'Angela For Thorold Council",
             'desc' => 'Thorold Mayoral Candidate Henry D’Angela is inviting constituents to join him at a Wine and Cheese Fundraiser on September 20 in Thorold.'
         ],
         'login' => [
-            'title' => "Login | Henry D'Angela",
+            'title' => "Login | Henry D'Angela For Thorold Council",
             'desc' => ''
         ],
         'default' => [
-            'title' => "Page Not Found | Henry D'Angela",
-            'desc' => ''
+            'title' => "Page Not Found | Henry D'Angela For Thorold Council",
+            'desc' => "Oops, page not found.. click around to find out more about Henry D'Angela."
         ],
         'admin' => [
-            'title' => "Admin | Henry D'Angela",
+            'title' => "Admin | Henry D'Angela For Thorold Council",
             'desc' => ''
         ],
         
@@ -104,20 +104,22 @@
 
     <meta property="og:title" content="<?php echo $title; ?>">
     <meta property="og:description" content="<?php echo $description; ?>">
-    <meta property="og:site_name" content="Henry D'Angela">
+    <meta property="og:site_name" content="Henry D'Angela For Thorold Council">
     <meta property="og:url" content="<?php echo url()->full(); ?>">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://henrydangela.ca/images/main.jpg">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZH2646R9G"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <?php if(env('APP_ENV') === 'production') {?>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZH2646R9G"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'G-8ZH2646R9G');
-    </script>
+            gtag('config', 'G-8ZH2646R9G');
+        </script>
+    <?php } ?>
 
     <script>
         window.metaInfo = <?php echo json_encode($metaInfo); ?>

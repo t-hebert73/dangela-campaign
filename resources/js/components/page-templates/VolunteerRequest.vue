@@ -129,6 +129,8 @@
           self.loading = false
           self.formCompleted = true
 
+          if (self.IS_PROD) gtag('event', 'volunteer_submission');
+
         }).catch(error => {
           if (error.response.data.errors) {
             self.serverErrors = error.response.data.errors
