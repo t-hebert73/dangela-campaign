@@ -28,9 +28,9 @@
                     <li>received a grant from Ministry of Economic Development and Trade to establish an economic development strategy</li>
                     <li>assisted the Thorold Exolon park to obtain a grant from Ministry of Economic Development and Trade to undertake redevelopment</li>
                     <li>issued grants to six building owners participating in the downtown façade improvement plan</li>
-                    <li>established the Mayor Canada Picnic having recently experienced the 4th anniversary</li>
-                    <li>established the rain barrel program having recently experienced the 3rd anniversary</li>
-                    <li>established the Volunteer recognition evening having experienced the 2nd anniversary</li>
+                    <li>established the Canada Day Picnic in the Battle of Beaverdams Park</li>
+                    <li>established a Rain Barrel Program</li>
+                    <li>established the Volunteer Recognition Evening</li>
                     <li>created a buy Canadian policy</li>
                     <li>completed a strategic plan, Thorold’s first since 1996</li>
                     <li>completed a parks Master plan, Thorold’s first since 1990</li>
