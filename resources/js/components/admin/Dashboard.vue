@@ -323,7 +323,7 @@
         // only if you didn't click a link within
         if (!$(event.target).is('a')) {
           this.$router.push({
-            name: 'sign-request.show',
+            name: 'sign-requests.show',
             params: {
               id: id
             }
@@ -340,7 +340,7 @@
         // only if you didn't click a link within
         if (!$(event.target).is('a')) {
           this.$router.push({
-            name: 'volunteer.show',
+            name: 'volunteers.show',
             params: {
               id: id
             }
@@ -357,7 +357,7 @@
         // only if you didn't click a link within
         if (!$(event.target).is('a')) {
           this.$router.push({
-            name: 'donation.show',
+            name: 'donations.show',
             params: {
               id: id
             }
