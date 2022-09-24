@@ -109,15 +109,14 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://henrydangela.ca/images/main.jpg">
 
-
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T57PPY7ES7"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZH2646R9G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-T57PPY7ES7');
+        gtag('config', 'G-8ZH2646R9G');
     </script>
 
     <script>
