@@ -171,7 +171,7 @@
                 font-family: $font-family-header;
                 color: $brand-primary;
                 font-size: 2rem;
-                font-weight: 500;
+                font-weight: bold;
 
                 .apostrophe{
                     top: 1px;

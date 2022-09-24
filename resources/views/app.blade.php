@@ -98,7 +98,7 @@
     <link href="/css/app.css" rel="stylesheet" />
     <link rel="preload" fetchpriority="high" as="image" href="/images/main.jpg" type="image/jpeg">
 
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
 
