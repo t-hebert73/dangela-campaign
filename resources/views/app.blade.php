@@ -109,17 +109,15 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://henrydangela.ca/images/main.jpg">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59455628-3"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T57PPY7ES7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-59455628-3');
+        gtag('config', 'G-T57PPY7ES7');
     </script>
 
     <script>
